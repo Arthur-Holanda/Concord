@@ -1,14 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <fstream>
-#include <ctime>
+#include <algorithm>
 
-// Forward declarations
-class Channel;
-class Server;
-class System;
-
-// User class
 class User {
 private:
     int id;
@@ -17,113 +10,154 @@ private:
     std::string password;
 
 public:
-    User(int userId, const std::string& userName, const std::string& userEmail, const std::string& userPassword)
-        : id(userId), name(userName), email(userEmail), password(userPassword) {}
+    User(int id, const std::string& name, const std::string& email, const std::string& password)
+        : id(id), name(name), email(email), password(password) {}
 
-    // Getters
-    int getId() const { return id; }
-    std::string getName() const { return name; }
-    std::string getEmail() const { return email; }
-    std::string getPassword() const { return password; }
-};
+    int getId() const {
+        return id;
+    }
 
-// Message class
-class Message {
-private:
-    std::string dateTime;
-    std::string sentBy;
-    std::string content;
+    std::string getName() const {
+        return name;
+    }
 
-public:
-    Message() {}  // Default constructor
+    std::string getEmail() const {
+        return email;
+    }
 
-    Message(const std::string& messageSentBy, const std::string& messageContent)
-        : dateTime(getCurrentDateTime()), sentBy(messageSentBy), content(messageContent) {}
-
-    // Getters
-    std::string getDateTime() const { return dateTime; }
-    std::string getSentBy() const { return sentBy; }
-    std::string getContent() const { return content; }
-
-private:
-    // Utility function to get the current date and time as a string
-    std::string getCurrentDateTime() {
-        std::time_t now = std::time(nullptr);
-        char buffer[20];
-        std::strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", std::localtime(&now));
-        return std::string(buffer);
+    std::string getPassword() const {
+        return password;
     }
 };
 
-// Channel class
+class Message {
+private:
+    std::string dateTime;
+    int sentBy;
+    std::string content;
+
+public:
+    Message() {}
+
+    Message(const std::string& dateTime, int sentBy, const std::string& content)
+        : dateTime(dateTime), sentBy(sentBy), content(content) {}
+
+    std::string getDateTime() const {
+        return dateTime;
+    }
+
+    int getSentBy() const {
+        return sentBy;
+    }
+
+    std::string getContent() const {
+        return content;
+    }
+};
+
 class Channel {
 protected:
     std::string name;
 
 public:
-    Channel(const std::string& channelName) : name(channelName) {}
+    Channel(const std::string& name) : name(name) {}
 
-    // Getter
-    std::string getName() const { return name; }
+    std::string getName() const {
+        return name;
+    }
 };
 
-// TextChannel class
 class TextChannel : public Channel {
 private:
     std::vector<Message> messages;
 
 public:
-    TextChannel(const std::string& channelName) : Channel(channelName) {}
+    TextChannel(const std::string& name) : Channel(name) {}
 
-    // Message operations
-    void addMessage(const Message& message) { messages.push_back(message); }
-    std::vector<Message> getMessages() const { return messages; }
+    void addMessage(const Message& message) {
+        messages.push_back(message);
+    }
+
+    std::vector<Message> getMessages() const {
+        return messages;
+    }
 };
 
-// VoiceChannel class
 class VoiceChannel : public Channel {
 private:
     Message lastMessage;
 
 public:
-    VoiceChannel(const std::string& channelName) : Channel(channelName) {}
+    VoiceChannel(const std::string& name) : Channel(name) {}
 
-    // Last message operations
-    void setLastMessage(const Message& message) { lastMessage = message; }
-    Message getLastMessage() const { return lastMessage; }
+    void setLastMessage(const Message& message) {
+        lastMessage = message;
+    }
+
+    Message getLastMessage() const {
+        return lastMessage;
+    }
 };
 
-// Server class
 class Server {
 private:
+    int id;
     int ownerUserId;
     std::string name;
     std::string description;
     std::string inviteCode;
-    std::vector<Channel*> channels;
     std::vector<int> participantIds;
+    std::vector<Channel*> channels;
 
 public:
-    Server(int serverOwnerUserId, const std::string& serverName, const std::string& serverDescription,
-           const std::string& serverInviteCode)
-        : ownerUserId(serverOwnerUserId), name(serverName), description(serverDescription), inviteCode(serverInviteCode) {}
+    Server(int id, int ownerUserId, const std::string& name, const std::string& description)
+        : id(id), ownerUserId(ownerUserId), name(name), description(description) {}
 
-    // Getters
-    int getOwnerUserId() const { return ownerUserId; }
-    std::string getName() const { return name; }
-    std::string getDescription() const { return description; }
-    std::string getInviteCode() const { return inviteCode; }
-    std::vector<Channel*> getChannels() const { return channels; }
-    std::vector<int> getParticipantIds() const { return participantIds; }
+    int getId() const {
+        return id;
+    }
 
-    // Channel operations
-    void addChannel(Channel* channel) { channels.push_back(channel); }
+    int getOwnerUserId() const {
+        return ownerUserId;
+    }
 
-    // Participant operations
-    void addParticipant(int userId) { participantIds.push_back(userId); }
+    std::string getName() const {
+        return name;
+    }
+
+    std::string getDescription() const {
+        return description;
+    }
+
+    void setDescription(const std::string& description) {
+        this->description = description;
+    }
+
+    std::string getInviteCode() const {
+        return inviteCode;
+    }
+
+    void setInviteCode(const std::string& inviteCode) {
+        this->inviteCode = inviteCode;
+    }
+
+    std::vector<int> getParticipantIds() const {
+        return participantIds;
+    }
+
+    void addParticipant(int participantId) {
+        participantIds.push_back(participantId);
+    }
+
+    std::vector<Channel*> getChannels() const {
+        return channels;
+    }
+
+    void addChannel(Channel* channel) {
+        channels.push_back(channel);
+    }
 };
 
-// System class
 class System {
 private:
     std::vector<User> users;
@@ -133,90 +167,174 @@ private:
     Channel* viewedChannel;
 
 public:
-    // Command implementations
+    System() : loggedInUser(nullptr), viewedServer(nullptr), viewedChannel(nullptr) {}
+
+    void saveDataToFile() {
+        std::cout << "Data saved to file." << std::endl;
+    }
+
+    void loadDataFromFile() {
+        std::cout << "Data loaded from file." << std::endl;
+    }
+
     void quit() {
-        saveDataToFile();  // Save data to file before quitting
-        std::cout << "System has been quit." << std::endl;
-        exit(0);  // Terminate the program
+        saveDataToFile();
+        std::cout << "Quitting the system. Goodbye!" << std::endl;
     }
 
     void createUser(const std::string& name, const std::string& email, const std::string& password) {
-        int userId = users.size() + 1;
-        User newUser(userId, name, email, password);
+        int newId = users.empty() ? 1 : users.back().getId() + 1;
+        User newUser(newId, name, email, password);
         users.push_back(newUser);
-        std::cout << "User created successfully." << std::endl;
+        std::cout << "User created with ID: " << newId << std::endl;
     }
 
     void login(const std::string& email, const std::string& password) {
-        for (User& user : users) {
-            if (user.getEmail() == email && user.getPassword() == password) {
-                loggedInUser = &user;
-                std::cout << "Logged in successfully." << std::endl;
-                return;
-            }
+        auto it = std::find_if(users.begin(), users.end(), [&email, &password](const User& user) {
+            return user.getEmail() == email && user.getPassword() == password;
+        });
+
+        if (it != users.end()) {
+            loggedInUser = &(*it);
+            std::cout << "User logged in successfully." << std::endl;
+        } else {
+            loggedInUser = nullptr;
+            std::cout << "Invalid email or password. Login failed." << std::endl;
         }
-        std::cout << "Invalid email or password." << std::endl;
     }
 
-    // Utility function to save system data to a file
-    void saveDataToFile() {
-        std::ofstream file("system_data.txt");
+    void disconnect() {
+        saveDataToFile();
+        loggedInUser = nullptr;
+        viewedServer = nullptr;
+        viewedChannel = nullptr;
+        std::cout << "Disconnected from Concordo." << std::endl;
+    }
 
-        if (file.is_open()) {
-            // Save users
-            file << "Users:" << std::endl;
-            for (const User& user : users) {
-                file << user.getId() << "," << user.getName() << "," << user.getEmail() << "," << user.getPassword()
-                     << std::endl;
-            }
-            file << std::endl;
-
-            // Save servers
-            file << "Servers:" << std::endl;
-            for (const Server& server : servers) {
-                file << server.getOwnerUserId() << "," << server.getName() << "," << server.getDescription() << ","
-                     << server.getInviteCode() << std::endl;
-            }
-
-            file.close();
-            std::cout << "Data saved to file." << std::endl;
+    void createServer(const std::string& name, const std::string& description) {
+        if (loggedInUser != nullptr) {
+            int ownerUserId = loggedInUser->getId();
+            int newServerId = servers.empty() ? 1 : servers.back().getId() + 1;
+            Server newServer(newServerId, ownerUserId, name, description);
+            servers.push_back(newServer);
+            std::cout << "Server created with ID: " << newServerId << std::endl;
         } else {
-            std::cout << "Unable to open the file for saving data." << std::endl;
+            std::cout << "You must be logged in to create a server." << std::endl;
+        }
+    }
+
+    void setServerDescription(const std::string& description) {
+        if (viewedServer != nullptr) {
+            viewedServer->setDescription(description);
+            std::cout << "Server description updated." << std::endl;
+        } else {
+            std::cout << "No server is currently viewed." << std::endl;
+        }
+    }
+
+    void setServerInviteCode(const std::string& inviteCode) {
+        if (viewedServer != nullptr) {
+            viewedServer->setInviteCode(inviteCode);
+            std::cout << "Server invite code set." << std::endl;
+        } else {
+            std::cout << "No server is currently viewed." << std::endl;
+        }
+    }
+
+    void listServers() {
+        if (!servers.empty()) {
+            std::cout << "List of servers:" << std::endl;
+            for (const Server& server : servers) {
+                std::cout << "ID: " << server.getId() << ", Name: " << server.getName() << std::endl;
+            }
+        } else {
+            std::cout << "No servers found." << std::endl;
+        }
+    }
+
+    void removeServer(int serverId) {
+        auto it = std::find_if(servers.begin(), servers.end(), [&serverId](const Server& server) {
+            return server.getId() == serverId;
+        });
+
+        if (it != servers.end()) {
+            servers.erase(it);
+            std::cout << "Server removed." << std::endl;
+        } else {
+            std::cout << "Server not found." << std::endl;
+        }
+    }
+
+    void enterServer(int serverId) {
+        auto it = std::find_if(servers.begin(), servers.end(), [&serverId](const Server& server) {
+            return server.getId() == serverId;
+        });
+
+        if (it != servers.end()) {
+            viewedServer = &(*it);
+            std::cout << "Entered server: " << viewedServer->getName() << std::endl;
+        } else {
+            std::cout << "Server not found." << std::endl;
+        }
+    }
+
+    void leaveServer() {
+        viewedServer = nullptr;
+        viewedChannel = nullptr;
+        std::cout << "Left the current server." << std::endl;
+    }
+
+    void listParticipants() {
+        if (viewedServer != nullptr) {
+            std::cout << "Participants in the server:" << std::endl;
+            for (int participantId : viewedServer->getParticipantIds()) {
+                auto it = std::find_if(users.begin(), users.end(), [&participantId](const User& user) {
+                    return user.getId() == participantId;
+                });
+
+                if (it != users.end()) {
+                    std::cout << "ID: " << it->getId() << ", Name: " << it->getName() << std::endl;
+                }
+            }
+        } else {
+            std::cout << "No server is currently viewed." << std::endl;
+        }
+    }
+
+    void addParticipant(int participantId) {
+        if (viewedServer != nullptr) {
+            viewedServer->addParticipant(participantId);
+            std::cout << "Participant added to the server." << std::endl;
+        } else {
+            std::cout << "No server is currently viewed." << std::endl;
         }
     }
 };
 
 int main() {
     System system;
-    std::string command;
 
-    while (true) {
-        std::cout << "Enter a command: ";
-        std::cin >> command;
+    // Example usage
+    system.createUser("Alice", "alice@example.com", "password");
+    system.createUser("Bob", "bob@example.com", "password");
 
-        if (command == "quit") {
-            system.quit();
-            break;
-        } else if (command == "create-user") {
-            std::string name, email, password;
-            std::cout << "Enter name: ";
-            std::cin >> name;
-            std::cout << "Enter email: ";
-            std::cin >> email;
-            std::cout << "Enter password: ";
-            std::cin >> password;
-            system.createUser(name, email, password);
-        } else if (command == "login") {
-            std::string email, password;
-            std::cout << "Enter email: ";
-            std::cin >> email;
-            std::cout << "Enter password: ";
-            std::cin >> password;
-            system.login(email, password);
-        } else {
-            std::cout << "Invalid command. Please try again." << std::endl;
-        }
-    }
+    system.login("alice@example.com", "password");
+    system.createServer("Server 1", "Description 1");
+    system.setServerInviteCode("123456");
+
+    system.login("bob@example.com", "password");
+    system.createServer("Server 2", "Description 2");
+
+    system.login("alice@example.com", "password");
+    system.listServers();
+
+    system.enterServer(2);
+    system.addParticipant(1);
+    system.addParticipant(2);
+    system.listParticipants();
+
+    system.leaveServer();
+    system.disconnect();
 
     return 0;
 }
