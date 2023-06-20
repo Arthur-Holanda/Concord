@@ -165,9 +165,9 @@ private:
     User* loggedInUser;
     Server* viewedServer;
     Channel* viewedChannel;
-
+    bool loggedIn; // Novo membro para controlar o estado de login
 public:
-    System() : loggedInUser(nullptr), viewedServer(nullptr), viewedChannel(nullptr) {}
+    System() : loggedInUser(nullptr), viewedServer(nullptr), viewedChannel(nullptr), loggedIn(false) {}
 
     void saveDataToFile() {
         std::cout << "Data saved to file." << std::endl;
@@ -203,6 +203,9 @@ public:
         }
     }
 
+    bool isLoggedIn() const {
+        return loggedIn;
+    }
     void disconnect() {
         saveDataToFile();
         loggedInUser = nullptr;
@@ -313,28 +316,103 @@ public:
 
 int main() {
     System system;
+    std::string command;
 
-    // Example usage
-    system.createUser("Alice", "alice@example.com", "password");
-    system.createUser("Bob", "bob@example.com", "password");
+    std::cout << "Concordo - Sistema de Mensagens" << std::endl;
 
-    system.login("alice@example.com", "password");
-    system.createServer("Server 1", "Description 1");
-    system.setServerInviteCode("123456");
+    while (true) {
+        std::cout << "\nDigite um comando (ou 'help' para ver a lista de comandos): ";
+        std::cin >> command;
 
-    system.login("bob@example.com", "password");
-    system.createServer("Server 2", "Description 2");
-
-    system.login("alice@example.com", "password");
-    system.listServers();
-
-    system.enterServer(2);
-    system.addParticipant(1);
-    system.addParticipant(2);
-    system.listParticipants();
-
-    system.leaveServer();
-    system.disconnect();
+        if (command == "quit") {
+            system.quit();
+            break;
+        }
+        else if (command == "create-user") {
+            std::string name, email, password;
+            std::cout << "Nome: ";
+            std::cin >> name;
+            std::cout << "Email: ";
+            std::cin >> email;
+            std::cout << "Senha: ";
+            std::cin >> password;
+            system.createUser(name, email, password);
+        }
+        else if (command == "login") {
+            std::string email, password;
+            std::cout << "Email: ";
+            std::cin >> email;
+            std::cout << "Senha: ";
+            std::cin >> password;
+            system.login(email, password);
+        }
+        else if (command == "disconnect") {
+            system.disconnect();
+        }
+        else if (command == "create-server") {
+            if (system.isLoggedIn()) {
+                std::string name, description;
+                std::cout << "Nome do servidor: ";
+                std::cin >> name;
+                std::cout << "Descrição do servidor: ";
+                std::cin >> description;
+                system.createServer(name, description);
+            } else {
+                std::cout << "Você precisa estar logado para criar um servidor." << std::endl;
+            }
+        }
+        else if (command == "set-server-desc") {
+            std::string description;
+            std::cout << "Nova descrição: ";
+            std::cin >> description;
+            system.setServerDescription(description);
+        }
+        else if (command == "set-server-invitecode") {
+            std::string inviteCode;
+            std::cout << "Novo código de convite: ";
+            std::cin >> inviteCode;
+            system.setServerInviteCode(inviteCode);
+        }
+        else if (command == "list-servers") {
+            system.listServers();
+        }
+        else if (command == "remove-server") {
+            int serverId;
+            std::cout << "ID do servidor: ";
+            std::cin >> serverId;
+            system.removeServer(serverId);
+        }
+        else if (command == "enter-server") {
+            int serverId;
+            std::cout << "ID do servidor: ";
+            std::cin >> serverId;
+            system.enterServer(serverId);
+        }
+        else if (command == "leave-server") {
+            system.leaveServer();
+        }
+        else if (command == "list-participants") {
+            system.listParticipants();
+        }
+        else if (command == "help") {
+            std::cout << "Lista de comandos disponíveis:" << std::endl;
+            std::cout << "quit - Sair do sistema" << std::endl;
+            std::cout << "create-user - Criar um novo usuário" << std::endl;
+            std::cout << "login - Fazer login em um usuário" << std::endl;
+            std::cout << "disconnect - Desconectar do sistema" << std::endl;
+            std::cout << "create-server - Criar um novo servidor" << std::endl;
+            std::cout << "set-server-desc - Definir a descrição de um servidor" << std::endl;
+            std::cout << "set-server-invitecode - Definir o código de convite de um servidor" << std::endl;
+            std::cout << "list-servers - Listar os servidores disponíveis" << std::endl;
+            std::cout << "remove-server - Remover um servidor" << std::endl;
+            std::cout << "enter-server - Entrar em um servidor" << std::endl;
+            std::cout << "leave-server - Sair do servidor atual" << std::endl;
+            std::cout << "list-participants - Listar os participantes do servidor atual" << std::endl;
+        }
+        else {
+            std::cout << "Comando inválido. Digite 'help' para ver a lista de comandos disponíveis." << std::endl;
+        }
+    }
 
     return 0;
 }
