@@ -196,9 +196,11 @@ public:
 
         if (it != users.end()) {
             loggedInUser = &(*it);
+            loggedIn = true; // Atualiza o estado de login
             std::cout << "User logged in successfully." << std::endl;
         } else {
             loggedInUser = nullptr;
+            loggedIn = false; // Atualiza o estado de login
             std::cout << "Invalid email or password. Login failed." << std::endl;
         }
     }
@@ -207,11 +209,13 @@ public:
         return loggedIn;
     }
     void disconnect() {
-        saveDataToFile();
-        loggedInUser = nullptr;
-        viewedServer = nullptr;
-        viewedChannel = nullptr;
-        std::cout << "Disconnected from Concordo." << std::endl;
+        if (loggedInUser != nullptr) {
+            std::cout << "Desconectando usuário " << loggedInUser->getEmail() << std::endl;
+            loggedInUser = nullptr;
+            loggedIn = false;
+        } else {
+            std::cout << "Não está conectado" << std::endl;
+        }
     }
 
     void createServer(const std::string& name, const std::string& description) {
@@ -399,7 +403,7 @@ int main() {
             std::cout << "quit - Sair do sistema" << std::endl;
             std::cout << "create-user - Criar um novo usuário" << std::endl;
             std::cout << "login - Fazer login em um usuário" << std::endl;
-            std::cout << "disconnect - Desconectar do sistema" << std::endl;
+            std::cout << "disconnect - Desconectar do atual usuário" << std::endl;
             std::cout << "create-server - Criar um novo servidor" << std::endl;
             std::cout << "set-server-desc - Definir a descrição de um servidor" << std::endl;
             std::cout << "set-server-invitecode - Definir o código de convite de um servidor" << std::endl;
