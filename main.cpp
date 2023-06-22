@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <sstream>
 
 class User {
 private:
@@ -294,13 +295,15 @@ public:
     void listParticipants() {
         if (viewedServer != nullptr) {
             std::cout << "Participants in the server:" << std::endl;
-            for (int participantId : viewedServer->getParticipantIds()) {
+            const std::vector<int>& participantIds = viewedServer->getParticipantIds();
+            
+            for (int participantId : participantIds) {
                 auto it = std::find_if(users.begin(), users.end(), [&participantId](const User& user) {
                     return user.getId() == participantId;
                 });
 
                 if (it != users.end()) {
-                    std::cout << "ID: " << it->getId() << ", Name: " << it->getName() << std::endl;
+                    std::cout << "Name: " << it->getName() << std::endl;
                 }
             }
         } else {
@@ -326,34 +329,35 @@ int main() {
 
     while (true) {
         std::cout << "\nDigite um comando (ou 'help' para ver a lista de comandos): ";
-        std::cin >> command;
+        std::getline(std::cin, command);
 
-        if (command == "quit") {
+        std::stringstream ss(command);
+        std::string cmd;
+        ss >> cmd;
+
+        if (cmd == "quit") {
             system.quit();
             break;
         }
-        else if (command == "create-user") {
-            std::string name, email, password;
-            std::cout << "Nome: ";
-            std::cin >> name;
-            std::cout << "Email: ";
-            std::cin >> email;
-            std::cout << "Senha: ";
-            std::cin >> password;
+        else if (cmd == "create-user") {
+            std::string email, password, name;
+            std::cout << "Email, senha e nome (separados por espaço): ";
+            std::cin >> email >> password >> name;
+            std::cin.ignore(); // Ignorar o caractere de nova linha residual
+            //std::getline(std::cin, name);
             system.createUser(name, email, password);
         }
-        else if (command == "login") {
+        else if (cmd == "login") {
             std::string email, password;
-            std::cout << "Email: ";
-            std::cin >> email;
-            std::cout << "Senha: ";
-            std::cin >> password;
+            std::cout << "Email, senha (separados por espaço): ";
+            std::cin >> email >> password;
             system.login(email, password);
+            std::cin.ignore(); // Ignorar o caractere de nova linha residual
         }
-        else if (command == "disconnect") {
+        else if (cmd == "disconnect") {
             system.disconnect();
         }
-        else if (command == "create-server") {
+        else if (cmd == "create-server") {
             if (system.isLoggedIn()) {
                 std::string name, description;
                 std::cout << "Nome do servidor: ";
@@ -364,41 +368,43 @@ int main() {
             } else {
                 std::cout << "Você precisa estar logado para criar um servidor." << std::endl;
             }
+            std::cin.ignore();
         }
-        else if (command == "set-server-desc") {
+        else if (cmd == "set-server-desc") {
             std::string description;
             std::cout << "Nova descrição: ";
             std::cin >> description;
             system.setServerDescription(description);
         }
-        else if (command == "set-server-invitecode") {
+        else if (cmd == "set-server-invitecode") {
             std::string inviteCode;
             std::cout << "Novo código de convite: ";
             std::cin >> inviteCode;
             system.setServerInviteCode(inviteCode);
         }
-        else if (command == "list-servers") {
+        else if (cmd == "list-servers") {
             system.listServers();
         }
-        else if (command == "remove-server") {
+        else if (cmd == "remove-server") {
             int serverId;
             std::cout << "ID do servidor: ";
             std::cin >> serverId;
             system.removeServer(serverId);
         }
-        else if (command == "enter-server") {
+        else if (cmd == "enter-server") {
             int serverId;
             std::cout << "ID do servidor: ";
             std::cin >> serverId;
             system.enterServer(serverId);
+            std::cin.ignore();
         }
-        else if (command == "leave-server") {
+        else if (cmd == "leave-server") {
             system.leaveServer();
         }
-        else if (command == "list-participants") {
+        else if (cmd == "list-participants") {
             system.listParticipants();
         }
-        else if (command == "help") {
+        else if (cmd == "help") {
             std::cout << "Lista de comandos disponíveis:" << std::endl;
             std::cout << "quit - Sair do sistema" << std::endl;
             std::cout << "create-user - Criar um novo usuário" << std::endl;
