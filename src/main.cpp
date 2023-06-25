@@ -183,6 +183,116 @@ private:
 public:
     Sistema() : usuarioLogado(nullptr), servidorAtual(nullptr), canalAtual(nullptr) {}
 
+    void iniciar() {
+        std::cout << "Concordo - Sistema de Mensagens" << std::endl;
+        while (lerComando()) {}
+    }
+
+bool lerComando() {
+        std::string command;
+        std::cout << "\nDigite um comando (ou 'help' para ver a lista de comandos): ";
+        std::getline(std::cin, command);
+
+        size_t pos = command.find(' ');
+        std::string cmd = command.substr(0, pos);
+
+        if (cmd == "quit") {
+            //quit();
+            std::cout << "Saindo do Concordo" << std::endl;
+            return false;
+        }
+        else if (cmd == "create-user") {
+            std::string email, password, name;
+            std::cout << "Email, senha e nome (separados por espaço): ";
+            std::cin >> email >> password >> name;
+            std::cin.ignore(); // Ignorar o caractere de nova linha residual
+            criarUsuario(name, email, password);
+        }
+        else if (cmd == "login") {
+            std::string email, password;
+            std::cout << "Email, senha (separados por espaço): ";
+            std::cin >> email >> password;
+            login(email, password);
+            std::cin.ignore(); // Ignorar o caractere de nova linha residual
+        }                                                //não logado 
+        else if (cmd == "disconnect") {
+            desconectar();
+        }
+        else if (cmd == "create-server") {
+            std::string serverName = command.substr(pos + 1);
+            criarServidor(serverName);
+        }
+        else if (cmd == "set-server-desc"){
+            size_t pos2 = command.find(' ', pos + 1);
+            std::string serverName = command.substr(pos + 1, pos2 - pos - 1);
+            std::string description = command.substr(pos2 + 1);
+            mudarDescricaoServidor(serverName, description);
+        }
+        else if (cmd == "set-server-invite-code") {
+            size_t pos2 = command.find(' ', pos + 1);
+            std::string serverName = command.substr(pos + 1, pos2 - pos - 1);
+            std::string inviteCode = command.substr(pos2 + 1);
+            mudarCodigoConviteServidor(serverName, inviteCode);
+        }
+        else if (cmd == "list-servers") {
+            listarServidores();
+        }
+        else if (cmd == "remove-server") {
+            std::string serverName = command.substr(pos + 1);
+            removerServidor(serverName);
+        }
+        else if (cmd == "enter-server") {
+            size_t pos2 = command.find(' ', pos + 1);
+            std::string serverName = command.substr(pos + 1, pos2 - pos - 1);
+            std::string inviteCode = command.substr(pos2 + 1);
+            entrarServidor(serverName, inviteCode);
+        }
+        else if (cmd == "leave-server") {
+            sairServidor();
+        }
+        else if (cmd == "list-participants") {
+            listarParticipantes();
+        }
+        else if (cmd == "list-channels") {
+            listarCanais();
+        }
+        else if (cmd == "create-channel") {
+            size_t pos2 = command.find(' ', pos + 1);
+            std::string channelName = command.substr(pos + 1, pos2 - pos - 1);
+            std::string channelType = command.substr(pos2 + 1);
+            criarCanal(channelName, channelType);
+        }
+        else if (cmd == "enter-channel") {
+            std::string channelName = command.substr(pos + 1);
+            entrarCanal(channelName);
+        }
+        else if (cmd == "leave-channel") {
+            sairCanal();
+        }
+        else if (cmd == "help") {
+            std::cout << "Comandos disponíveis:" << std::endl;
+            std::cout << "quit - Sair do programa" << std::endl;
+            std::cout << "create-user [email] [senha] [nome] - Criar um novo usuário" << std::endl;
+            std::cout << "login [email] [senha] - Fazer login com um usuário existente" << std::endl;
+            std::cout << "disconnect - Desconectar do usuário atual" << std::endl;
+            std::cout << "create-server [nome] - Criar um novo servidor" << std::endl;
+            std::cout << "set-server-desc [nome] [descrição] - Definir a descrição de um servidor" << std::endl;
+            std::cout << "set-server-invite-code [nome] [código] - Definir o código de convite de um servidor" << std::endl;
+            std::cout << "list-servers - Listar todos os servidores" << std::endl;
+            std::cout << "remove-server [nome] - Remover um servidor" << std::endl;
+            std::cout << "enter-server [nome] - Entrar em um servidor" << std::endl;
+            std::cout << "leave-server - Sair do servidor atual" << std::endl;
+            std::cout << "list-participants - Listar os participantes do servidor atual" << std::endl;
+            std::cout << "list-channels - Listar os canais do servidor atual" << std::endl;
+            std::cout << "create-channel [nome] [tipo] - Criar um canal no servidor atual" << std::endl;
+            std::cout << "enter-channel [nome] - Entrar em um canal do servidor atual" << std::endl;
+            std::cout << "leave-channel - Sair do canal atual" << std::endl;
+        }
+        else {
+            std::cout << "Comando inválido. Digite 'help' para ver a lista de comandos disponíveis." << std::endl;
+        }
+    return true;
+}
     // Comando para sair do sistema
     void quit()
     {
@@ -509,6 +619,11 @@ public:
 
 int main()
 {
+    Sistema sistema;
+    sistema.iniciar();
+
+
+    /*
     Sistema system;
     std::string command;
 
@@ -617,6 +732,7 @@ int main()
         else {
             std::cout << "Comando inválido. Digite 'help' para ver a lista de comandos disponíveis." << std::endl;
         }
-    }
+        
+    }*/
     return 0;
 }
