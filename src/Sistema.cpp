@@ -1,194 +1,13 @@
-#include <iostream>
-#include <vector>
-#include <string>
+#include "Sistema.h"
 
-class Usuario {
-private:
-    int id;
-    std::string nome;
-    std::string email;
-    std::string senha;
+    Sistema::Sistema() : usuarioLogado(nullptr), servidorAtual(nullptr), canalAtual(nullptr) {}
 
-public:
-    // Construtor padrão
-    Usuario() {}
-
-    // Construtor com parâmetros
-    Usuario(int id, const std::string& nome, const std::string& email, const std::string& senha)
-        : id(id), nome(nome), email(email), senha(senha) {}
-
-    // Getters
-    int getId() const {
-        return id;
-    }
-
-    std::string getNome() const {
-        return nome;
-    }
-
-    std::string getEmail() const {
-        return email;
-    }
-
-    std::string getSenha() const {
-        return senha;
-    }
-};
-
-class Mensagem {
-private:
-    std::string dataHora;
-    int enviadaPor;
-    std::string conteudo;
-
-public:
-    // Construtor padrão
-    Mensagem() {}
-
-    // Construtor com parâmetros
-    Mensagem(const std::string& dataHora, int enviadaPor, const std::string& conteudo)
-        : dataHora(dataHora), enviadaPor(enviadaPor), conteudo(conteudo) {}
-
-    // Getters
-    std::string getDataHora() const {
-        return dataHora;
-    }
-
-    int getEnviadaPor() const {
-        return enviadaPor;
-    }
-
-    std::string getConteudo() const {
-        return conteudo;
-    }
-};
-
-class Canal {
-private:
-    std::string nome;
-
-public:
-    Canal(const std::string& nome) : nome(nome) {}
-
-    virtual ~Canal() {}
-
-    std::string getNome() const {
-        return nome;
-    }
-};
-
-class CanalTexto : public Canal {
-private:
-    std::vector<Mensagem> mensagens;
-
-public:
-    // Construtor com parâmetros
-    CanalTexto(const std::string& nome) : Canal(nome) {}
-};
-
-class CanalVoz : public Canal {
-private:
-    Mensagem ultimaMensagem;
-
-public:
-    // Construtor com parâmetros
-    CanalVoz(const std::string& nome) : Canal(nome) {}
-};
-
-class Servidor {
-private:
-    int usuarioDonoId;
-    std::string nome;
-    std::string descricao;
-    std::string codigoConvite;
-    std::vector<Canal*> canais;
-    std::vector<int> participantesIDs;
-
-public:
-    // Construtor com parâmetros
-    Servidor(int usuarioDonoId, const std::string& nome, const std::string& descricao, const std::string& codigoConvite)
-        : usuarioDonoId(usuarioDonoId), nome(nome), descricao(descricao), codigoConvite(codigoConvite) {}
-
-    // Destrutor
-    ~Servidor() {
-        for (auto canal : canais) {
-            delete canal;
-        }
-    }
-    void adicionarParticipante(int id) {
-        participantesIDs.push_back(id);
-    }
-    void adicionarCanal(Canal* canal) {
-        canais.push_back(canal);
-    }
-        // Getters
-    int getUsuarioDonoId() const {
-        return usuarioDonoId;
-    }
-
-    std::string getNome() const {
-        return nome;
-    }
-
-    std::string getDescricao() const {
-        return descricao;
-    }
-
-    std::string getCodigoConvite() const {
-        return codigoConvite;
-    }
-
-    std::vector<Canal*> getCanais() const {
-        return canais;
-    }
-
-    std::vector<int> getParticipantesIDs() const {
-        return participantesIDs;
-    }
-
-    // Setters
-    void setUsuarioDonoId(int id) {
-        usuarioDonoId = id;
-    }
-
-    void setNome(const std::string& novoNome) {
-        nome = novoNome;
-    }
-
-    void setDescricao(const std::string& novaDescricao) {
-        descricao = novaDescricao;
-    }
-
-    void setCodigoConvite(const std::string& novoCodigoConvite) {
-        codigoConvite = novoCodigoConvite;
-    }
-
-    void setCanais(const std::vector<Canal*>& novosCanais) {
-        canais = novosCanais;
-    }
-
-    void setParticipantesIDs(const std::vector<int>& novosParticipantesIDs) {
-        participantesIDs = novosParticipantesIDs;
-    }
-};
-
-class Sistema {
-private:
-    std::vector<Usuario> usuarios;
-    std::vector<Servidor> servidores;
-    Usuario* usuarioLogado;
-    Servidor* servidorAtual;
-    Canal* canalAtual;
-
-public:
-    Sistema() : usuarioLogado(nullptr), servidorAtual(nullptr), canalAtual(nullptr) {}
-
-    void iniciar() {
+    void Sistema::iniciar() {
         std::cout << "Concordo - Sistema de Mensagens" << std::endl;
         while (lerComando()) {}
     }
 
-bool lerComando() {
+    bool Sistema::lerComando() {
         std::string command;
         std::cout << "\nDigite um comando (ou 'help' para ver a lista de comandos): ";
         std::getline(std::cin, command);
@@ -290,8 +109,9 @@ bool lerComando() {
         else {
             std::cout << "Comando inválido. Digite 'help' para ver a lista de comandos disponíveis." << std::endl;
         }
-    return true;
+        return true;
     }
+
     // Comando para sair do sistema
     void quit()
     {
@@ -299,7 +119,7 @@ bool lerComando() {
     }
 
     // Comando para criar um usuário
-    void criarUsuario(const std::string& email, const std::string& senha, const std::string& nome)
+    void Sistema::criarUsuario(const std::string& email, const std::string& senha, const std::string& nome)
     {
         // Verificar se o email já existe no cadastro geral
         for (const auto& usuario : usuarios) {
@@ -322,7 +142,7 @@ bool lerComando() {
 
 
     // Comando para efetuar login
-    void login(const std::string& email, const std::string& senha)
+    void Sistema::login(const std::string& email, const std::string& senha)
     {
         // Verificar se o usuário já está logado
         if (usuarioLogado != nullptr) {
@@ -342,7 +162,7 @@ bool lerComando() {
         std::cout << "Erro: Email ou senha inválidos." << std::endl;
     }
 
-    void desconectar()
+    void Sistema::desconectar()
     {
         if (usuarioLogado == nullptr) {
             std::cout << "Erro: Nenhum usuário está logado." << std::endl;
@@ -353,7 +173,7 @@ bool lerComando() {
         usuarioLogado = nullptr;
     }
 
-    void criarServidor(const std::string& nome)
+    void Sistema::criarServidor(const std::string& nome)
     {
         if (usuarioLogado == nullptr) {
             std::cout << "Erro: É necessário estar logado para criar um servidor." << std::endl;
@@ -372,7 +192,7 @@ bool lerComando() {
         std::cout << "Servidor criado" << std::endl;    
     }
 
-    void mudarDescricaoServidor(const std::string& nome, const std::string& descricao)
+    void Sistema::mudarDescricaoServidor(const std::string& nome, const std::string& descricao)
     {
         if (usuarioLogado == nullptr) {
             std::cout << "Erro: É necessário estar logado para mudar a descrição de um servidor." << std::endl;
@@ -394,7 +214,7 @@ bool lerComando() {
         std::cout << "Erro: Servidor '" << nome << "' não existe." << std::endl;
     }
 
-    void mudarCodigoConviteServidor(const std::string& nome, const std::string& codigoConvite = "")
+    void Sistema::mudarCodigoConviteServidor(const std::string& nome, const std::string& codigoConvite = "")
     {
         if (usuarioLogado == nullptr) {
             std::cout << "Erro: É necessário estar logado para mudar o código de convite de um servidor." << std::endl;
@@ -420,14 +240,14 @@ bool lerComando() {
         std::cout << "Erro: Servidor '" << nome << "' não existe." << std::endl;
     }
 
-    void listarServidores()
+    void Sistema::listarServidores()
     {
         for (const auto& servidor : servidores) {
             std::cout << servidor.getNome() << std::endl;
         }
     }
     
-    void removerServidor(const std::string& nome)
+    void Sistema::removerServidor(const std::string& nome)
     {
         if (usuarioLogado == nullptr) {
             std::cout << "Erro: É necessário estar logado para remover um servidor." << std::endl;
@@ -449,7 +269,7 @@ bool lerComando() {
         std::cout << "Erro: Servidor '" << nome << "' não encontrado." << std::endl;
     }
 
-    void entrarServidor(const std::string& nome, const std::string& codigoConvite = "")
+    void Sistema::entrarServidor(const std::string& nome, const std::string& codigoConvite = "")
     {
         if (usuarioLogado == nullptr) {
             std::cout << "Erro: É necessário estar logado para entrar em um servidor." << std::endl;
@@ -472,7 +292,7 @@ bool lerComando() {
         std::cout << "Erro: Servidor '" << nome << "' não encontrado." << std::endl;
     }
 
-    void sairServidor()
+    void Sistema::sairServidor()
     {
         if (usuarioLogado == nullptr) {
             std::cout << "Erro: É necessário estar logado para sair de um servidor." << std::endl;
@@ -488,7 +308,7 @@ bool lerComando() {
         servidorAtual = nullptr;
     }
 
-    void listarParticipantes()
+    void Sistema::listarParticipantes()
     {
         if (usuarioLogado == nullptr) {
             std::cout << "Erro: É necessário estar logado para listar os participantes de um servidor." << std::endl;
@@ -510,7 +330,7 @@ bool lerComando() {
         }
     }
 
-    void listarCanais()
+    void Sistema::listarCanais()
     {
         if (usuarioLogado == nullptr) {
             std::cout << "Erro: É necessário estar logado para listar os canais de um servidor." << std::endl;
@@ -537,7 +357,7 @@ bool lerComando() {
         }
     }
 
-    void criarCanal(const std::string& nome, const std::string& tipo)
+    void Sistema::criarCanal(const std::string& nome, const std::string& tipo)
     {
         if (usuarioLogado == nullptr) {
             std::cout << "Erro: É necessário estar logado para criar um canal." << std::endl;
@@ -569,7 +389,7 @@ bool lerComando() {
         }
     }
 
-    void entrarCanal(const std::string& nome)
+    void Sistema::entrarCanal(const std::string& nome)
     {
     if (usuarioLogado == nullptr) {
         std::cout << "Erro: É necessário estar logado para entrar em um canal." << std::endl;
@@ -592,7 +412,7 @@ bool lerComando() {
     std::cout << "Erro: Canal '" << nome << "' não existe." << std::endl;
     }
 
-    void sairCanal() 
+    void Sistema::sairCanal() 
     {
         if (usuarioLogado == nullptr) {
             std::cout << "Erro: É necessário estar logado para sair de um canal." << std::endl;
@@ -612,12 +432,3 @@ bool lerComando() {
         std::cout << "Saindo do canal" << std::endl;
         canalAtual = nullptr;
     }
-
-};
-
-int main()
-{
-    Sistema sistema;
-    sistema.iniciar();
-    return 0;
-}
