@@ -1,340 +1,528 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-#include <sstream>
+#include <string>
 
-class User {
+class Usuario {
 private:
     int id;
-    std::string name;
+    std::string nome;
     std::string email;
-    std::string password;
+    std::string senha;
 
 public:
-    User(int id, const std::string& name, const std::string& email, const std::string& password)
-        : id(id), name(name), email(email), password(password) {}
+    // Construtor padrão
+    Usuario() {}
 
+    // Construtor com parâmetros
+    Usuario(int id, const std::string& nome, const std::string& email, const std::string& senha)
+        : id(id), nome(nome), email(email), senha(senha) {}
+
+    // Getters
     int getId() const {
         return id;
     }
 
-    std::string getName() const {
-        return name;
+    std::string getNome() const {
+        return nome;
     }
 
     std::string getEmail() const {
         return email;
     }
 
-    std::string getPassword() const {
-        return password;
+    std::string getSenha() const {
+        return senha;
     }
 };
 
-class Message {
+class Mensagem {
 private:
-    std::string dateTime;
-    int sentBy;
-    std::string content;
+    std::string dataHora;
+    int enviadaPor;
+    std::string conteudo;
 
 public:
-    Message() {}
+    // Construtor padrão
+    Mensagem() {}
 
-    Message(const std::string& dateTime, int sentBy, const std::string& content)
-        : dateTime(dateTime), sentBy(sentBy), content(content) {}
+    // Construtor com parâmetros
+    Mensagem(const std::string& dataHora, int enviadaPor, const std::string& conteudo)
+        : dataHora(dataHora), enviadaPor(enviadaPor), conteudo(conteudo) {}
 
-    std::string getDateTime() const {
-        return dateTime;
+    // Getters
+    std::string getDataHora() const {
+        return dataHora;
     }
 
-    int getSentBy() const {
-        return sentBy;
+    int getEnviadaPor() const {
+        return enviadaPor;
     }
 
-    std::string getContent() const {
-        return content;
+    std::string getConteudo() const {
+        return conteudo;
     }
 };
 
-class Channel {
-protected:
-    std::string name;
-
-public:
-    Channel(const std::string& name) : name(name) {}
-
-    std::string getName() const {
-        return name;
-    }
-};
-
-class TextChannel : public Channel {
+class Canal {
 private:
-    std::vector<Message> messages;
+    std::string nome;
 
 public:
-    TextChannel(const std::string& name) : Channel(name) {}
+    Canal(const std::string& nome) : nome(nome) {}
 
-    void addMessage(const Message& message) {
-        messages.push_back(message);
-    }
+    virtual ~Canal() {}
 
-    std::vector<Message> getMessages() const {
-        return messages;
+    std::string getNome() const {
+        return nome;
     }
 };
 
-class VoiceChannel : public Channel {
+class CanalTexto : public Canal {
 private:
-    Message lastMessage;
+    std::vector<Mensagem> mensagens;
 
 public:
-    VoiceChannel(const std::string& name) : Channel(name) {}
+    // Construtor com parâmetros
+    CanalTexto(const std::string& nome) : Canal(nome) {}
+};
 
-    void setLastMessage(const Message& message) {
-        lastMessage = message;
+class CanalVoz : public Canal {
+private:
+    Mensagem ultimaMensagem;
+
+public:
+    // Construtor com parâmetros
+    CanalVoz(const std::string& nome) : Canal(nome) {}
+};
+
+class Servidor {
+private:
+    int usuarioDonoId;
+    std::string nome;
+    std::string descricao;
+    std::string codigoConvite;
+    std::vector<Canal*> canais;
+    std::vector<int> participantesIDs;
+
+public:
+    // Construtor com parâmetros
+    Servidor(int usuarioDonoId, const std::string& nome, const std::string& descricao, const std::string& codigoConvite)
+        : usuarioDonoId(usuarioDonoId), nome(nome), descricao(descricao), codigoConvite(codigoConvite) {}
+
+    // Destrutor
+    ~Servidor() {
+        for (auto canal : canais) {
+            delete canal;
+        }
+    }
+    void adicionarParticipante(int id) {
+        participantesIDs.push_back(id);
+    }
+    void adicionarCanal(Canal* canal) {
+        canais.push_back(canal);
+    }
+        // Getters
+    int getUsuarioDonoId() const {
+        return usuarioDonoId;
     }
 
-    Message getLastMessage() const {
-        return lastMessage;
+    std::string getNome() const {
+        return nome;
+    }
+
+    std::string getDescricao() const {
+        return descricao;
+    }
+
+    std::string getCodigoConvite() const {
+        return codigoConvite;
+    }
+
+    std::vector<Canal*> getCanais() const {
+        return canais;
+    }
+
+    std::vector<int> getParticipantesIDs() const {
+        return participantesIDs;
+    }
+
+    // Setters
+    void setUsuarioDonoId(int id) {
+        usuarioDonoId = id;
+    }
+
+    void setNome(const std::string& novoNome) {
+        nome = novoNome;
+    }
+
+    void setDescricao(const std::string& novaDescricao) {
+        descricao = novaDescricao;
+    }
+
+    void setCodigoConvite(const std::string& novoCodigoConvite) {
+        codigoConvite = novoCodigoConvite;
+    }
+
+    void setCanais(const std::vector<Canal*>& novosCanais) {
+        canais = novosCanais;
+    }
+
+    void setParticipantesIDs(const std::vector<int>& novosParticipantesIDs) {
+        participantesIDs = novosParticipantesIDs;
     }
 };
 
-class Server {
+class Sistema {
 private:
-    int id;
-    int ownerUserId;
-    std::string name;
-    std::string description;
-    std::string inviteCode;
-    std::vector<int> participantIds;
-    std::vector<Channel*> channels;
+    std::vector<Usuario> usuarios;
+    std::vector<Servidor> servidores;
+    Usuario* usuarioLogado;
+    Servidor* servidorAtual;
+    Canal* canalAtual;
 
 public:
-    Server(int id, int ownerUserId, const std::string& name, const std::string& description)
-        : id(id), ownerUserId(ownerUserId), name(name), description(description) {}
+    Sistema() : usuarioLogado(nullptr), servidorAtual(nullptr), canalAtual(nullptr) {}
 
-    int getId() const {
-        return id;
-    }
-
-    int getOwnerUserId() const {
-        return ownerUserId;
-    }
-
-    std::string getName() const {
-        return name;
-    }
-
-    std::string getDescription() const {
-        return description;
-    }
-
-    void setDescription(const std::string& description) {
-        this->description = description;
-    }
-
-    std::string getInviteCode() const {
-        return inviteCode;
-    }
-
-    void setInviteCode(const std::string& inviteCode) {
-        this->inviteCode = inviteCode;
-    }
-
-    std::vector<int> getParticipantIds() const {
-        return participantIds;
-    }
-
-    void addParticipant(int participantId) {
-        participantIds.push_back(participantId);
-    }
-
-    std::vector<Channel*> getChannels() const {
-        return channels;
-    }
-
-    void addChannel(Channel* channel) {
-        channels.push_back(channel);
-    }
-};
-
-class System {
-private:
-    std::vector<User> users;
-    std::vector<Server> servers;
-    User* loggedInUser;
-    Server* viewedServer;
-    Channel* viewedChannel;
-    bool loggedIn; // Novo membro para controlar o estado de login
-public:
-    System() : loggedInUser(nullptr), viewedServer(nullptr), viewedChannel(nullptr), loggedIn(false) {}
-
-    void saveDataToFile() {
-        std::cout << "Data saved to file." << std::endl;
-    }
-
-    void loadDataFromFile() {
-        std::cout << "Data loaded from file." << std::endl;
-    }
-
-    void quit() {
-        saveDataToFile();
+    // Comando para sair do sistema
+    void quit()
+    {
         std::cout << "Quitting the system. Goodbye!" << std::endl;
     }
 
-    void createUser(const std::string& name, const std::string& email, const std::string& password) {
-        int newId = users.empty() ? 1 : users.back().getId() + 1;
-        User newUser(newId, name, email, password);
-        users.push_back(newUser);
-        std::cout << "User created with ID: " << newId << std::endl;
-    }
-
-    void login(const std::string& email, const std::string& password) {
-        auto it = std::find_if(users.begin(), users.end(), [&email, &password](const User& user) {
-            return user.getEmail() == email && user.getPassword() == password;
-        });
-
-        if (it != users.end()) {
-            loggedInUser = &(*it);
-            loggedIn = true; // Atualiza o estado de login
-            std::cout << "User logged in successfully." << std::endl;
-        } else {
-            loggedInUser = nullptr;
-            loggedIn = false; // Atualiza o estado de login
-            std::cout << "Invalid email or password. Login failed." << std::endl;
-        }
-    }
-
-    bool isLoggedIn() const {
-        return loggedIn;
-    }
-    void disconnect() {
-        if (loggedInUser != nullptr) {
-            std::cout << "Desconectando usuário " << loggedInUser->getEmail() << std::endl;
-            loggedInUser = nullptr;
-            loggedIn = false;
-        } else {
-            std::cout << "Não está conectado" << std::endl;
-        }
-    }
-
-    void createServer(const std::string& name, const std::string& description) {
-        if (loggedInUser != nullptr) {
-            int ownerUserId = loggedInUser->getId();
-            int newServerId = servers.empty() ? 1 : servers.back().getId() + 1;
-            Server newServer(newServerId, ownerUserId, name, description);
-            servers.push_back(newServer);
-            std::cout << "Server created with ID: " << newServerId << std::endl;
-        } else {
-            std::cout << "You must be logged in to create a server." << std::endl;
-        }
-    }
-
-    void setServerDescription(const std::string& description) {
-        if (viewedServer != nullptr) {
-            viewedServer->setDescription(description);
-            std::cout << "Server description updated." << std::endl;
-        } else {
-            std::cout << "No server is currently viewed." << std::endl;
-        }
-    }
-
-    void setServerInviteCode(const std::string& inviteCode) {
-        if (viewedServer != nullptr) {
-            viewedServer->setInviteCode(inviteCode);
-            std::cout << "Server invite code set." << std::endl;
-        } else {
-            std::cout << "No server is currently viewed." << std::endl;
-        }
-    }
-
-    void listServers() {
-        if (!servers.empty()) {
-            std::cout << "List of servers:" << std::endl;
-            for (const Server& server : servers) {
-                std::cout << "ID: " << server.getId() << ", Name: " << server.getName() << std::endl;
+    // Comando para criar um usuário
+    void criarUsuario(const std::string& email, const std::string& senha, const std::string& nome)
+    {
+        // Verificar se o email já existe no cadastro geral
+        for (const auto& usuario : usuarios) {
+            if (usuario.getEmail() == email) {
+                std::cout << "Erro: O email fornecido já está em uso." << std::endl;
+                return;
             }
-        } else {
-            std::cout << "No servers found." << std::endl;
+        }
+
+        // Gerar ID para o novo usuário
+        int novoId = usuarios.size() + 1;
+
+        // Criar o novo usuário e adicioná-lo ao cadastro geral
+        Usuario novoUsuario(novoId, nome, email, senha);
+        usuarios.push_back(novoUsuario);
+
+        std::cout << "Usuário criado com sucesso." << std::endl;
+        //std::cout << novoUsuario.getId() << std::endl;
+    }
+
+
+    // Comando para efetuar login
+    void login(const std::string& email, const std::string& senha)
+    {
+        // Verificar se o usuário já está logado
+        if (usuarioLogado != nullptr) {
+            std::cout << "Erro: Já existe um usuário logado." << std::endl;
+            return;
+        }
+
+        // Procurar o usuário no cadastro geral
+        for (auto& usuario : usuarios) {
+            if (usuario.getEmail() == email && usuario.getSenha() == senha) {
+                usuarioLogado = &usuario;
+                std::cout << "Login efetuado com sucesso." << std::endl;
+                return;
+            }
+        }
+
+        std::cout << "Erro: Email ou senha inválidos." << std::endl;
+    }
+
+    void desconectar()
+    {
+        if (usuarioLogado == nullptr) {
+            std::cout << "Erro: Nenhum usuário está logado." << std::endl;
+            return;
+        }
+
+        std::cout << "Desconectando usuário " << usuarioLogado->getEmail() << std::endl;
+        usuarioLogado = nullptr;
+    }
+
+    void criarServidor(const std::string& nome)
+    {
+        if (usuarioLogado == nullptr) {
+            std::cout << "Erro: É necessário estar logado para criar um servidor." << std::endl;
+            return;
+        }
+
+        for (const auto& servidor : servidores) {
+            if (servidor.getNome() == nome) {
+                std::cout << "Erro: Já existe um servidor com esse nome." << std::endl;
+                return;
+            }
+        }
+
+        Servidor novoServidor(usuarioLogado->getId(), nome, "", "");
+        servidores.push_back(novoServidor);
+        std::cout << "Servidor criado" << std::endl;    
+    }
+
+    void mudarDescricaoServidor(const std::string& nome, const std::string& descricao)
+    {
+        if (usuarioLogado == nullptr) {
+            std::cout << "Erro: É necessário estar logado para mudar a descrição de um servidor." << std::endl;
+            return;
+        }
+
+        for (auto& servidor : servidores) {
+            if (servidor.getNome() == nome) {
+                if (servidor.getUsuarioDonoId() == usuarioLogado->getId()) {
+                    servidor.setDescricao(descricao);
+                    std::cout << "Descrição do servidor '" << nome << "' modificada!" << std::endl;
+                } else {
+                    std::cout << "Erro: Você não pode alterar a descrição de um servidor que não foi criado por você." << std::endl;
+                }
+                return;
+            }
+        }
+
+        std::cout << "Erro: Servidor '" << nome << "' não existe." << std::endl;
+    }
+
+    void mudarCodigoConviteServidor(const std::string& nome, const std::string& codigoConvite = "")
+    {
+        if (usuarioLogado == nullptr) {
+            std::cout << "Erro: É necessário estar logado para mudar o código de convite de um servidor." << std::endl;
+            return;
+        }
+
+        for (auto& servidor : servidores) {
+            if (servidor.getNome() == nome) {
+                if (servidor.getUsuarioDonoId() == usuarioLogado->getId()) {
+                    servidor.setCodigoConvite(codigoConvite);
+                    if (codigoConvite.empty()) {
+                        std::cout << "Código de convite do servidor '" << nome << "' removido!" << std::endl;
+                    } else {
+                        std::cout << "Código de convite do servidor '" << nome << "' modificado!" << std::endl;
+                    }
+                } else {
+                    std::cout << "Erro: Você não pode alterar o código de convite de um servidor que não foi criado por você." << std::endl;
+                }
+                return;
+            }
+        }
+
+        std::cout << "Erro: Servidor '" << nome << "' não existe." << std::endl;
+    }
+
+    void listarServidores()
+    {
+        for (const auto& servidor : servidores) {
+            std::cout << servidor.getNome() << std::endl;
         }
     }
-
-    void removeServer(int serverId) {
-        auto it = std::find_if(servers.begin(), servers.end(), [&serverId](const Server& server) {
-            return server.getId() == serverId;
-        });
-
-        if (it != servers.end()) {
-            servers.erase(it);
-            std::cout << "Server removed." << std::endl;
-        } else {
-            std::cout << "Server not found." << std::endl;
+    
+    void removerServidor(const std::string& nome)
+    {
+        if (usuarioLogado == nullptr) {
+            std::cout << "Erro: É necessário estar logado para remover um servidor." << std::endl;
+            return;
         }
-    }
 
-    void enterServer(int serverId) {
-        auto it = std::find_if(servers.begin(), servers.end(), [&serverId](const Server& server) {
-            return server.getId() == serverId;
-        });
-
-        if (it != servers.end()) {
-            viewedServer = &(*it);
-            std::cout << "Entered server: " << viewedServer->getName() << std::endl;
-        } else {
-            std::cout << "Server not found." << std::endl;
+        for (auto it = servidores.begin(); it != servidores.end(); ++it) {
+            if (it->getNome() == nome) {
+                if (it->getUsuarioDonoId() == usuarioLogado->getId()) {
+                    servidores.erase(it);
+                    std::cout << "Servidor '" << nome << "' removido" << std::endl;
+                } else {
+                    std::cout << "Erro: Você não pode remover um servidor que não foi criado por você." << std::endl;
+                }
+                return;
+            }
         }
+
+        std::cout << "Erro: Servidor '" << nome << "' não encontrado." << std::endl;
     }
 
-    void leaveServer() {
-        viewedServer = nullptr;
-        viewedChannel = nullptr;
-        std::cout << "Left the current server." << std::endl;
+    void entrarServidor(const std::string& nome, const std::string& codigoConvite = "")
+    {
+        if (usuarioLogado == nullptr) {
+            std::cout << "Erro: É necessário estar logado para entrar em um servidor." << std::endl;
+            return;
+        }
+
+        for (auto& servidor : servidores) {
+            if (servidor.getNome() == nome) {
+                if (servidor.getCodigoConvite().empty() || servidor.getUsuarioDonoId() == usuarioLogado->getId() || servidor.getCodigoConvite() == codigoConvite) {
+                    servidor.adicionarParticipante(usuarioLogado->getId());
+                    servidorAtual = &servidor;
+                    std::cout << "Entrou no servidor com sucesso" << std::endl;
+                } else {
+                    std::cout << "Erro: Servidor requer código de convite" << std::endl;
+                }
+                return;
+            }
+        }
+
+        std::cout << "Erro: Servidor '" << nome << "' não encontrado." << std::endl;
     }
 
-    void listParticipants() {
-        if (viewedServer != nullptr) {
-            std::cout << "Participants in the server:" << std::endl;
-            const std::vector<int>& participantIds = viewedServer->getParticipantIds();
-            
-            for (int participantId : participantIds) {
-                auto it = std::find_if(users.begin(), users.end(), [&participantId](const User& user) {
-                    return user.getId() == participantId;
-                });
+    void sairServidor()
+    {
+        if (usuarioLogado == nullptr) {
+            std::cout << "Erro: É necessário estar logado para sair de um servidor." << std::endl;
+            return;
+        }
 
-                if (it != users.end()) {
-                    std::cout << "Name: " << it->getName() << std::endl;
+        if (servidorAtual == nullptr) {
+            std::cout << "Erro: Você não está visualizando nenhum servidor." << std::endl;
+            return;
+        }
+
+        std::cout << "Saindo do servidor '" << servidorAtual->getNome() << "'" << std::endl;
+        servidorAtual = nullptr;
+    }
+
+    void listarParticipantes()
+    {
+        if (usuarioLogado == nullptr) {
+            std::cout << "Erro: É necessário estar logado para listar os participantes de um servidor." << std::endl;
+            return;
+        }
+
+        if (servidorAtual == nullptr) {
+            std::cout << "Erro: Você não está visualizando nenhum servidor." << std::endl;
+            return;
+        }
+
+        for (int id : servidorAtual->getParticipantesIDs()) {
+            for (const auto& usuario : usuarios) {
+                if (usuario.getId() == id) {
+                    std::cout << usuario.getNome() << std::endl;
+                    break;
                 }
             }
-        } else {
-            std::cout << "No server is currently viewed." << std::endl;
         }
     }
 
-    void addParticipant(int participantId) {
-        if (viewedServer != nullptr) {
-            viewedServer->addParticipant(participantId);
-            std::cout << "Participant added to the server." << std::endl;
-        } else {
-            std::cout << "No server is currently viewed." << std::endl;
+    void listarCanais()
+    {
+        if (usuarioLogado == nullptr) {
+            std::cout << "Erro: É necessário estar logado para listar os canais de um servidor." << std::endl;
+            return;
+        }
+
+        if (servidorAtual == nullptr) {
+            std::cout << "Erro: Você não está visualizando nenhum servidor." << std::endl;
+            return;
+        }
+
+        std::cout << "#canais de texto" << std::endl;
+        for (const auto& canal : servidorAtual->getCanais()) {
+            if (dynamic_cast<const CanalTexto*>(canal) != nullptr) {
+                std::cout << canal->getNome() << std::endl;
+            }
+        }
+
+        std::cout << "#canais de voz" << std::endl;
+        for (const auto& canal : servidorAtual->getCanais()) {
+            if (dynamic_cast<const CanalVoz*>(canal) != nullptr) {
+                std::cout << canal->getNome() << std::endl;
+            }
         }
     }
+
+    void criarCanal(const std::string& nome, const std::string& tipo)
+    {
+        if (usuarioLogado == nullptr) {
+            std::cout << "Erro: É necessário estar logado para criar um canal." << std::endl;
+            return;
+        }
+
+        if (servidorAtual == nullptr) {
+            std::cout << "Erro: Você não está visualizando nenhum servidor." << std::endl;
+            return;
+        }
+
+        for (const auto& canal : servidorAtual->getCanais()) {
+            if (canal->getNome() == nome && ((tipo == "texto" && dynamic_cast<const CanalTexto*>(canal) != nullptr) || (tipo == "voz" && dynamic_cast<const CanalVoz*>(canal) != nullptr))) {
+                std::cout << "Erro: Canal de " << tipo << " '" << nome << "' já existe!" << std::endl;
+                return;
+            }
+        }
+
+        if (tipo == "texto") {
+            CanalTexto* novoCanal = new CanalTexto(nome);
+            servidorAtual->adicionarCanal(novoCanal);
+            std::cout << "Canal de texto '" << nome << "' criado" << std::endl;
+        } else if (tipo == "voz") {
+            CanalVoz* novoCanal = new CanalVoz(nome);
+            servidorAtual->adicionarCanal(novoCanal);
+            std::cout << "Canal de voz '" << nome << "' criado" << std::endl;
+        } else {
+            std::cout << "Erro: Tipo de canal inválido. Os tipos válidos são 'texto' e 'voz'." << std::endl;
+        }
+    }
+
+    void entrarCanal(const std::string& nome)
+    {
+    if (usuarioLogado == nullptr) {
+        std::cout << "Erro: É necessário estar logado para entrar em um canal." << std::endl;
+        return;
+    }
+
+    if (servidorAtual == nullptr) {
+        std::cout << "Erro: Você não está visualizando nenhum servidor." << std::endl;
+        return;
+    }
+
+    for (auto& canal : servidorAtual->getCanais()) {
+        if (canal->getNome() == nome) {
+            canalAtual = canal;
+            std::cout << "Entrou no canal '" << nome << "'" << std::endl;
+            return;
+        }
+    }
+
+    std::cout << "Erro: Canal '" << nome << "' não existe." << std::endl;
+    }
+
+    void sairCanal() 
+    {
+        if (usuarioLogado == nullptr) {
+            std::cout << "Erro: É necessário estar logado para sair de um canal." << std::endl;
+            return;
+        }
+
+        if (servidorAtual == nullptr) {
+            std::cout << "Erro: Você não está visualizando nenhum servidor." << std::endl;
+            return;
+        }
+
+        if (canalAtual == nullptr) {
+            std::cout << "Erro: Você não está visualizando nenhum canal." << std::endl;
+            return;
+        }
+
+        std::cout << "Saindo do canal" << std::endl;
+        canalAtual = nullptr;
+    }
+
+
 };
 
-int main() {
-    System system;
+int main()
+{
+    Sistema system;
     std::string command;
 
     std::cout << "Concordo - Sistema de Mensagens" << std::endl;
 
-    while (true) {
+
+    while(true)
+    {
         std::cout << "\nDigite um comando (ou 'help' para ver a lista de comandos): ";
         std::getline(std::cin, command);
 
-        std::stringstream ss(command);
-        std::string cmd;
-        ss >> cmd;
-
+        size_t pos = command.find(' ');
+        std::string cmd = command.substr(0, pos);
+                                                        //não logado
         if (cmd == "quit") {
             system.quit();
             break;
@@ -344,8 +532,7 @@ int main() {
             std::cout << "Email, senha e nome (separados por espaço): ";
             std::cin >> email >> password >> name;
             std::cin.ignore(); // Ignorar o caractere de nova linha residual
-            //std::getline(std::cin, name);
-            system.createUser(name, email, password);
+            system.criarUsuario(name, email, password);
         }
         else if (cmd == "login") {
             std::string email, password;
@@ -353,76 +540,83 @@ int main() {
             std::cin >> email >> password;
             system.login(email, password);
             std::cin.ignore(); // Ignorar o caractere de nova linha residual
-        }
+        }                                                //não logado 
         else if (cmd == "disconnect") {
-            system.disconnect();
+            system.desconectar();
         }
         else if (cmd == "create-server") {
-            if (system.isLoggedIn()) {
-                std::string name, description;
-                std::cout << "Nome do servidor: ";
-                std::cin >> name;
-                std::cout << "Descrição do servidor: ";
-                std::cin >> description;
-                system.createServer(name, description);
-            } else {
-                std::cout << "Você precisa estar logado para criar um servidor." << std::endl;
-            }
-            std::cin.ignore();
+            std::string serverName = command.substr(pos + 1);
+            system.criarServidor(serverName);
         }
-        else if (cmd == "set-server-desc") {
-            std::string description;
-            std::cout << "Nova descrição: ";
-            std::cin >> description;
-            system.setServerDescription(description);
+        else if (cmd == "set-server-desc"){
+            size_t pos2 = command.find(' ', pos + 1);
+            std::string serverName = command.substr(pos + 1, pos2 - pos - 1);
+            std::string description = command.substr(pos2 + 1);
+            system.mudarDescricaoServidor(serverName, description);
         }
-        else if (cmd == "set-server-invitecode") {
-            std::string inviteCode;
-            std::cout << "Novo código de convite: ";
-            std::cin >> inviteCode;
-            system.setServerInviteCode(inviteCode);
+        else if (cmd == "set-server-invite-code") {
+            size_t pos2 = command.find(' ', pos + 1);
+            std::string serverName = command.substr(pos + 1, pos2 - pos - 1);
+            std::string inviteCode = command.substr(pos2 + 1);
+            system.mudarCodigoConviteServidor(serverName, inviteCode);
         }
         else if (cmd == "list-servers") {
-            system.listServers();
+            system.listarServidores();
         }
         else if (cmd == "remove-server") {
-            int serverId;
-            std::cout << "ID do servidor: ";
-            std::cin >> serverId;
-            system.removeServer(serverId);
+            std::string serverName = command.substr(pos + 1);
+            system.removerServidor(serverName);
         }
         else if (cmd == "enter-server") {
-            int serverId;
-            std::cout << "ID do servidor: ";
-            std::cin >> serverId;
-            system.enterServer(serverId);
-            std::cin.ignore();
+            size_t pos2 = command.find(' ', pos + 1);
+            std::string serverName = command.substr(pos + 1, pos2 - pos - 1);
+            std::string inviteCode = command.substr(pos2 + 1);
+            system.entrarServidor(serverName, inviteCode);
         }
         else if (cmd == "leave-server") {
-            system.leaveServer();
+            system.sairServidor();
         }
         else if (cmd == "list-participants") {
-            system.listParticipants();
+            system.listarParticipantes();
+        }
+        else if (cmd == "list-channels") {
+            system.listarCanais();
+        }
+        else if (cmd == "create-channel") {
+            size_t pos2 = command.find(' ', pos + 1);
+            std::string channelName = command.substr(pos + 1, pos2 - pos - 1);
+            std::string channelType = command.substr(pos2 + 1);
+            system.criarCanal(channelName, channelType);
+        }
+        else if (cmd == "enter-channel") {
+            std::string channelName = command.substr(pos + 1);
+            system.entrarCanal(channelName);
+        }
+        else if (cmd == "leave-channel") {
+            system.sairCanal();
         }
         else if (cmd == "help") {
-            std::cout << "Lista de comandos disponíveis:" << std::endl;
-            std::cout << "quit - Sair do sistema" << std::endl;
-            std::cout << "create-user - Criar um novo usuário" << std::endl;
-            std::cout << "login - Fazer login em um usuário" << std::endl;
-            std::cout << "disconnect - Desconectar do atual usuário" << std::endl;
-            std::cout << "create-server - Criar um novo servidor" << std::endl;
-            std::cout << "set-server-desc - Definir a descrição de um servidor" << std::endl;
-            std::cout << "set-server-invitecode - Definir o código de convite de um servidor" << std::endl;
-            std::cout << "list-servers - Listar os servidores disponíveis" << std::endl;
-            std::cout << "remove-server - Remover um servidor" << std::endl;
-            std::cout << "enter-server - Entrar em um servidor" << std::endl;
+            std::cout << "Comandos disponíveis:" << std::endl;
+            std::cout << "quit - Sair do programa" << std::endl;
+            std::cout << "create-user [email] [senha] [nome] - Criar um novo usuário" << std::endl;
+            std::cout << "login [email] [senha] - Fazer login com um usuário existente" << std::endl;
+            std::cout << "disconnect - Desconectar do usuário atual" << std::endl;
+            std::cout << "create-server [nome] - Criar um novo servidor" << std::endl;
+            std::cout << "set-server-desc [nome] [descrição] - Definir a descrição de um servidor" << std::endl;
+            std::cout << "set-server-invite-code [nome] [código] - Definir o código de convite de um servidor" << std::endl;
+            std::cout << "list-servers - Listar todos os servidores" << std::endl;
+            std::cout << "remove-server [nome] - Remover um servidor" << std::endl;
+            std::cout << "enter-server [nome] - Entrar em um servidor" << std::endl;
             std::cout << "leave-server - Sair do servidor atual" << std::endl;
             std::cout << "list-participants - Listar os participantes do servidor atual" << std::endl;
+            std::cout << "list-channels - Listar os canais do servidor atual" << std::endl;
+            std::cout << "create-channel [nome] [tipo] - Criar um canal no servidor atual" << std::endl;
+            std::cout << "enter-channel [nome] - Entrar em um canal do servidor atual" << std::endl;
+            std::cout << "leave-channel - Sair do canal atual" << std::endl;
         }
         else {
             std::cout << "Comando inválido. Digite 'help' para ver a lista de comandos disponíveis." << std::endl;
         }
     }
-
     return 0;
 }
