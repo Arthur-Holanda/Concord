@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include <sstream>
-#include "Sistema.h"
+#include "../include/Sistema.h"
 
 int main()
 {

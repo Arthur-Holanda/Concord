@@ -1,4 +1,4 @@
-#include "Usuario.h"
+#include "../include/Usuario.h"
 
 // Construtor padrão
 Usuario::Usuario() {}

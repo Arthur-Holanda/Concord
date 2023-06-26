@@ -1,4 +1,4 @@
-#include "Mensagem.h"
+#include "../include/Mensagem.h"
 
 // Construtor padrão
 Mensagem::Mensagem() {}

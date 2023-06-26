@@ -1,4 +1,4 @@
-#include "Servidor.h"
+#include "../include/Servidor.h"
 
 // Construtor com parâmetros
 Servidor::Servidor(int usuarioDonoId, const std::string& nome, const std::string& descricao, const std::string& codigoConvite)

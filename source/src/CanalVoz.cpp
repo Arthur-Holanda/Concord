@@ -1,4 +1,4 @@
-#include "CanalVoz.h"
+#include "../include/CanalVoz.h"
 
 // Construtor com parâmetros
 CanalVoz::CanalVoz(const std::string& nome) : Canal(nome) {}

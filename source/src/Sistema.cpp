@@ -1,4 +1,4 @@
-#include "Sistema.h"
+#include "../include/Sistema.h"
 #include <sstream>
 
     Sistema::Sistema() : usuarioLogado(nullptr), servidorAtual(nullptr), canalAtual(nullptr) {}
@@ -31,26 +31,27 @@ bool Sistema::lerComando() {
         std::string email;
         std::string senha;
         std::string nome;
+        std::string lixo;
         std::istringstream iss(args);
         std::getline(iss, email, ' ');
         std::getline(iss, senha, ' ');
         std::getline(iss, nome, ' ');
-        criarUsuario(nome, email, senha);
-        std::getline(iss, email, ' ');
-        if(!(email.empty())){
+        criarUsuario(email, senha, nome);
+        std::getline(iss, lixo, ' ');
+        if(!(lixo.empty())){
             std::cout << "Aviso: Caracteres extras desconsiderados" << std::endl;
         }
     }
     else if (command == "login") {
         std::string email;
         std::string senha;
-
+        std::string lixo;
         std::istringstream iss(args);
         std::getline(iss, email, ' ');
         std::getline(iss, senha, ' ');
         login(email, senha);
-        std::getline(iss, email, ' ');
-        if(!(email.empty())){
+        std::getline(iss, lixo, ' ');
+        if(!(lixo.empty())){
             std::cout << "Aviso: Caracteres extras desconsiderados" << std::endl;
         }
     }                                                //não logado 
@@ -59,39 +60,39 @@ bool Sistema::lerComando() {
     }
     else if (command == "create-server") {
         std::string serverName;
-
+        std::string lixo;
         std::istringstream iss(args);
         std::getline(iss, serverName, ' ');
         criarServidor(serverName);
-        std::getline(iss, serverName, ' ');
-        if(!(serverName.empty())){
+        std::getline(iss, lixo, ' ');
+        if(!(lixo.empty())){
             std::cout << "Aviso: Caracteres extras desconsiderados" << std::endl;
         }
     }
     else if (command == "set-server-desc"){
         std::string serverName;
         std::string description;
-
+        std::string lixo;
         std::istringstream iss(args);
         std::getline(iss, serverName, ' ');
         iss.ignore();
         std::getline(iss, description, '"');
         mudarDescricaoServidor(serverName, description);
-        std::getline(iss, serverName, ' ');
-        if(!(serverName.empty())){
+        std::getline(iss, lixo, ' ');
+        if(!(lixo.empty())){
             std::cout << "Aviso: Caracteres extras desconsiderados" << std::endl;
         }
     }
     else if (command == "set-server-invite-code") {
         std::string serverName;
         std::string inviteCode;
-
+        std::string lixo;
         std::istringstream iss(args);
         std::getline(iss, serverName, ' ');
         std::getline(iss, inviteCode, ' ');
         mudarCodigoConviteServidor(serverName, inviteCode);
-        std::getline(iss, serverName, ' ');
-        if(!(serverName.empty())){
+        std::getline(iss, lixo, ' ');
+        if(!(lixo.empty())){
             std::cout << "Aviso: Caracteres extras desconsiderados" << std::endl;
         }
     }
@@ -100,25 +101,25 @@ bool Sistema::lerComando() {
     }
     else if (command == "remove-server") {
         std::string serverName;
-
+        std::string lixo;
         std::istringstream iss(args);
         std::getline(iss, serverName, ' ');
         removerServidor(serverName);
-        std::getline(iss, serverName, ' ');
-        if(!(serverName.empty())){
+        std::getline(iss, lixo, ' ');
+        if(!(lixo.empty())){
             std::cout << "Aviso: Caracteres extras desconsiderados" << std::endl;
         }        
     }
     else if (command == "enter-server") {
         std::string serverName;
         std::string inviteCode;
-
+        std::string lixo;
         std::istringstream iss(args);
         std::getline(iss, serverName, ' ');
         std::getline(iss, inviteCode, ' ');
         entrarServidor(serverName, inviteCode);
-        std::getline(iss, serverName, ' ');
-        if(!(serverName.empty())){
+        std::getline(iss, lixo, ' ');
+        if(!(lixo.empty())){
             std::cout << "Aviso: Caracteres extras desconsiderados" << std::endl;
         }
     }
@@ -182,7 +183,7 @@ bool Sistema::lerComando() {
 
     // Comando para criar um usuário
     void Sistema::criarUsuario(const std::string& email, const std::string& senha, const std::string& nome)
-    {
+    {      
         if (email.empty() || senha.empty() || nome.empty()) {
             std::cout << "Erro: informação insuficiente." << std::endl;
             return;

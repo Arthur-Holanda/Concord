@@ -1,4 +1,4 @@
-#include "Canal.h"
+#include "../include/Canal.h"
 
 Canal::Canal(const std::string& nome) : nome(nome) {}
 
