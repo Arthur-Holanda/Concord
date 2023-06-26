@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 #include "Canal.h"
+#include "CanalTexto.h"
+#include "CanalVoz.h"
 
 class Servidor {
 private:

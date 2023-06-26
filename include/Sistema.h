@@ -4,18 +4,10 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include "Servidor.h"
+#include "Usuario.h"
+#include "Mensagem.h"
 
-class Usuario {
-    // defina a classe Usuario aqui
-};
-
-class Servidor {
-    // defina a classe Servidor aqui
-};
-
-class Canal {
-    // defina a classe Canal aqui
-};
 
 class Sistema {
 private:

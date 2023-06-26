@@ -1,0 +1,3 @@
+/home/holanda/Documentos/LP1/Concord/build/CMakeFiles/edit_cache.dir
+/home/holanda/Documentos/LP1/Concord/build/CMakeFiles/rebuild_cache.dir
+/home/holanda/Documentos/LP1/Concord/build/CMakeFiles/Concordo.dir

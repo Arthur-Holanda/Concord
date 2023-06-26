@@ -12,7 +12,7 @@ public:
     // Construtor com parâmetros
     CanalVoz(const std::string& nome);
     void setUltimaMensagem(const Mensagem& mensagem);
-    Mensagem CanalVoz::getUltimaMensagem() const;
+    Mensagem getUltimaMensagem() const;
 };
 
 #endif

@@ -11,6 +11,9 @@ Project making a Discord app using C++ at the college subject "Programing Langua
 O código em C++ apresenta uma implementação básica de um sistema de chat em um servidor. Ele é dividido em várias classes, cada uma responsável por um aspecto específico do sistema.
 
 ## Comandos
+
+Caso precise de ajuda quando executando, você pode usar o comando `help` que fornece a lista de comandos inteira.
+
 ### Deslogados
 
 Esses comandos podem ser executados caso o usuário não esteja logado.
