@@ -234,7 +234,7 @@ bool Sistema::lerComando() {
             return;
         }
 
-        std::cout << "Desconectando usuário " << usuarioLogado->getEmail() << std::endl;
+        std::cout << "Desconectando usuário " << usuarioLogado->getNome() << std::endl;
         usuarioLogado = nullptr;
     }
 
@@ -351,7 +351,7 @@ bool Sistema::lerComando() {
                 if (servidor.getCodigoConvite().empty() || servidor.getUsuarioDonoId() == usuarioLogado->getId() || servidor.getCodigoConvite() == codigoConvite) {
                     servidor.adicionarParticipante(usuarioLogado->getId());
                     servidorAtual = &servidor;
-                    std::cout << "Entrou no servidor com sucesso" << std::endl;
+                    std::cout << "Entrou no servidor " << nome <<  " com sucesso" << std::endl;
                 } else {
                     std::cout << "Erro: Servidor requer código de convite" << std::endl;
                 }

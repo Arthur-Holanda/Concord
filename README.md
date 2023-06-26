@@ -26,6 +26,7 @@ Para executar os testes, você tem duas opções:
 1. Acesse o diretório `build` com o comando cd build e execute os testes com `./Concord`.
 2. Execute os testes diretamente com o comando `./build/Concord` a partir da pasta raiz do projeto.
 
+O diretorio contem um script de teste, caso queira o testar, use `./build/Concord < script.txt` na pasta raiz do projeto.
 ## Comandos
 
 Caso precise de ajuda quando executando, você pode usar o comando `help` que fornece a lista de comandos inteira.

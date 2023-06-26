@@ -1,0 +1,26 @@
+create-user email1 password1 name1
+create-user email2 password2 name2
+create-user email3 password3 name3
+login email1 password1
+create-server server1
+set-server-desc server1 "server1 description"
+set-server-invite-code server1 invitecode
+enter-server server1
+disconnect
+login email2 password2
+list-servers
+create-server server2
+enter-server server1 invitecode
+list-participants
+disconnect
+login email3 password3
+list-servers
+enter-server server1
+enter-server server2
+list-participants
+disconnect
+login email1 password1
+remove-server server1
+list-servers
+disconnect
+quit
