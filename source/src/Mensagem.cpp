@@ -1,3 +1,7 @@
+/**
+ * @file Mensagem.cpp
+ * @brief Implementação da classe Mensagem.
+ */
 #include "../include/Mensagem.h"
 
 // Construtor padrão

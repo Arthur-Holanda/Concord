@@ -1,3 +1,7 @@
+/**
+ * @file CanalVoz.cpp
+ * @brief Implementação da classe CanalVoz.
+ */
 #include "../include/CanalVoz.h"
 
 // Construtor com parâmetros

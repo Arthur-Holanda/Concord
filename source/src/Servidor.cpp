@@ -1,3 +1,7 @@
+/**
+ * @file Servidor.cpp
+ * @brief Implementação da classe Servidor.
+ */
 #include "../include/Servidor.h"
 
 // Construtor com parâmetros

@@ -1,0 +1,85 @@
+Project making a Discord app using C++ at the college subject \char`\"{}\+Programing Language\char`\"{}.\hypertarget{md_README_autotoc_md1}{}\doxysection{Identificação do estudante}\label{md_README_autotoc_md1}
+
+\begin{DoxyItemize}
+\item Nome\+: Arthur Ferreira de Holanda
+\item Matrícula\+: 20220039547
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md2}{}\doxysection{Descrição do programa}\label{md_README_autotoc_md2}
+O código em C++ apresenta uma implementação básica de um sistema de chat em um servidor. Ele é dividido em várias classes, cada uma responsável por um aspecto específico do sistema.\hypertarget{md_README_autotoc_md3}{}\doxysection{Compilando}\label{md_README_autotoc_md3}
+Este projeto pode ser compilado com o CMake.
+
+Para compilar este projeto com o CMake, siga estas etapas (a partir da pasta raiz)\+:
+
+
+\begin{DoxyEnumerate}
+\item {\ttfamily cmake -\/S source -\/B build}\+: solicita ao CMake que crie o diretório de compilação e gere o Makefile Unix com base no script encontrado em source/\+CMake\+Lists.\+txt, no nível atual.
+\item {\ttfamily cmake -\/-\/build build}\+: inicia o processo de compilação que cria os dois alvos (executáveis) dentro de build.
+\end{DoxyEnumerate}
+
+O executável é criado dentro do diretório {\ttfamily build} que caso não tenha sido criada antes, é criada no momento do comando {\ttfamily cmake -\/S source -\/B build}.
+
+Para executar os testes, você tem duas opções\+:
+
+
+\begin{DoxyEnumerate}
+\item Acesse o diretório {\ttfamily build} com o comando cd build e execute os testes com {\ttfamily ./\+Concord}.
+\item Execute os testes diretamente com o comando {\ttfamily ./build/\+Concord} a partir da pasta raiz do projeto.
+\end{DoxyEnumerate}\hypertarget{md_README_autotoc_md4}{}\doxysection{Comandos}\label{md_README_autotoc_md4}
+Caso precise de ajuda quando executando, você pode usar o comando {\ttfamily help} que fornece a lista de comandos inteira.\hypertarget{md_README_autotoc_md5}{}\doxysubsection{Deslogados}\label{md_README_autotoc_md5}
+Esses comandos podem ser executados caso o usuário não esteja logado.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily quit} sai do sistema.
+\item {\ttfamily create-\/user $<$email$>$ $<$senha$>$ $<$nome$>$} cria um usuário. Apenas o nome pode ter espaços. Dois usuários não podem ter o mesmo email.
+\item {\ttfamily login $<$email$>$ $<$senha$>$} faz login em um usuário já criado.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md6}{}\doxysubsection{Logados}\label{md_README_autotoc_md6}
+Esses comandos só podem ser executados caso o usuário esteja logado.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily disconnect} desconecta o usuário logado.
+\item {\ttfamily create-\/server $<$nome$>$} cria um servidor.
+\item {\ttfamily list-\/servers} lista todos os servidores criados.
+\item {\ttfamily enter-\/server $<$nome$>$ \mbox{[}codigo\mbox{]}} entra no servidor especificado. O código só é necessário caso o servidor tenha um. O dono do servidor pode entrar sem utilizar o código.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md7}{}\doxysubsection{Dono do servidor}\label{md_README_autotoc_md7}
+Esses comandos só podem ser executados caso você seja o dono do servidor.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily set-\/server-\/desc $<$nome$>$ \char`\"{}$<$descrição$>$\char`\"{}} altera a descrição do servidor.
+\item {\ttfamily set-\/server-\/invite-\/code $<$nome$>$ \mbox{[}codigo\mbox{]}} altera o código de convite do servidor.
+\item {\ttfamily remove-\/server $<$nome$>$} remove o servidor.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md8}{}\doxysubsection{Dentro de um servidor}\label{md_README_autotoc_md8}
+Esses comandos só podem ser executados dentro de um servidor.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily leave-\/server} sai do servidor.
+\item {\ttfamily list-\/participants} lista os participantes do servidor.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md9}{}\doxysection{Compilação e execução}\label{md_README_autotoc_md9}
+
+\begin{DoxyEnumerate}
+\item Certifique-\/se de ter um compilador C++ instalado no seu sistema.
+\item Abra um terminal e navegue até o diretório onde o arquivo {\ttfamily nome-\/do-\/arquivo.\+cpp} está localizado.
+\item Compile o programa usando o seguinte comando\+: g++ -\/o nome-\/do-\/executavel nome-\/do-\/arquivo.\+cpp g++ \mbox{\hyperlink{main_8cpp}{main.\+cpp}} -\/o programa
+\end{DoxyEnumerate}
+
+Certifique-\/se de substituir {\ttfamily nome-\/do-\/executavel} pelo nome que você deseja dar ao arquivo executável e {\ttfamily nome-\/do-\/arquivo.\+cpp} pelo nome real do arquivo do programa.
+
+
+\begin{DoxyEnumerate}
+\item Após a compilação bem-\/sucedida, execute o programa com o seguinte comando\+: ./nome-\/do-\/executavel ./programa
+\end{DoxyEnumerate}\hypertarget{md_README_autotoc_md10}{}\doxysection{Roteiro de entradas e comandos}\label{md_README_autotoc_md10}
+Aqui está um exemplo de roteiro para executar o programa e destacar suas funcionalidades\+:
+
+
+\begin{DoxyEnumerate}
+\item Execute o programa seguindo as instruções acima.
+\item Na tela do programa, você será solicitado a fornecer \mbox{[}informações ou dados específicos que o programa requer\mbox{]}.
+\item Digite as informações solicitadas e pressione Enter.
+\item O programa irá \mbox{[}descreva o que o programa fará com base nas informações fornecidas\mbox{]}.
+\item Observe os resultados na tela e siga as instruções adicionais, se houver.
+\item Repita os passos 2 a 5 para explorar outras funcionalidades do programa.
+\item Para encerrar o programa, siga as instruções fornecidas ou pressione Ctrl + C no terminal.
+\end{DoxyEnumerate}\hypertarget{md_README_autotoc_md11}{}\doxysection{Notas adicionais}\label{md_README_autotoc_md11}
+\mbox{[}Adicione qualquer informação adicional relevante sobre o programa, como requisitos de sistema, bibliotecas externas usadas, etc.\mbox{]} 

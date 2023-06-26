@@ -1,0 +1,353 @@
+\hypertarget{classSistema}{}\doxysection{Sistema Class Reference}
+\label{classSistema}\index{Sistema@{Sistema}}
+
+
+Classe que representa o sistema de mensagens.  
+
+
+
+
+{\ttfamily \#include $<$Sistema.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSistema_a815b07845ef6b03247b239333fe75e28}{Sistema}} ()
+\begin{DoxyCompactList}\small\item\em Construtor da classe \mbox{\hyperlink{classSistema}{Sistema}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_a5afc2279acc800dc7386e74e75477a33}{iniciar}} ()
+\begin{DoxyCompactList}\small\item\em Inicia o sistema. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSistema_abf27cbfaa2d2ae35a750955cdc8dd175}{ler\+Comando}} ()
+\begin{DoxyCompactList}\small\item\em Lê um comando do usuário. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_af47c09fafda461e116b3bdb9dff4cbfe}{criar\+Usuario}} (const std\+::string \&email, const std\+::string \&senha, const std\+::string \&nome)
+\begin{DoxyCompactList}\small\item\em Cria um novo usuário. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_aa262a4a770b2a2cea4b2c5937f87de82}{login}} (const std\+::string \&email, const std\+::string \&senha)
+\begin{DoxyCompactList}\small\item\em Realiza o login do usuário. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_a542eed8a4e8eeb5c80321e4e3ec56ce4}{desconectar}} ()
+\begin{DoxyCompactList}\small\item\em Desconecta o usuário logado. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_ae470aff6059dab31568c0ed5e9061fee}{criar\+Servidor}} (const std\+::string \&nome)
+\begin{DoxyCompactList}\small\item\em Cria um novo servidor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_ace3ef2d8898a8be1033334e10568d3e1}{mudar\+Descricao\+Servidor}} (const std\+::string \&nome, const std\+::string \&descricao)
+\begin{DoxyCompactList}\small\item\em Altera a descrição de um servidor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_ac7c726e4039bb644f7e59ddc1770e25e}{mudar\+Codigo\+Convite\+Servidor}} (const std\+::string \&nome, const std\+::string \&codigo\+Convite=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Altera o código de convite de um servidor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_a658148953b6f87feee12378d112281e7}{listar\+Servidores}} ()
+\begin{DoxyCompactList}\small\item\em Lista todos os servidores disponíveis. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_a527fdd658e704662c4ed5acae780437a}{remover\+Servidor}} (const std\+::string \&nome)
+\begin{DoxyCompactList}\small\item\em Remove um servidor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_a2461f90fb7f648bb4cf369a821b277ad}{entrar\+Servidor}} (const std\+::string \&nome, const std\+::string \&codigo\+Convite=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Entra em um servidor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_a7d28ff1a20471e76729dd1e12e6fc2f5}{sair\+Servidor}} ()
+\begin{DoxyCompactList}\small\item\em Sai do servidor atual. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_a6101584f6f5ef9a8724c2c49a59a3800}{listar\+Participantes}} ()
+\begin{DoxyCompactList}\small\item\em Lista os participantes do servidor atual. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_a3a96e7b541c9a87feac1ff51da44eb08}{listar\+Canais}} ()
+\begin{DoxyCompactList}\small\item\em Lista os canais do servidor atual. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_a9aacc539bbaae173964175f3968a2851}{criar\+Canal}} (const std\+::string \&nome, const std\+::string \&tipo)
+\begin{DoxyCompactList}\small\item\em Cria um novo canal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_a1f28b08deea05c93dbaa333f0bd69d1b}{entrar\+Canal}} (const std\+::string \&nome)
+\begin{DoxyCompactList}\small\item\em Entra em um canal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_a8d3548d307127df93271c7f496190849}{sair\+Canal}} ()
+\begin{DoxyCompactList}\small\item\em Sai do canal atual. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classUsuario}{Usuario}} $>$ \mbox{\hyperlink{classSistema_a3cb541c9680f62350de9df45c0d3b608}{usuarios}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classServidor}{Servidor}} $>$ \mbox{\hyperlink{classSistema_ac043095da6d7366d07d53fd44e23ef7d}{servidores}}
+\item 
+\mbox{\hyperlink{classUsuario}{Usuario}} $\ast$ \mbox{\hyperlink{classSistema_a0f15d6135e68b65b06c709fd1fecb12f}{usuario\+Logado}}
+\item 
+\mbox{\hyperlink{classServidor}{Servidor}} $\ast$ \mbox{\hyperlink{classSistema_a3c1f5712be557d41ef56e9b931fbe866}{servidor\+Atual}}
+\item 
+\mbox{\hyperlink{classCanal}{Canal}} $\ast$ \mbox{\hyperlink{classSistema_a6581c562a7e2206e8e0cd8c5ee36b873}{canal\+Atual}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe que representa o sistema de mensagens. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSistema_a815b07845ef6b03247b239333fe75e28}\label{classSistema_a815b07845ef6b03247b239333fe75e28}} 
+\index{Sistema@{Sistema}!Sistema@{Sistema}}
+\index{Sistema@{Sistema}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{Sistema()}{Sistema()}}
+{\footnotesize\ttfamily Sistema\+::\+Sistema (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \mbox{\hyperlink{classSistema}{Sistema}}. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSistema_a9aacc539bbaae173964175f3968a2851}\label{classSistema_a9aacc539bbaae173964175f3968a2851}} 
+\index{Sistema@{Sistema}!criarCanal@{criarCanal}}
+\index{criarCanal@{criarCanal}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{criarCanal()}{criarCanal()}}
+{\footnotesize\ttfamily void Sistema\+::criar\+Canal (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nome,  }\item[{const std\+::string \&}]{tipo }\end{DoxyParamCaption})}
+
+
+
+Cria um novo canal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & O nome do canal. \\
+\hline
+{\em tipo} & O tipo do canal. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSistema_ae470aff6059dab31568c0ed5e9061fee}\label{classSistema_ae470aff6059dab31568c0ed5e9061fee}} 
+\index{Sistema@{Sistema}!criarServidor@{criarServidor}}
+\index{criarServidor@{criarServidor}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{criarServidor()}{criarServidor()}}
+{\footnotesize\ttfamily void Sistema\+::criar\+Servidor (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nome }\end{DoxyParamCaption})}
+
+
+
+Cria um novo servidor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & O nome do servidor. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSistema_af47c09fafda461e116b3bdb9dff4cbfe}\label{classSistema_af47c09fafda461e116b3bdb9dff4cbfe}} 
+\index{Sistema@{Sistema}!criarUsuario@{criarUsuario}}
+\index{criarUsuario@{criarUsuario}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{criarUsuario()}{criarUsuario()}}
+{\footnotesize\ttfamily void Sistema\+::criar\+Usuario (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{email,  }\item[{const std\+::string \&}]{senha,  }\item[{const std\+::string \&}]{nome }\end{DoxyParamCaption})}
+
+
+
+Cria um novo usuário. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & O email do usuário. \\
+\hline
+{\em senha} & A senha do usuário. \\
+\hline
+{\em nome} & O nome do usuário. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSistema_a542eed8a4e8eeb5c80321e4e3ec56ce4}\label{classSistema_a542eed8a4e8eeb5c80321e4e3ec56ce4}} 
+\index{Sistema@{Sistema}!desconectar@{desconectar}}
+\index{desconectar@{desconectar}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{desconectar()}{desconectar()}}
+{\footnotesize\ttfamily void Sistema\+::desconectar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Desconecta o usuário logado. 
+
+\mbox{\Hypertarget{classSistema_a1f28b08deea05c93dbaa333f0bd69d1b}\label{classSistema_a1f28b08deea05c93dbaa333f0bd69d1b}} 
+\index{Sistema@{Sistema}!entrarCanal@{entrarCanal}}
+\index{entrarCanal@{entrarCanal}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{entrarCanal()}{entrarCanal()}}
+{\footnotesize\ttfamily void Sistema\+::entrar\+Canal (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nome }\end{DoxyParamCaption})}
+
+
+
+Entra em um canal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & O nome do canal a ser entrado. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSistema_a2461f90fb7f648bb4cf369a821b277ad}\label{classSistema_a2461f90fb7f648bb4cf369a821b277ad}} 
+\index{Sistema@{Sistema}!entrarServidor@{entrarServidor}}
+\index{entrarServidor@{entrarServidor}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{entrarServidor()}{entrarServidor()}}
+{\footnotesize\ttfamily void Sistema\+::entrar\+Servidor (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nome,  }\item[{const std\+::string \&}]{codigo\+Convite = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Entra em um servidor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & O nome do servidor a ser entrado. \\
+\hline
+{\em codigo\+Convite} & O código de convite do servidor (opcional). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSistema_a5afc2279acc800dc7386e74e75477a33}\label{classSistema_a5afc2279acc800dc7386e74e75477a33}} 
+\index{Sistema@{Sistema}!iniciar@{iniciar}}
+\index{iniciar@{iniciar}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{iniciar()}{iniciar()}}
+{\footnotesize\ttfamily void Sistema\+::iniciar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Inicia o sistema. 
+
+\mbox{\Hypertarget{classSistema_abf27cbfaa2d2ae35a750955cdc8dd175}\label{classSistema_abf27cbfaa2d2ae35a750955cdc8dd175}} 
+\index{Sistema@{Sistema}!lerComando@{lerComando}}
+\index{lerComando@{lerComando}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{lerComando()}{lerComando()}}
+{\footnotesize\ttfamily bool Sistema\+::ler\+Comando (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lê um comando do usuário. 
+
+\begin{DoxyReturn}{Returns}
+True se o comando foi lido com sucesso, False caso contrário. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSistema_a3a96e7b541c9a87feac1ff51da44eb08}\label{classSistema_a3a96e7b541c9a87feac1ff51da44eb08}} 
+\index{Sistema@{Sistema}!listarCanais@{listarCanais}}
+\index{listarCanais@{listarCanais}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{listarCanais()}{listarCanais()}}
+{\footnotesize\ttfamily void Sistema\+::listar\+Canais (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lista os canais do servidor atual. 
+
+\mbox{\Hypertarget{classSistema_a6101584f6f5ef9a8724c2c49a59a3800}\label{classSistema_a6101584f6f5ef9a8724c2c49a59a3800}} 
+\index{Sistema@{Sistema}!listarParticipantes@{listarParticipantes}}
+\index{listarParticipantes@{listarParticipantes}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{listarParticipantes()}{listarParticipantes()}}
+{\footnotesize\ttfamily void Sistema\+::listar\+Participantes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lista os participantes do servidor atual. 
+
+\mbox{\Hypertarget{classSistema_a658148953b6f87feee12378d112281e7}\label{classSistema_a658148953b6f87feee12378d112281e7}} 
+\index{Sistema@{Sistema}!listarServidores@{listarServidores}}
+\index{listarServidores@{listarServidores}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{listarServidores()}{listarServidores()}}
+{\footnotesize\ttfamily void Sistema\+::listar\+Servidores (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lista todos os servidores disponíveis. 
+
+\mbox{\Hypertarget{classSistema_aa262a4a770b2a2cea4b2c5937f87de82}\label{classSistema_aa262a4a770b2a2cea4b2c5937f87de82}} 
+\index{Sistema@{Sistema}!login@{login}}
+\index{login@{login}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily void Sistema\+::login (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{email,  }\item[{const std\+::string \&}]{senha }\end{DoxyParamCaption})}
+
+
+
+Realiza o login do usuário. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & O email do usuário. \\
+\hline
+{\em senha} & A senha do usuário. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSistema_ac7c726e4039bb644f7e59ddc1770e25e}\label{classSistema_ac7c726e4039bb644f7e59ddc1770e25e}} 
+\index{Sistema@{Sistema}!mudarCodigoConviteServidor@{mudarCodigoConviteServidor}}
+\index{mudarCodigoConviteServidor@{mudarCodigoConviteServidor}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{mudarCodigoConviteServidor()}{mudarCodigoConviteServidor()}}
+{\footnotesize\ttfamily void Sistema\+::mudar\+Codigo\+Convite\+Servidor (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nome,  }\item[{const std\+::string \&}]{codigo\+Convite = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Altera o código de convite de um servidor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & O nome do servidor. \\
+\hline
+{\em codigo\+Convite} & O novo código de convite do servidor. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSistema_ace3ef2d8898a8be1033334e10568d3e1}\label{classSistema_ace3ef2d8898a8be1033334e10568d3e1}} 
+\index{Sistema@{Sistema}!mudarDescricaoServidor@{mudarDescricaoServidor}}
+\index{mudarDescricaoServidor@{mudarDescricaoServidor}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{mudarDescricaoServidor()}{mudarDescricaoServidor()}}
+{\footnotesize\ttfamily void Sistema\+::mudar\+Descricao\+Servidor (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nome,  }\item[{const std\+::string \&}]{descricao }\end{DoxyParamCaption})}
+
+
+
+Altera a descrição de um servidor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & O nome do servidor. \\
+\hline
+{\em descricao} & A nova descrição do servidor. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSistema_a527fdd658e704662c4ed5acae780437a}\label{classSistema_a527fdd658e704662c4ed5acae780437a}} 
+\index{Sistema@{Sistema}!removerServidor@{removerServidor}}
+\index{removerServidor@{removerServidor}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{removerServidor()}{removerServidor()}}
+{\footnotesize\ttfamily void Sistema\+::remover\+Servidor (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nome }\end{DoxyParamCaption})}
+
+
+
+Remove um servidor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & O nome do servidor a ser removido. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSistema_a8d3548d307127df93271c7f496190849}\label{classSistema_a8d3548d307127df93271c7f496190849}} 
+\index{Sistema@{Sistema}!sairCanal@{sairCanal}}
+\index{sairCanal@{sairCanal}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{sairCanal()}{sairCanal()}}
+{\footnotesize\ttfamily void Sistema\+::sair\+Canal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sai do canal atual. 
+
+\mbox{\Hypertarget{classSistema_a7d28ff1a20471e76729dd1e12e6fc2f5}\label{classSistema_a7d28ff1a20471e76729dd1e12e6fc2f5}} 
+\index{Sistema@{Sistema}!sairServidor@{sairServidor}}
+\index{sairServidor@{sairServidor}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{sairServidor()}{sairServidor()}}
+{\footnotesize\ttfamily void Sistema\+::sair\+Servidor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sai do servidor atual. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSistema_a6581c562a7e2206e8e0cd8c5ee36b873}\label{classSistema_a6581c562a7e2206e8e0cd8c5ee36b873}} 
+\index{Sistema@{Sistema}!canalAtual@{canalAtual}}
+\index{canalAtual@{canalAtual}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{canalAtual}{canalAtual}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCanal}{Canal}}$\ast$ Sistema\+::canal\+Atual\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{classCanal}{Canal}} atualmente selecionado pelo usuário. \mbox{\Hypertarget{classSistema_a3c1f5712be557d41ef56e9b931fbe866}\label{classSistema_a3c1f5712be557d41ef56e9b931fbe866}} 
+\index{Sistema@{Sistema}!servidorAtual@{servidorAtual}}
+\index{servidorAtual@{servidorAtual}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{servidorAtual}{servidorAtual}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classServidor}{Servidor}}$\ast$ Sistema\+::servidor\+Atual\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{classServidor}{Servidor}} atualmente selecionado pelo usuário. \mbox{\Hypertarget{classSistema_ac043095da6d7366d07d53fd44e23ef7d}\label{classSistema_ac043095da6d7366d07d53fd44e23ef7d}} 
+\index{Sistema@{Sistema}!servidores@{servidores}}
+\index{servidores@{servidores}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{servidores}{servidores}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classServidor}{Servidor}}$>$ Sistema\+::servidores\hspace{0.3cm}{\ttfamily [private]}}
+
+Vetor de servidores disponíveis no sistema. \mbox{\Hypertarget{classSistema_a0f15d6135e68b65b06c709fd1fecb12f}\label{classSistema_a0f15d6135e68b65b06c709fd1fecb12f}} 
+\index{Sistema@{Sistema}!usuarioLogado@{usuarioLogado}}
+\index{usuarioLogado@{usuarioLogado}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{usuarioLogado}{usuarioLogado}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUsuario}{Usuario}}$\ast$ Sistema\+::usuario\+Logado\hspace{0.3cm}{\ttfamily [private]}}
+
+Usuário logado no sistema. \mbox{\Hypertarget{classSistema_a3cb541c9680f62350de9df45c0d3b608}\label{classSistema_a3cb541c9680f62350de9df45c0d3b608}} 
+\index{Sistema@{Sistema}!usuarios@{usuarios}}
+\index{usuarios@{usuarios}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{usuarios}{usuarios}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classUsuario}{Usuario}}$>$ Sistema\+::usuarios\hspace{0.3cm}{\ttfamily [private]}}
+
+Vetor de usuários cadastrados no sistema. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/include/\mbox{\hyperlink{Sistema_8h}{Sistema.\+h}}\item 
+source/src/\mbox{\hyperlink{Sistema_8cpp}{Sistema.\+cpp}}\end{DoxyCompactItemize}

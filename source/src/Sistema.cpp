@@ -1,3 +1,7 @@
+/**
+ * @file Sistema.cpp
+ * @brief Implementação da classe Sistema.
+ */
 #include "../include/Sistema.h"
 #include <sstream>
 
@@ -174,11 +178,6 @@ bool Sistema::lerComando() {
         std::cout << "Comando inválido. Digite 'help' para ver a lista de comandos disponíveis." << std::endl;
     }
     return true;
-    }
-    // Comando para sair do sistema
-    void Sistema::quit()
-    {
-        std::cout << "Quitting the system. Goodbye!" << std::endl;
     }
 
     // Comando para criar um usuário
