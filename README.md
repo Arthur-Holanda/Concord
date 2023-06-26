@@ -10,6 +10,22 @@ Project making a Discord app using C++ at the college subject "Programing Langua
 
 O código em C++ apresenta uma implementação básica de um sistema de chat em um servidor. Ele é dividido em várias classes, cada uma responsável por um aspecto específico do sistema.
 
+## Compilando
+
+Este projeto pode ser compilado com o CMake. 
+
+Para compilar este projeto com o CMake, siga estas etapas (a partir da pasta raiz):
+
+1. `cmake -S source -B build`: solicita ao CMake que crie o diretório de compilação e gere o Makefile Unix com base no script encontrado em source/CMakeLists.txt, no nível atual.
+2. `cmake --build build`: inicia o processo de compilação que cria os dois alvos (executáveis) dentro de build.
+
+O executável é criado dentro do diretório `build` que caso não tenha sido criada antes, é criada no momento do comando `cmake -S source -B build`.
+
+Para executar os testes, você tem duas opções:
+
+1. Acesse o diretório `build` com o comando cd build e execute os testes com `./Concord`.
+2. Execute os testes diretamente com o comando `./build/Concord` a partir da pasta raiz do projeto.
+
 ## Comandos
 
 Caso precise de ajuda quando executando, você pode usar o comando `help` que fornece a lista de comandos inteira.

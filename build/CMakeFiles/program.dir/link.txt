@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/program.dir/src/main.cpp.o CMakeFiles/program.dir/src/Usuario.cpp.o CMakeFiles/program.dir/src/Mensagem.cpp.o CMakeFiles/program.dir/src/Canal.cpp.o CMakeFiles/program.dir/src/CanalTexto.cpp.o CMakeFiles/program.dir/src/CanalVoz.cpp.o CMakeFiles/program.dir/src/Servidor.cpp.o CMakeFiles/program.dir/src/Sistema.cpp.o -o program 
