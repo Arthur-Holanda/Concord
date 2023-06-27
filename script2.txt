@@ -1,0 +1,9 @@
+create-user email1 password1 name1
+create-user email2 password2 name2
+login email1 password1
+create-server server1
+disconnect
+login email2 password2
+enter-server server1
+list-participants
+quit

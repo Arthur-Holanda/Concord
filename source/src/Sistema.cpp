@@ -14,170 +14,165 @@
         while (lerComando()) {}
     }
 
-bool Sistema::lerComando() {
-    std::cout << "\nDigite um comando (ou 'help' para ver a lista de comandos): ";
+    bool Sistema::lerComando() {
+        std::cout << "\nDigite um comando (ou 'help' para ver a lista de comandos): ";
 
-    std::string line;
-    std::getline(std::cin, line);
+        std::string line;
+        std::getline(std::cin, line);
 
-    std::string command;
-    std::string args;
+        std::string command;
+        std::string args;
 
-    std::istringstream iss(line);
-    std::getline(iss, command, ' ');
-    std::getline(iss, args);
+        std::istringstream iss(line);
+        std::getline(iss, command, ' ');
+        std::getline(iss, args);
 
-    if (command == "quit") {
-        std::cout << "Saindo do Concordo. Até mais!" << std::endl;
-        return false;
-    }
-    else if (command == "create-user") {
-        std::string email;
-        std::string senha;
-        std::string nome;
-        std::string lixo;
-        std::istringstream iss(args);
-        std::getline(iss, email, ' ');
-        std::getline(iss, senha, ' ');
-        std::getline(iss, nome, ' ');
-        criarUsuario(email, senha, nome);
-        std::getline(iss, lixo, ' ');
-        if(!(lixo.empty())){
-            std::cout << "Aviso: Caracteres extras desconsiderados" << std::endl;
+        if (command == "quit") {
+            std::cout << "Saindo do Concordo. Até mais!" << std::endl;
+            return false;
         }
-    }
-    else if (command == "login") {
-        std::string email;
-        std::string senha;
-        std::string lixo;
-        std::istringstream iss(args);
-        std::getline(iss, email, ' ');
-        std::getline(iss, senha, ' ');
-        login(email, senha);
-        std::getline(iss, lixo, ' ');
-        if(!(lixo.empty())){
-            std::cout << "Aviso: Caracteres extras desconsiderados" << std::endl;
+        else if (command == "create-user") {
+            std::string email;
+            std::string senha;
+            std::string nome;
+            std::istringstream iss(args);
+            std::getline(iss, email, ' ');
+            std::getline(iss, senha, ' ');
+            std::getline(iss, nome);
+            criarUsuario(email, senha, nome);
         }
-    }                                                //não logado 
-    else if (command == "disconnect") {
-        desconectar();
-    }
-    else if (command == "create-server") {
-        std::string serverName;
-        std::string lixo;
-        std::istringstream iss(args);
-        std::getline(iss, serverName, ' ');
-        criarServidor(serverName);
-        std::getline(iss, lixo, ' ');
-        if(!(lixo.empty())){
-            std::cout << "Aviso: Caracteres extras desconsiderados" << std::endl;
+        else if (command == "login") {
+            std::string email;
+            std::string senha;
+            std::string lixo;
+            std::istringstream iss(args);
+            std::getline(iss, email, ' ');
+            std::getline(iss, senha, ' ');
+            login(email, senha);
+            std::getline(iss, lixo, ' ');
+            if(!(lixo.empty())){
+                std::cout << "Aviso: Caracteres extras desconsiderados" << std::endl;
+            }
+        }                                                //não logado 
+        else if (command == "disconnect") {
+            desconectar();
         }
-    }
-    else if (command == "set-server-desc"){
-        std::string serverName;
-        std::string description;
-        std::string lixo;
-        std::istringstream iss(args);
-        std::getline(iss, serverName, ' ');
-        iss.ignore();
-        std::getline(iss, description, '"');
-        mudarDescricaoServidor(serverName, description);
-        std::getline(iss, lixo, ' ');
-        if(!(lixo.empty())){
-            std::cout << "Aviso: Caracteres extras desconsiderados" << std::endl;
+        else if (command == "create-server") {
+            std::string serverName;
+            std::string lixo;
+            std::istringstream iss(args);
+            std::getline(iss, serverName, ' ');
+            criarServidor(serverName);
+            std::getline(iss, lixo, ' ');
+            if(!(lixo.empty())){
+                std::cout << "Aviso: Caracteres extras desconsiderados" << std::endl;
+            }
         }
-    }
-    else if (command == "set-server-invite-code") {
-        std::string serverName;
-        std::string inviteCode;
-        std::string lixo;
-        std::istringstream iss(args);
-        std::getline(iss, serverName, ' ');
-        std::getline(iss, inviteCode, ' ');
-        mudarCodigoConviteServidor(serverName, inviteCode);
-        std::getline(iss, lixo, ' ');
-        if(!(lixo.empty())){
-            std::cout << "Aviso: Caracteres extras desconsiderados" << std::endl;
+        else if (command == "set-server-desc"){
+            std::string serverName;
+            std::string description;
+            std::string lixo;
+            std::istringstream iss(args);
+            std::getline(iss, serverName, ' ');
+            iss.ignore();
+            std::getline(iss, description, '"');
+            mudarDescricaoServidor(serverName, description);
+            std::getline(iss, lixo, ' ');
+            if(!(lixo.empty())){
+                std::cout << "Aviso: Caracteres extras desconsiderados" << std::endl;
+            }
         }
-    }
-    else if (command == "list-servers") {
-        listarServidores();
-    }
-    else if (command == "remove-server") {
-        std::string serverName;
-        std::string lixo;
-        std::istringstream iss(args);
-        std::getline(iss, serverName, ' ');
-        removerServidor(serverName);
-        std::getline(iss, lixo, ' ');
-        if(!(lixo.empty())){
-            std::cout << "Aviso: Caracteres extras desconsiderados" << std::endl;
-        }        
-    }
-    else if (command == "enter-server") {
-        std::string serverName;
-        std::string inviteCode;
-        std::string lixo;
-        std::istringstream iss(args);
-        std::getline(iss, serverName, ' ');
-        std::getline(iss, inviteCode, ' ');
-        entrarServidor(serverName, inviteCode);
-        std::getline(iss, lixo, ' ');
-        if(!(lixo.empty())){
-            std::cout << "Aviso: Caracteres extras desconsiderados" << std::endl;
+        else if (command == "set-server-invite-code") {
+            std::string serverName;
+            std::string inviteCode;
+            std::string lixo;
+            std::istringstream iss(args);
+            std::getline(iss, serverName, ' ');
+            std::getline(iss, inviteCode, ' ');
+            mudarCodigoConviteServidor(serverName, inviteCode);
+            std::getline(iss, lixo, ' ');
+            if(!(lixo.empty())){
+                std::cout << "Aviso: Caracteres extras desconsiderados" << std::endl;
+            }
         }
-    }
-    else if (command == "leave-server") {
-        sairServidor();
-    }
-    else if (command == "list-participants") {
-        listarParticipantes();
-    }
-    else if (command == "list-channels") {
-        listarCanais();
-    }
-    else if (command == "create-channel") {
-        std::string channelName;
-        std::string channelType;
+        else if (command == "list-servers") {
+            listarServidores();
+        }
+        else if (command == "remove-server") {
+            std::string serverName;
+            std::string lixo;
+            std::istringstream iss(args);
+            std::getline(iss, serverName, ' ');
+            removerServidor(serverName);
+            std::getline(iss, lixo, ' ');
+            if(!(lixo.empty())){
+                std::cout << "Aviso: Caracteres extras desconsiderados" << std::endl;
+            }        
+        }
+        else if (command == "enter-server") {
+            std::string serverName;
+            std::string inviteCode;
+            std::string lixo;
+            std::istringstream iss(args);
+            std::getline(iss, serverName, ' ');
+            std::getline(iss, inviteCode, ' ');
+            entrarServidor(serverName, inviteCode);
+            std::getline(iss, lixo, ' ');
+            if(!(lixo.empty())){
+                std::cout << "Aviso: Caracteres extras desconsiderados" << std::endl;
+            }
+        }
+        else if (command == "leave-server") {
+            sairServidor();
+        }
+        else if (command == "list-participants") {
+            listarParticipantes();
+        }
+        else if (command == "list-channels") {
+            listarCanais();
+        }
+        else if (command == "create-channel") {
+            std::string channelName;
+            std::string channelType;
 
-        std::istringstream iss(args);
-        std::getline(iss, channelName, ' ');
-        std::getline(iss, channelType, ' ');
-        criarCanal(channelName, channelType);
-    }
-    else if (command == "enter-channel") {
-        std::string ChanelName;
+            std::istringstream iss(args);
+            std::getline(iss, channelName, ' ');
+            std::getline(iss, channelType, ' ');
+            criarCanal(channelName, channelType);
+        }
+        else if (command == "enter-channel") {
+            std::string ChanelName;
 
-        std::istringstream iss(args);
-        std::getline(iss, ChanelName, ' ');
-        entrarCanal(ChanelName);
-    }
-    else if (command == "leave-channel") {
-        sairCanal();
-    }
-    else if (command == "help") {
-        std::cout << "Comandos disponíveis:" << std::endl;
-        std::cout << "quit - Sair do programa" << std::endl;
-        std::cout << "create-user [email] [senha] [nome] - Criar um novo usuário" << std::endl;
-        std::cout << "login [email] [senha] - Fazer login com um usuário existente" << std::endl;
-        std::cout << "disconnect - Desconectar do usuário atual" << std::endl;
-        std::cout << "create-server [nome] - Criar um novo servidor" << std::endl;
-        std::cout << "set-server-desc [nome] [descrição] - Definir a descrição de um servidor" << std::endl;
-        std::cout << "set-server-invite-code [nome] [código] - Definir o código de convite de um servidor" << std::endl;
-        std::cout << "list-servers - Listar todos os servidores" << std::endl;
-        std::cout << "remove-server [nome] - Remover um servidor" << std::endl;
-        std::cout << "enter-server [nome] [código] (Código só quando necessario) - Entrar em um servidor" << std::endl;
-        std::cout << "leave-server - Sair do servidor atual" << std::endl;
-        std::cout << "list-participants - Listar os participantes do servidor atual" << std::endl;
-        std::cout << "list-channels - Listar os canais do servidor atual" << std::endl;
-        std::cout << "create-channel [nome] [tipo] - Criar um canal no servidor atual" << std::endl;
-        std::cout << "enter-channel [nome] - Entrar em um canal do servidor atual" << std::endl;
-        std::cout << "leave-channel - Sair do canal atual" << std::endl;
-    }
-    else {
-        std::cout << "Comando inválido. Digite 'help' para ver a lista de comandos disponíveis." << std::endl;
-    }
-    return true;
+            std::istringstream iss(args);
+            std::getline(iss, ChanelName, ' ');
+            entrarCanal(ChanelName);
+        }
+        else if (command == "leave-channel") {
+            sairCanal();
+        }
+        else if (command == "help") {
+            std::cout << "Comandos disponíveis:" << std::endl;
+            std::cout << "quit - Sair do programa" << std::endl;
+            std::cout << "create-user [email] [senha] [nome] - Criar um novo usuário" << std::endl;
+            std::cout << "login [email] [senha] - Fazer login com um usuário existente" << std::endl;
+            std::cout << "disconnect - Desconectar do usuário atual" << std::endl;
+            std::cout << "create-server [nome] - Criar um novo servidor" << std::endl;
+            std::cout << "set-server-desc [nome] [descrição] - Definir a descrição de um servidor" << std::endl;
+            std::cout << "set-server-invite-code [nome] [código] - Definir o código de convite de um servidor" << std::endl;
+            std::cout << "list-servers - Listar todos os servidores" << std::endl;
+            std::cout << "remove-server [nome] - Remover um servidor" << std::endl;
+            std::cout << "enter-server [nome] [código] (Código só quando necessario) - Entrar em um servidor" << std::endl;
+            std::cout << "leave-server - Sair do servidor atual" << std::endl;
+            std::cout << "list-participants - Listar os participantes do servidor atual" << std::endl;
+            std::cout << "list-channels - Listar os canais do servidor atual" << std::endl;
+            std::cout << "create-channel [nome] [tipo] - Criar um canal no servidor atual" << std::endl;
+            std::cout << "enter-channel [nome] - Entrar em um canal do servidor atual" << std::endl;
+            std::cout << "leave-channel - Sair do canal atual" << std::endl;
+        }
+        else {
+            std::cout << "Comando inválido. Digite 'help' para ver a lista de comandos disponíveis." << std::endl;
+        }
+        return true;
     }
 
     // Comando para criar um usuário
@@ -233,6 +228,9 @@ bool Sistema::lerComando() {
             std::cout << "Erro: Nenhum usuário está logado." << std::endl;
             return;
         }
+        if (servidorAtual != nullptr) {
+            sairServidor();
+        }
 
         std::cout << "Desconectando usuário " << usuarioLogado->getNome() << std::endl;
         usuarioLogado = nullptr;
@@ -258,6 +256,7 @@ bool Sistema::lerComando() {
         }
 
         Servidor novoServidor(usuarioLogado->getId(), nome, "", "");
+        novoServidor.adicionarParticipante(usuarioLogado->getId());
         servidores.push_back(novoServidor);
         std::cout << "Servidor criado" << std::endl;    
     }
