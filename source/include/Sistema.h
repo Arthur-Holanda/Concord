@@ -8,7 +8,6 @@
 
 #include <vector>
 #include <string>
-#include <iostream>
 #include "Servidor.h"
 #include "Usuario.h"
 #include "Mensagem.h"

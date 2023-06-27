@@ -8,6 +8,8 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
+#include <algorithm>
 #include "Canal.h"
 #include "CanalTexto.h"
 #include "CanalVoz.h"

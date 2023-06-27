@@ -16,6 +16,12 @@ Servidor::~Servidor() {
 }
 
 void Servidor::adicionarParticipante(int id) {
+    // Verifica se o usuário já está na lista de participantes
+    if (std::find(participantesIDs.begin(), participantesIDs.end(), id) != participantesIDs.end()) {
+        return;
+    }
+
+    // Adiciona o usuário à lista de participantes
     participantesIDs.push_back(id);
 }
 
