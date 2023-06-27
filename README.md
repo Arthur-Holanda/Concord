@@ -72,16 +72,3 @@ Esses comandos só podem ser executados dentro de um servidor.
 - `leave-server` sai do servidor.
 - `list-participants` lista os participantes do servidor.
 
-## Compilação e execução
-1. Certifique-se de ter um compilador C++ instalado no seu sistema.
-2. Abra um terminal e navegue até o diretório onde o arquivo `nome-do-arquivo.cpp` está localizado.
-3. Compile o programa usando o seguinte comando:
-        g++ -o nome-do-executavel nome-do-arquivo.cpp
-        g++ main.cpp -o programa
-
-Certifique-se de substituir `nome-do-executavel` pelo nome que você deseja dar ao arquivo executável e `nome-do-arquivo.cpp` pelo nome real do arquivo do programa.
-
-4. Após a compilação bem-sucedida, execute o programa com o seguinte comando:
-        ./nome-do-executavel
-        ./programa
-
