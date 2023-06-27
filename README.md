@@ -3,7 +3,7 @@
 <div align="center">
 
 <h4>⭐ Esté projeto é uma simulaçao do aplicativo Discord em C++ para o trabalho da disciplina de Linguagem de Programação. ⭐️</h4>
-  <img src="https://img.icons8.com/cute-clipart/64/null/services.png"/><a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height= "50" src= "https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png">
+  <img height="65" src="./assets/cpp.png">&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://img.icons8.com/cute-clipart/64/null/services.png"/><a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height= "50" src= "https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png">
 </a>
 </div>
 
@@ -85,16 +85,3 @@ Certifique-se de substituir `nome-do-executavel` pelo nome que você deseja dar 
         ./nome-do-executavel
         ./programa
 
-## Roteiro de entradas e comandos
-Aqui está um exemplo de roteiro para executar o programa e destacar suas funcionalidades:
-
-1. Execute o programa seguindo as instruções acima.
-2. Na tela do programa, você será solicitado a fornecer [informações ou dados específicos que o programa requer].
-3. Digite as informações solicitadas e pressione Enter.
-4. O programa irá [descreva o que o programa fará com base nas informações fornecidas].
-5. Observe os resultados na tela e siga as instruções adicionais, se houver.
-6. Repita os passos 2 a 5 para explorar outras funcionalidades do programa.
-7. Para encerrar o programa, siga as instruções fornecidas ou pressione Ctrl + C no terminal.
-
-## Notas adicionais
-[Adicione qualquer informação adicional relevante sobre o programa, como requisitos de sistema, bibliotecas externas usadas, etc.]
