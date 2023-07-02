@@ -22,8 +22,8 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Concord
-   &#160;<span id="projectnumber">2.1</span>
    </div>
+   <div id="projectbrief">2.2</div>
   </td>
  </tr>
  </tbody>
@@ -68,6 +68,9 @@ $(function() {
 <li>adicionarCanal()
 : <a class="el" href="classServidor.html#a879bce89d59d1e0b68c7ea3bb88060f7">Servidor</a>
 </li>
+<li>adicionarMensagem()
+: <a class="el" href="classCanalTexto.html#a496a4b95887930ba88b099c7cd6cbb66">CanalTexto</a>
+</li>
 <li>adicionarParticipante()
 : <a class="el" href="classServidor.html#a89fdefc3ac77648fe147f28ddddc624d">Servidor</a>
 </li>
@@ -110,7 +113,7 @@ $(function() {
 
 <h3><a id="index_d"></a>- d -</h3><ul>
 <li>dataHora
-: <a class="el" href="classMensagem.html#a4528293f2e30645057002b8ad6c2c8cf">Mensagem</a>
+: <a class="el" href="classMensagem.html#aeb7d5ef75423b2094be7d2a621f0309a">Mensagem</a>
 </li>
 <li>desconectar()
 : <a class="el" href="classSistema.html#a542eed8a4e8eeb5c80321e4e3ec56ce4">Sistema</a>
@@ -134,6 +137,9 @@ $(function() {
 <li>enviadaPor
 : <a class="el" href="classMensagem.html#a0a45f35c79602ab6d735da42fe2ca3d9">Mensagem</a>
 </li>
+<li>enviarMensagem()
+: <a class="el" href="classSistema.html#a5b8b3c7e551ccee8df9f7427d767bb3e">Sistema</a>
+</li>
 </ul>
 
 
@@ -148,7 +154,7 @@ $(function() {
 : <a class="el" href="classMensagem.html#a83b337b85e8241f9ba20f4e2f2ee81bd">Mensagem</a>
 </li>
 <li>getDataHora()
-: <a class="el" href="classMensagem.html#af08ba6dbf82218951c84da19b53895cc">Mensagem</a>
+: <a class="el" href="classMensagem.html#af994f381ee14a86b3cf6bcc73297d287">Mensagem</a>
 </li>
 <li>getDescricao()
 : <a class="el" href="classServidor.html#a2350300aa3b09389e7139a4c26812d93">Servidor</a>
@@ -162,10 +168,16 @@ $(function() {
 <li>getId()
 : <a class="el" href="classUsuario.html#a654c2014a73c6361cbcf40af60098229">Usuario</a>
 </li>
+<li>getMensagens()
+: <a class="el" href="classCanalTexto.html#a28f9c984f7bc58308e999c9bea3ec49f">CanalTexto</a>
+</li>
 <li>getNome()
 : <a class="el" href="classCanal.html#a6ce09be8b0b17ca217aeef3b97a8b8ef">Canal</a>
 , <a class="el" href="classServidor.html#a61eefce4a09284c307e599c100fde7c3">Servidor</a>
 , <a class="el" href="classUsuario.html#a7ecc74b7950190ce12e3cd6cc551238b">Usuario</a>
+</li>
+<li>getNomeUsuario()
+: <a class="el" href="classSistema.html#a34a5509ed7c36a9906bec776d1df8533">Sistema</a>
 </li>
 <li>getParticipantesIDs()
 : <a class="el" href="classServidor.html#a1c641c12b54295b5cd627aad3aaaad2c">Servidor</a>
@@ -275,8 +287,17 @@ $(function() {
 <li>setCodigoConvite()
 : <a class="el" href="classServidor.html#a5885c0950fba3e785f1d771acb575b75">Servidor</a>
 </li>
+<li>setConteudo()
+: <a class="el" href="classMensagem.html#a14bc0a418718b9f8db3a01a2aee04eb0">Mensagem</a>
+</li>
+<li>setDataHora()
+: <a class="el" href="classMensagem.html#a03ceb5e25d937bc22982c5713864ed3c">Mensagem</a>
+</li>
 <li>setDescricao()
 : <a class="el" href="classServidor.html#a164be6968f0b1436cb621809ce6d5722">Servidor</a>
+</li>
+<li>setEnviadaPor()
+: <a class="el" href="classMensagem.html#a80394ac9c3829da8a91bcb04e0f352a1">Mensagem</a>
 </li>
 <li>setNome()
 : <a class="el" href="classServidor.html#a9b18664b35ad917a9d78aad809a679f1">Servidor</a>
@@ -311,6 +332,13 @@ $(function() {
 </li>
 <li>usuarios
 : <a class="el" href="classSistema.html#a3cb541c9680f62350de9df45c0d3b608">Sistema</a>
+</li>
+</ul>
+
+
+<h3><a id="index_v"></a>- v -</h3><ul>
+<li>visualizarMensagens()
+: <a class="el" href="classSistema.html#a3334bd94b4ac7ee04e49efef6f76e9dc">Sistema</a>
 </li>
 </ul>
 

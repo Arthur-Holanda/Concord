@@ -47,7 +47,13 @@ void \mbox{\hyperlink{classSistema_a9aacc539bbaae173964175f3968a2851}{criar\+Can
 void \mbox{\hyperlink{classSistema_a1f28b08deea05c93dbaa333f0bd69d1b}{entrar\+Canal}} (const std\+::string \&nome)
 \begin{DoxyCompactList}\small\item\em Entra em um canal. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSistema_a8d3548d307127df93271c7f496190849}{sair\+Canal}} ()
-\begin{DoxyCompactList}\small\item\em Sai do canal atual. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sai do canal atual. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_a5b8b3c7e551ccee8df9f7427d767bb3e}{enviar\+Mensagem}} (const std\+::string \&mensagem)
+\begin{DoxyCompactList}\small\item\em Envia uma mensagem no canal atual. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classSistema_a34a5509ed7c36a9906bec776d1df8533}{get\+Nome\+Usuario}} (int id\+Usuario) const
+\begin{DoxyCompactList}\small\item\em Obtém o nome de um usuário pelo ID. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_a3334bd94b4ac7ee04e49efef6f76e9dc}{visualizar\+Mensagens}} ()
+\begin{DoxyCompactList}\small\item\em Visualiza as mensagens do canal atual. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -173,6 +179,39 @@ Entra em um servidor.
 {\em codigo\+Convite} & O código de convite do servidor (opcional). \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classSistema_a5b8b3c7e551ccee8df9f7427d767bb3e}\label{classSistema_a5b8b3c7e551ccee8df9f7427d767bb3e}} 
+\index{Sistema@{Sistema}!enviarMensagem@{enviarMensagem}}
+\index{enviarMensagem@{enviarMensagem}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{enviarMensagem()}{enviarMensagem()}}
+{\footnotesize\ttfamily void Sistema\+::enviar\+Mensagem (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{mensagem }\end{DoxyParamCaption})}
+
+
+
+Envia uma mensagem no canal atual. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mensagem} & O conteúdo da mensagem a ser enviada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSistema_a34a5509ed7c36a9906bec776d1df8533}\label{classSistema_a34a5509ed7c36a9906bec776d1df8533}} 
+\index{Sistema@{Sistema}!getNomeUsuario@{getNomeUsuario}}
+\index{getNomeUsuario@{getNomeUsuario}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{getNomeUsuario()}{getNomeUsuario()}}
+{\footnotesize\ttfamily std\+::string Sistema\+::get\+Nome\+Usuario (\begin{DoxyParamCaption}\item[{int}]{id\+Usuario }\end{DoxyParamCaption}) const}
+
+
+
+Obtém o nome de um usuário pelo ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Usuario} & O ID do usuário. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O nome do usuário correspondente ao ID. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classSistema_a5afc2279acc800dc7386e74e75477a33}\label{classSistema_a5afc2279acc800dc7386e74e75477a33}} 
 \index{Sistema@{Sistema}!iniciar@{iniciar}}
 \index{iniciar@{iniciar}!Sistema@{Sistema}}
@@ -311,6 +350,16 @@ Sai do canal atual.
 
 
 Sai do servidor atual. 
+
+\mbox{\Hypertarget{classSistema_a3334bd94b4ac7ee04e49efef6f76e9dc}\label{classSistema_a3334bd94b4ac7ee04e49efef6f76e9dc}} 
+\index{Sistema@{Sistema}!visualizarMensagens@{visualizarMensagens}}
+\index{visualizarMensagens@{visualizarMensagens}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{visualizarMensagens()}{visualizarMensagens()}}
+{\footnotesize\ttfamily void Sistema\+::visualizar\+Mensagens (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Visualiza as mensagens do canal atual. 
 
 
 

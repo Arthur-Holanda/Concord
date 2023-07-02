@@ -22,8 +22,8 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Concord
-   &#160;<span id="projectnumber">2.1</span>
    </div>
+   <div id="projectbrief">2.2</div>
   </td>
  </tr>
  </tbody>
@@ -132,6 +132,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8d3548d307127df93271c7f496190849"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSistema.html#a8d3548d307127df93271c7f496190849">sairCanal</a> ()</td></tr>
 <tr class="memdesc:a8d3548d307127df93271c7f496190849"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sai do canal atual.  <a href="classSistema.html#a8d3548d307127df93271c7f496190849">More...</a><br /></td></tr>
 <tr class="separator:a8d3548d307127df93271c7f496190849"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b8b3c7e551ccee8df9f7427d767bb3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSistema.html#a5b8b3c7e551ccee8df9f7427d767bb3e">enviarMensagem</a> (const std::string &amp;mensagem)</td></tr>
+<tr class="memdesc:a5b8b3c7e551ccee8df9f7427d767bb3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envia uma mensagem no canal atual.  <a href="classSistema.html#a5b8b3c7e551ccee8df9f7427d767bb3e">More...</a><br /></td></tr>
+<tr class="separator:a5b8b3c7e551ccee8df9f7427d767bb3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34a5509ed7c36a9906bec776d1df8533"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSistema.html#a34a5509ed7c36a9906bec776d1df8533">getNomeUsuario</a> (int idUsuario) const</td></tr>
+<tr class="memdesc:a34a5509ed7c36a9906bec776d1df8533"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o nome de um usuário pelo ID.  <a href="classSistema.html#a34a5509ed7c36a9906bec776d1df8533">More...</a><br /></td></tr>
+<tr class="separator:a34a5509ed7c36a9906bec776d1df8533"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3334bd94b4ac7ee04e49efef6f76e9dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSistema.html#a3334bd94b4ac7ee04e49efef6f76e9dc">visualizarMensagens</a> ()</td></tr>
+<tr class="memdesc:a3334bd94b4ac7ee04e49efef6f76e9dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visualiza as mensagens do canal atual.  <a href="classSistema.html#a3334bd94b4ac7ee04e49efef6f76e9dc">More...</a><br /></td></tr>
+<tr class="separator:a3334bd94b4ac7ee04e49efef6f76e9dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -355,6 +364,59 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a5b8b3c7e551ccee8df9f7427d767bb3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b8b3c7e551ccee8df9f7427d767bb3e">&#9670;&nbsp;</a></span>enviarMensagem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sistema::enviarMensagem </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>mensagem</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envia uma mensagem no canal atual. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mensagem</td><td>O conteúdo da mensagem a ser enviada. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a34a5509ed7c36a9906bec776d1df8533"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34a5509ed7c36a9906bec776d1df8533">&#9670;&nbsp;</a></span>getNomeUsuario()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Sistema::getNomeUsuario </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idUsuario</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtém o nome de um usuário pelo ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idUsuario</td><td>O ID do usuário. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>O nome do usuário correspondente ao ID. </dd></dl>
 
 </div>
 </div>
@@ -626,6 +688,25 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sai do servidor atual. </p>
+
+</div>
+</div>
+<a id="a3334bd94b4ac7ee04e49efef6f76e9dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3334bd94b4ac7ee04e49efef6f76e9dc">&#9670;&nbsp;</a></span>visualizarMensagens()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sistema::visualizarMensagens </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Visualiza as mensagens do canal atual. </p>
 
 </div>
 </div>

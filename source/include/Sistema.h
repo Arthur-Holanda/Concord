@@ -132,6 +132,25 @@ public:
      * @brief Sai do canal atual.
      */
     void sairCanal();
+
+    /**
+     * @brief Envia uma mensagem no canal atual.
+     * @param mensagem O conteúdo da mensagem a ser enviada.
+     */
+    void enviarMensagem(const std::string& mensagem);
+
+    /**
+     * @brief Obtém o nome de um usuário pelo ID.
+     * @param idUsuario O ID do usuário.
+     * @return O nome do usuário correspondente ao ID.
+     */
+    std::string getNomeUsuario(int idUsuario) const;
+
+    /**
+     * @brief Visualiza as mensagens do canal atual.
+     */
+    void visualizarMensagens();
+    
 };
 
 #endif // SISTEMA_H

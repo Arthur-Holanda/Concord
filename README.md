@@ -71,4 +71,9 @@ Esses comandos só podem ser executados dentro de um servidor.
 
 - `leave-server` sai do servidor.
 - `list-participants` lista os participantes do servidor.
-
+- `list-channels`  Lista todos os canais do servidor atual.
+- `create-channel <nome> [tipo]` Cria um canal de tipo Voz ou Texto no servidor atual.
+- `enter-channel <nome>`  Entra em um canal do servidor atual.
+- `leave-channel`  Sai do canal atual.
+- `send-message <mensagem>`   Envia uma mensagem para o canal de Texto.
+- `list-messages`  Lista todas as mensagens do canal.

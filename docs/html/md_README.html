@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Concord: Concord</title>
+<title>Concord: README</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,8 +22,8 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Concord
-   &#160;<span id="projectnumber">2.1</span>
    </div>
+   <div id="projectbrief">2.2</div>
   </td>
  </tr>
  </tbody>
@@ -63,21 +63,22 @@ $(function() {
 </div><!-- top -->
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Concord </div>  </div>
+<div class="title">README </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Project making a Discord app using C++ at the college subject "Programing Language".</p>
-<h1><a class="anchor" id="autotoc_md1"></a>
-Identificação do estudante</h1>
+<div class="textblock"><h1 align="center">Concord </h1>
+<div align="center"></div><div align="center"><h4>⭐ Esté projeto é uma simulaçao do aplicativo Discord em C++ para o trabalho da disciplina de Linguagem de Programação. ⭐️</h4>
+</div><div align="center"> <img src="./assets/cpp.png" alt="" height="65" class="inline"/>&#160;&#160;&#160;&#160;<img src="https://img.icons8.com/cute-clipart/64/null/services.png" alt="" class="inline"/>&#160;&#160;&#160;&#160;&#160;<img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png" alt="" height="50" class="inline"/>  </div><h2><a class="anchor" id="autotoc_md0"></a>
+Identificação do estudante</h2>
 <ul>
 <li>Nome: Arthur Ferreira de Holanda</li>
 <li>Matrícula: 20220039547</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md2"></a>
-Descrição do programa</h1>
+<h2><a class="anchor" id="autotoc_md1"></a>
+Descrição do programa</h2>
 <p>O código em C++ apresenta uma implementação básica de um sistema de chat em um servidor. Ele é dividido em várias classes, cada uma responsável por um aspecto específico do sistema.</p>
-<h1><a class="anchor" id="autotoc_md3"></a>
-Compilando</h1>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Compilando</h2>
 <p>Este projeto pode ser compilado com o CMake.</p>
 <p>Para compilar este projeto com o CMake, siga estas etapas (a partir da pasta raiz):</p>
 <ol type="1">
@@ -90,19 +91,20 @@ Compilando</h1>
 <li>Acesse o diretório <code>build</code> com o comando cd build e execute os testes com <code>./Concord</code>.</li>
 <li>Execute os testes diretamente com o comando <code>./build/Concord</code> a partir da pasta raiz do projeto.</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md4"></a>
-Comandos</h1>
+<p>O diretorio contem um script de teste, caso queira o testar, use <code>./build/Concord &lt; script.txt</code> na pasta raiz do projeto. </p>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Comandos</h2>
 <p>Caso precise de ajuda quando executando, você pode usar o comando <code>help</code> que fornece a lista de comandos inteira.</p>
-<h2><a class="anchor" id="autotoc_md5"></a>
-Deslogados</h2>
+<h3><a class="anchor" id="autotoc_md4"></a>
+Deslogados</h3>
 <p>Esses comandos podem ser executados caso o usuário não esteja logado.</p>
 <ul>
 <li><code>quit</code> sai do sistema.</li>
 <li><code>create-user &lt;email&gt; &lt;senha&gt; &lt;nome&gt;</code> cria um usuário. Apenas o nome pode ter espaços. Dois usuários não podem ter o mesmo email.</li>
 <li><code>login &lt;email&gt; &lt;senha&gt;</code> faz login em um usuário já criado.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md6"></a>
-Logados</h2>
+<h3><a class="anchor" id="autotoc_md5"></a>
+Logados</h3>
 <p>Esses comandos só podem ser executados caso o usuário esteja logado.</p>
 <ul>
 <li><code>disconnect</code> desconecta o usuário logado.</li>
@@ -110,47 +112,27 @@ Logados</h2>
 <li><code>list-servers</code> lista todos os servidores criados.</li>
 <li><code>enter-server &lt;nome&gt; [codigo]</code> entra no servidor especificado. O código só é necessário caso o servidor tenha um. O dono do servidor pode entrar sem utilizar o código.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md7"></a>
-Dono do servidor</h2>
+<h3><a class="anchor" id="autotoc_md6"></a>
+Dono do servidor</h3>
 <p>Esses comandos só podem ser executados caso você seja o dono do servidor.</p>
 <ul>
 <li><code>set-server-desc &lt;nome&gt; "&lt;descrição&gt;"</code> altera a descrição do servidor.</li>
 <li><code>set-server-invite-code &lt;nome&gt; [codigo]</code> altera o código de convite do servidor.</li>
 <li><code>remove-server &lt;nome&gt;</code> remove o servidor.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md8"></a>
-Dentro de um servidor</h2>
+<h3><a class="anchor" id="autotoc_md7"></a>
+Dentro de um servidor</h3>
 <p>Esses comandos só podem ser executados dentro de um servidor.</p>
 <ul>
 <li><code>leave-server</code> sai do servidor.</li>
 <li><code>list-participants</code> lista os participantes do servidor.</li>
+<li><code>list-channels</code> Lista todos os canais do servidor atual.</li>
+<li><code>create-channel &lt;nome&gt; [tipo]</code> Cria um canal de tipo Voz ou Texto no servidor atual.</li>
+<li><code>enter-channel &lt;nome&gt;</code> Entra em um canal do servidor atual.</li>
+<li><code>leave-channel</code> Sai do canal atual.</li>
+<li><code>send-message &lt;mensagem&gt;</code> Envia uma mensagem para o canal de Texto.</li>
+<li><code>list-messages</code> Lista todas as mensagens do canal. </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md9"></a>
-Compilação e execução</h1>
-<ol type="1">
-<li>Certifique-se de ter um compilador C++ instalado no seu sistema.</li>
-<li>Abra um terminal e navegue até o diretório onde o arquivo <code>nome-do-arquivo.cpp</code> está localizado.</li>
-<li>Compile o programa usando o seguinte comando: g++ -o nome-do-executavel nome-do-arquivo.cpp g++ <a class="el" href="main_8cpp.html" title="Arquivo de ponto de entrada para o sistema de mensagens.">main.cpp</a> -o programa</li>
-</ol>
-<p>Certifique-se de substituir <code>nome-do-executavel</code> pelo nome que você deseja dar ao arquivo executável e <code>nome-do-arquivo.cpp</code> pelo nome real do arquivo do programa.</p>
-<ol type="1">
-<li>Após a compilação bem-sucedida, execute o programa com o seguinte comando: ./nome-do-executavel ./programa</li>
-</ol>
-<h1><a class="anchor" id="autotoc_md10"></a>
-Roteiro de entradas e comandos</h1>
-<p>Aqui está um exemplo de roteiro para executar o programa e destacar suas funcionalidades:</p>
-<ol type="1">
-<li>Execute o programa seguindo as instruções acima.</li>
-<li>Na tela do programa, você será solicitado a fornecer [informações ou dados específicos que o programa requer].</li>
-<li>Digite as informações solicitadas e pressione Enter.</li>
-<li>O programa irá [descreva o que o programa fará com base nas informações fornecidas].</li>
-<li>Observe os resultados na tela e siga as instruções adicionais, se houver.</li>
-<li>Repita os passos 2 a 5 para explorar outras funcionalidades do programa.</li>
-<li>Para encerrar o programa, siga as instruções fornecidas ou pressione Ctrl + C no terminal.</li>
-</ol>
-<h1><a class="anchor" id="autotoc_md11"></a>
-Notas adicionais</h1>
-<p>[Adicione qualquer informação adicional relevante sobre o programa, como requisitos de sistema, bibliotecas externas usadas, etc.] </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->

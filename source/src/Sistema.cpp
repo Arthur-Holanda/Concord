@@ -150,6 +150,16 @@
         else if (command == "leave-channel") {
             sairCanal();
         }
+        else if (command == "send-message") {
+            std::string mensagem;
+
+            std::istringstream iss(args);
+            std::getline(iss, mensagem);
+            enviarMensagem(mensagem);
+        }
+        else if (command == "list-messages") {
+            visualizarMensagens();
+        }
         else if (command == "help") {
             std::cout << "Comandos disponíveis:" << std::endl;
             std::cout << "quit - Sair do programa" << std::endl;
@@ -168,6 +178,8 @@
             std::cout << "create-channel [nome] [tipo] - Criar um canal no servidor atual" << std::endl;
             std::cout << "enter-channel [nome] - Entrar em um canal do servidor atual" << std::endl;
             std::cout << "leave-channel - Sair do canal atual" << std::endl;
+            std::cout << "send-message [mensagem] - Envia uma mensagem para o canal de Texto" << std::endl;
+            std::cout << "list-messages - Lista todas as mensagens do canal" << std::endl;
         }
         else {
             std::cout << "Comando inválido. Digite 'help' para ver a lista de comandos disponíveis." << std::endl;
@@ -373,6 +385,10 @@
             return;
         }
 
+        if (canalAtual != nullptr) {
+            sairCanal();
+        }
+
         std::cout << "Saindo do servidor '" << servidorAtual->getNome() << "'" << std::endl;
         servidorAtual = nullptr;
     }
@@ -501,3 +517,86 @@
         std::cout << "Saindo do canal" << std::endl;
         canalAtual = nullptr;
     }
+
+    void Sistema::enviarMensagem(const std::string& mensagem) {
+        if (usuarioLogado == nullptr) {
+            std::cout << "Erro: É necessário estar logado para enviar uma mensagem." << std::endl;
+            return;
+        }
+
+        if (servidorAtual == nullptr) {
+            std::cout << "Erro: Você não está visualizando nenhum servidor." << std::endl;
+            return;
+        }
+
+        if (canalAtual == nullptr) {
+            std::cout << "Erro: Você não está visualizando nenhum canal." << std::endl;
+            return;
+        }
+        CanalTexto* canalTexto = dynamic_cast<CanalTexto*>(canalAtual);
+        if (canalTexto == nullptr) {
+            std::cout << "Erro: Mensagens só podem ser enviadas para canais de texto." << std::endl;
+            return;
+        }
+
+        Mensagem novaMensagem;
+        novaMensagem.setConteudo(mensagem);
+        novaMensagem.setDataHora(std::time(nullptr));
+        novaMensagem.setEnviadaPor(usuarioLogado->getId());
+
+        canalTexto->adicionarMensagem(novaMensagem);
+    }
+
+    std::string Sistema::getNomeUsuario(int idUsuario) const {
+        for (const Usuario& usuario : usuarios) {
+            if (usuario.getId() == idUsuario) {
+                return usuario.getNome();
+            }
+        }
+        return "";
+    }
+
+    void Sistema::visualizarMensagens() {
+        if (usuarioLogado == nullptr) {
+            std::cout << "Erro: É necessário estar logado para visualizar mensagens." << std::endl;
+            return;
+        }
+
+        if (servidorAtual == nullptr) {
+            std::cout << "Erro: Você não está visualizando nenhum servidor." << std::endl;
+            return;
+        }
+
+        if (canalAtual == nullptr) {
+            std::cout << "Erro: Você não está visualizando nenhum canal." << std::endl;
+            return;
+        }
+
+        CanalTexto* canalTexto = dynamic_cast<CanalTexto*>(canalAtual);
+        if (canalTexto == nullptr) {
+            std::cout << "Erro: Mensagens só podem ser visualizadas em canais de texto." << std::endl;
+            return;
+        }
+
+        const std::vector<Mensagem>& mensagens = canalTexto->getMensagens();
+        if (mensagens.empty()) {
+            std::cout << "Sem mensagens para exibir" << std::endl;
+            return;
+        }
+
+        for (const Mensagem& mensagem : mensagens) {
+            // Obtém o nome do usuário que enviou a mensagem
+            std::string nomeUsuario = getNomeUsuario(mensagem.getEnviadaPor());
+
+            // Formata a data e a hora da mensagem
+            time_t dataHora = mensagem.getDataHora();
+            char bufferDataHora[20];
+            std::strftime(bufferDataHora, sizeof(bufferDataHora), "%d/%m/%Y - %H:%M", std::localtime(&dataHora));
+
+            // Imprime a mensagem formatada
+            std::cout << nomeUsuario << "<" << bufferDataHora << ">: " << mensagem.getConteudo() << std::endl;
+        }
+    }
+
+
+/*(std::time(nullptr),usuarioLogado->getId(),mensagem)*/

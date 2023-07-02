@@ -19,7 +19,11 @@ Inheritance diagram for Canal\+Texto\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classCanalTexto_acec0b5d85324e26724c73dbdb19046e2}{Canal\+Texto}} (const std\+::string \&\mbox{\hyperlink{classCanal_ac5e6d80712597bacacd46c0d153c2644}{nome}})
-\begin{DoxyCompactList}\small\item\em Construtor da classe \mbox{\hyperlink{classCanalTexto}{Canal\+Texto}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Construtor da classe \mbox{\hyperlink{classCanalTexto}{Canal\+Texto}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCanalTexto_a496a4b95887930ba88b099c7cd6cbb66}{adicionar\+Mensagem}} (const \mbox{\hyperlink{classMensagem}{Mensagem}} \&mensagem)
+\begin{DoxyCompactList}\small\item\em Adiciona uma mensagem ao canal de texto. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{classMensagem}{Mensagem}} $>$ \& \mbox{\hyperlink{classCanalTexto_a28f9c984f7bc58308e999c9bea3ec49f}{get\+Mensagens}} () const
+\begin{DoxyCompactList}\small\item\em Obtém todas as mensagens do canal de texto. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -48,6 +52,41 @@ Construtor da classe \mbox{\hyperlink{classCanalTexto}{Canal\+Texto}}.
 {\em nome} & O nome do canal de texto. \\
 \hline
 \end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCanalTexto_a496a4b95887930ba88b099c7cd6cbb66}\label{classCanalTexto_a496a4b95887930ba88b099c7cd6cbb66}} 
+\index{CanalTexto@{CanalTexto}!adicionarMensagem@{adicionarMensagem}}
+\index{adicionarMensagem@{adicionarMensagem}!CanalTexto@{CanalTexto}}
+\doxysubsubsection{\texorpdfstring{adicionarMensagem()}{adicionarMensagem()}}
+{\footnotesize\ttfamily void Canal\+Texto\+::adicionar\+Mensagem (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMensagem}{Mensagem}} \&}]{mensagem }\end{DoxyParamCaption})}
+
+
+
+Adiciona uma mensagem ao canal de texto. 
+
+Esta função adiciona uma nova mensagem ao canal de texto.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mensagem} & A mensagem a ser adicionada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCanalTexto_a28f9c984f7bc58308e999c9bea3ec49f}\label{classCanalTexto_a28f9c984f7bc58308e999c9bea3ec49f}} 
+\index{CanalTexto@{CanalTexto}!getMensagens@{getMensagens}}
+\index{getMensagens@{getMensagens}!CanalTexto@{CanalTexto}}
+\doxysubsubsection{\texorpdfstring{getMensagens()}{getMensagens()}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{classMensagem}{Mensagem}} $>$ \& Canal\+Texto\+::get\+Mensagens (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtém todas as mensagens do canal de texto. 
+
+Esta função retorna um vetor contendo todas as mensagens presentes no canal de texto.
+
+\begin{DoxyReturn}{Returns}
+Um vetor com as mensagens do canal de texto. 
+\end{DoxyReturn}
 
 
 \doxysubsection{Member Data Documentation}

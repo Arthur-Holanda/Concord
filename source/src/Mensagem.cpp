@@ -8,11 +8,11 @@
 Mensagem::Mensagem() {}
 
 // Construtor com parâmetros
-Mensagem::Mensagem(const std::string& dataHora, int enviadaPor, const std::string& conteudo)
+Mensagem::Mensagem(const time_t& dataHora, int enviadaPor, const std::string& conteudo)
     : dataHora(dataHora), enviadaPor(enviadaPor), conteudo(conteudo) {}
 
 // Getters
-std::string Mensagem::getDataHora() const {
+time_t Mensagem::getDataHora() const {
     return dataHora;
 }
 
@@ -22,4 +22,17 @@ int Mensagem::getEnviadaPor() const {
 
 std::string Mensagem::getConteudo() const {
     return conteudo;
+}
+
+
+// Setters
+
+void Mensagem::setDataHora(time_t novaDataHora) {
+    dataHora = novaDataHora;
+}
+void Mensagem::setEnviadaPor(int novoEnviadaPor) {
+    enviadaPor = novoEnviadaPor;
+}
+void Mensagem::setConteudo(const std::string& novoConteudo) {
+    conteudo = novoConteudo;
 }

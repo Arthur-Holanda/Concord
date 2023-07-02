@@ -26,7 +26,23 @@ public:
      */
     CanalTexto(const std::string& nome);
 
-    // Outros métodos e funcionalidades podem ser adicionados aqui
+    /**
+     * @brief Adiciona uma mensagem ao canal de texto.
+     * 
+     * Esta função adiciona uma nova mensagem ao canal de texto.
+     * 
+     * @param mensagem A mensagem a ser adicionada.
+     */
+    void adicionarMensagem(const Mensagem& mensagem);
+    
+    /**
+     * @brief Obtém todas as mensagens do canal de texto.
+     * 
+     * Esta função retorna um vetor contendo todas as mensagens presentes no canal de texto.
+     * 
+     * @return Um vetor com as mensagens do canal de texto.
+     */
+    const std::vector<Mensagem>& getMensagens() const;
 };
 
 #endif // CANALTEXTO_H

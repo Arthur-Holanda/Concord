@@ -22,8 +22,8 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Concord
-   &#160;<span id="projectnumber">2.1</span>
    </div>
+   <div id="projectbrief">2.2</div>
   </td>
  </tr>
  </tbody>
@@ -84,17 +84,22 @@ $(function() {
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classCanalTexto.html#acec0b5d85324e26724c73dbdb19046e2">CanalTexto</a>(<span class="keyword">const</span> std::string&amp; <a class="code" href="classCanal.html#ac5e6d80712597bacacd46c0d153c2644">nome</a>);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// Outros métodos e funcionalidades podem ser adicionados aqui</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CANALTEXTO_H</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCanalTexto.html#a496a4b95887930ba88b099c7cd6cbb66">adicionarMensagem</a>(<span class="keyword">const</span> <a class="code" href="classMensagem.html">Mensagem</a>&amp; mensagem);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">const</span> std::vector&lt;Mensagem&gt;&amp; <a class="code" href="classCanalTexto.html#a28f9c984f7bc58308e999c9bea3ec49f">getMensagens</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CANALTEXTO_H</span></div>
 <div class="ttc" id="aCanal_8h_html"><div class="ttname"><a href="Canal_8h.html">Canal.h</a></div><div class="ttdoc">Definição da classe Canal.</div></div>
 <div class="ttc" id="aMensagem_8h_html"><div class="ttname"><a href="Mensagem_8h.html">Mensagem.h</a></div><div class="ttdoc">Definição da classe Mensagem.</div></div>
 <div class="ttc" id="aclassCanalTexto_html"><div class="ttname"><a href="classCanalTexto.html">CanalTexto</a></div><div class="ttdoc">Classe que representa um canal de texto.</div><div class="ttdef"><b>Definition:</b> CanalTexto.h:18</div></div>
+<div class="ttc" id="aclassCanalTexto_html_a28f9c984f7bc58308e999c9bea3ec49f"><div class="ttname"><a href="classCanalTexto.html#a28f9c984f7bc58308e999c9bea3ec49f">CanalTexto::getMensagens</a></div><div class="ttdeci">const std::vector&lt; Mensagem &gt; &amp; getMensagens() const</div><div class="ttdoc">Obtém todas as mensagens do canal de texto.</div><div class="ttdef"><b>Definition:</b> CanalTexto.cpp:13</div></div>
+<div class="ttc" id="aclassCanalTexto_html_a496a4b95887930ba88b099c7cd6cbb66"><div class="ttname"><a href="classCanalTexto.html#a496a4b95887930ba88b099c7cd6cbb66">CanalTexto::adicionarMensagem</a></div><div class="ttdeci">void adicionarMensagem(const Mensagem &amp;mensagem)</div><div class="ttdoc">Adiciona uma mensagem ao canal de texto.</div><div class="ttdef"><b>Definition:</b> CanalTexto.cpp:10</div></div>
 <div class="ttc" id="aclassCanalTexto_html_acec0b5d85324e26724c73dbdb19046e2"><div class="ttname"><a href="classCanalTexto.html#acec0b5d85324e26724c73dbdb19046e2">CanalTexto::CanalTexto</a></div><div class="ttdeci">CanalTexto(const std::string &amp;nome)</div><div class="ttdoc">Construtor da classe CanalTexto.</div><div class="ttdef"><b>Definition:</b> CanalTexto.cpp:8</div></div>
 <div class="ttc" id="aclassCanalTexto_html_affb8d63a2557ecdb20f8bde47a0f26b9"><div class="ttname"><a href="classCanalTexto.html#affb8d63a2557ecdb20f8bde47a0f26b9">CanalTexto::mensagens</a></div><div class="ttdeci">std::vector&lt; Mensagem &gt; mensagens</div><div class="ttdef"><b>Definition:</b> CanalTexto.h:20</div></div>
 <div class="ttc" id="aclassCanal_html"><div class="ttname"><a href="classCanal.html">Canal</a></div><div class="ttdoc">Classe que representa um canal.</div><div class="ttdef"><b>Definition:</b> Canal.h:15</div></div>
 <div class="ttc" id="aclassCanal_html_ac5e6d80712597bacacd46c0d153c2644"><div class="ttname"><a href="classCanal.html#ac5e6d80712597bacacd46c0d153c2644">Canal::nome</a></div><div class="ttdeci">std::string nome</div><div class="ttdef"><b>Definition:</b> Canal.h:17</div></div>
+<div class="ttc" id="aclassMensagem_html"><div class="ttname"><a href="classMensagem.html">Mensagem</a></div><div class="ttdoc">Classe que representa uma mensagem.</div><div class="ttdef"><b>Definition:</b> Mensagem.h:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

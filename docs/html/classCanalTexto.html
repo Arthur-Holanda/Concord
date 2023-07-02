@@ -22,8 +22,8 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Concord
-   &#160;<span id="projectnumber">2.1</span>
    </div>
+   <div id="projectbrief">2.2</div>
   </td>
  </tr>
  </tbody>
@@ -90,6 +90,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acec0b5d85324e26724c73dbdb19046e2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCanalTexto.html#acec0b5d85324e26724c73dbdb19046e2">CanalTexto</a> (const std::string &amp;<a class="el" href="classCanal.html#ac5e6d80712597bacacd46c0d153c2644">nome</a>)</td></tr>
 <tr class="memdesc:acec0b5d85324e26724c73dbdb19046e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe <a class="el" href="classCanalTexto.html" title="Classe que representa um canal de texto.">CanalTexto</a>.  <a href="classCanalTexto.html#acec0b5d85324e26724c73dbdb19046e2">More...</a><br /></td></tr>
 <tr class="separator:acec0b5d85324e26724c73dbdb19046e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a496a4b95887930ba88b099c7cd6cbb66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCanalTexto.html#a496a4b95887930ba88b099c7cd6cbb66">adicionarMensagem</a> (const <a class="el" href="classMensagem.html">Mensagem</a> &amp;mensagem)</td></tr>
+<tr class="memdesc:a496a4b95887930ba88b099c7cd6cbb66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona uma mensagem ao canal de texto.  <a href="classCanalTexto.html#a496a4b95887930ba88b099c7cd6cbb66">More...</a><br /></td></tr>
+<tr class="separator:a496a4b95887930ba88b099c7cd6cbb66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28f9c984f7bc58308e999c9bea3ec49f"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="classMensagem.html">Mensagem</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCanalTexto.html#a28f9c984f7bc58308e999c9bea3ec49f">getMensagens</a> () const</td></tr>
+<tr class="memdesc:a28f9c984f7bc58308e999c9bea3ec49f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém todas as mensagens do canal de texto.  <a href="classCanalTexto.html#a28f9c984f7bc58308e999c9bea3ec49f">More...</a><br /></td></tr>
+<tr class="separator:a28f9c984f7bc58308e999c9bea3ec49f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCanal"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCanal')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCanal.html">Canal</a></td></tr>
 <tr class="memitem:a28e070f9badc3aa37e8f48ec85a83891 inherit pub_methods_classCanal"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCanal.html#a28e070f9badc3aa37e8f48ec85a83891">Canal</a> (const std::string &amp;<a class="el" href="classCanal.html#ac5e6d80712597bacacd46c0d153c2644">nome</a>)</td></tr>
 <tr class="memdesc:a28e070f9badc3aa37e8f48ec85a83891 inherit pub_methods_classCanal"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe <a class="el" href="classCanal.html" title="Classe que representa um canal.">Canal</a>.  <a href="classCanal.html#a28e070f9badc3aa37e8f48ec85a83891">More...</a><br /></td></tr>
@@ -133,6 +139,55 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a496a4b95887930ba88b099c7cd6cbb66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a496a4b95887930ba88b099c7cd6cbb66">&#9670;&nbsp;</a></span>adicionarMensagem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CanalTexto::adicionarMensagem </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classMensagem.html">Mensagem</a> &amp;&#160;</td>
+          <td class="paramname"><em>mensagem</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adiciona uma mensagem ao canal de texto. </p>
+<p>Esta função adiciona uma nova mensagem ao canal de texto.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mensagem</td><td>A mensagem a ser adicionada. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a28f9c984f7bc58308e999c9bea3ec49f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28f9c984f7bc58308e999c9bea3ec49f">&#9670;&nbsp;</a></span>getMensagens()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="classMensagem.html">Mensagem</a> &gt; &amp; CanalTexto::getMensagens </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtém todas as mensagens do canal de texto. </p>
+<p>Esta função retorna um vetor contendo todas as mensagens presentes no canal de texto.</p>
+<dl class="section return"><dt>Returns</dt><dd>Um vetor com as mensagens do canal de texto. </dd></dl>
 
 </div>
 </div>

@@ -22,8 +22,8 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Concord
-   &#160;<span id="projectnumber">2.1</span>
    </div>
+   <div id="projectbrief">2.2</div>
   </td>
  </tr>
  </tbody>
@@ -75,32 +75,43 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define MENSAGEM_H</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classMensagem.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMensagem.html">Mensagem</a> {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classMensagem.html#a4528293f2e30645057002b8ad6c2c8cf">   15</a></span>&#160;    std::string <a class="code" href="classMensagem.html#a4528293f2e30645057002b8ad6c2c8cf">dataHora</a>; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classMensagem.html#a0a45f35c79602ab6d735da42fe2ca3d9">   16</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classMensagem.html#a0a45f35c79602ab6d735da42fe2ca3d9">enviadaPor</a>; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classMensagem.html#a97184a35f33bca1c7a1bf6832f1caaec">   17</a></span>&#160;    std::string <a class="code" href="classMensagem.html#a97184a35f33bca1c7a1bf6832f1caaec">conteudo</a>; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classMensagem.html#ae8d4413de4a085a5b93ee3bd1779abdf">Mensagem</a>();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classMensagem.html#ae8d4413de4a085a5b93ee3bd1779abdf">Mensagem</a>(<span class="keyword">const</span> std::string&amp; <a class="code" href="classMensagem.html#a4528293f2e30645057002b8ad6c2c8cf">dataHora</a>, <span class="keywordtype">int</span> <a class="code" href="classMensagem.html#a0a45f35c79602ab6d735da42fe2ca3d9">enviadaPor</a>, <span class="keyword">const</span> std::string&amp; <a class="code" href="classMensagem.html#a97184a35f33bca1c7a1bf6832f1caaec">conteudo</a>);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    std::string <a class="code" href="classMensagem.html#af08ba6dbf82218951c84da19b53895cc">getDataHora</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classMensagem.html#a3d47190b7aa46c645aded9c252388789">getEnviadaPor</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    std::string <a class="code" href="classMensagem.html#a83b337b85e8241f9ba20f4e2f2ee81bd">getConteudo</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classMensagem.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMensagem.html">Mensagem</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classMensagem.html#aeb7d5ef75423b2094be7d2a621f0309a">   16</a></span>&#160;    time_t <a class="code" href="classMensagem.html#aeb7d5ef75423b2094be7d2a621f0309a">dataHora</a>; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classMensagem.html#a0a45f35c79602ab6d735da42fe2ca3d9">   17</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classMensagem.html#a0a45f35c79602ab6d735da42fe2ca3d9">enviadaPor</a>; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classMensagem.html#a97184a35f33bca1c7a1bf6832f1caaec">   18</a></span>&#160;    std::string <a class="code" href="classMensagem.html#a97184a35f33bca1c7a1bf6832f1caaec">conteudo</a>; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classMensagem.html#ae8d4413de4a085a5b93ee3bd1779abdf">Mensagem</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classMensagem.html#ae8d4413de4a085a5b93ee3bd1779abdf">Mensagem</a>(<span class="keyword">const</span> time_t&amp; <a class="code" href="classMensagem.html#aeb7d5ef75423b2094be7d2a621f0309a">dataHora</a>, <span class="keywordtype">int</span> <a class="code" href="classMensagem.html#a0a45f35c79602ab6d735da42fe2ca3d9">enviadaPor</a>, <span class="keyword">const</span> std::string&amp; <a class="code" href="classMensagem.html#a97184a35f33bca1c7a1bf6832f1caaec">conteudo</a>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    time_t <a class="code" href="classMensagem.html#af994f381ee14a86b3cf6bcc73297d287">getDataHora</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classMensagem.html#a3d47190b7aa46c645aded9c252388789">getEnviadaPor</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    std::string <a class="code" href="classMensagem.html#a83b337b85e8241f9ba20f4e2f2ee81bd">getConteudo</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//MENSAGEM_H</span></div>
-<div class="ttc" id="aclassMensagem_html"><div class="ttname"><a href="classMensagem.html">Mensagem</a></div><div class="ttdoc">Classe que representa uma mensagem.</div><div class="ttdef"><b>Definition:</b> Mensagem.h:13</div></div>
-<div class="ttc" id="aclassMensagem_html_a0a45f35c79602ab6d735da42fe2ca3d9"><div class="ttname"><a href="classMensagem.html#a0a45f35c79602ab6d735da42fe2ca3d9">Mensagem::enviadaPor</a></div><div class="ttdeci">int enviadaPor</div><div class="ttdef"><b>Definition:</b> Mensagem.h:16</div></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMensagem.html#a03ceb5e25d937bc22982c5713864ed3c">setDataHora</a>(time_t novaDataHora);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMensagem.html#a80394ac9c3829da8a91bcb04e0f352a1">setEnviadaPor</a>(<span class="keywordtype">int</span> novoEnviadaPor);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMensagem.html#a14bc0a418718b9f8db3a01a2aee04eb0">setConteudo</a>(<span class="keyword">const</span> std::string&amp; novoConteudo);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//MENSAGEM_H</span></div>
+<div class="ttc" id="aclassMensagem_html"><div class="ttname"><a href="classMensagem.html">Mensagem</a></div><div class="ttdoc">Classe que representa uma mensagem.</div><div class="ttdef"><b>Definition:</b> Mensagem.h:14</div></div>
+<div class="ttc" id="aclassMensagem_html_a03ceb5e25d937bc22982c5713864ed3c"><div class="ttname"><a href="classMensagem.html#a03ceb5e25d937bc22982c5713864ed3c">Mensagem::setDataHora</a></div><div class="ttdeci">void setDataHora(time_t novaDataHora)</div><div class="ttdoc">Define a data e hora da mensagem.</div><div class="ttdef"><b>Definition:</b> Mensagem.cpp:30</div></div>
+<div class="ttc" id="aclassMensagem_html_a0a45f35c79602ab6d735da42fe2ca3d9"><div class="ttname"><a href="classMensagem.html#a0a45f35c79602ab6d735da42fe2ca3d9">Mensagem::enviadaPor</a></div><div class="ttdeci">int enviadaPor</div><div class="ttdef"><b>Definition:</b> Mensagem.h:17</div></div>
+<div class="ttc" id="aclassMensagem_html_a14bc0a418718b9f8db3a01a2aee04eb0"><div class="ttname"><a href="classMensagem.html#a14bc0a418718b9f8db3a01a2aee04eb0">Mensagem::setConteudo</a></div><div class="ttdeci">void setConteudo(const std::string &amp;novoConteudo)</div><div class="ttdoc">Define o conteúdo da mensagem.</div><div class="ttdef"><b>Definition:</b> Mensagem.cpp:36</div></div>
 <div class="ttc" id="aclassMensagem_html_a3d47190b7aa46c645aded9c252388789"><div class="ttname"><a href="classMensagem.html#a3d47190b7aa46c645aded9c252388789">Mensagem::getEnviadaPor</a></div><div class="ttdeci">int getEnviadaPor() const</div><div class="ttdoc">Obtém o identificador de quem enviou a mensagem.</div><div class="ttdef"><b>Definition:</b> Mensagem.cpp:19</div></div>
-<div class="ttc" id="aclassMensagem_html_a4528293f2e30645057002b8ad6c2c8cf"><div class="ttname"><a href="classMensagem.html#a4528293f2e30645057002b8ad6c2c8cf">Mensagem::dataHora</a></div><div class="ttdeci">std::string dataHora</div><div class="ttdef"><b>Definition:</b> Mensagem.h:15</div></div>
+<div class="ttc" id="aclassMensagem_html_a80394ac9c3829da8a91bcb04e0f352a1"><div class="ttname"><a href="classMensagem.html#a80394ac9c3829da8a91bcb04e0f352a1">Mensagem::setEnviadaPor</a></div><div class="ttdeci">void setEnviadaPor(int novoEnviadaPor)</div><div class="ttdoc">Define o identificador de quem enviou a mensagem.</div><div class="ttdef"><b>Definition:</b> Mensagem.cpp:33</div></div>
 <div class="ttc" id="aclassMensagem_html_a83b337b85e8241f9ba20f4e2f2ee81bd"><div class="ttname"><a href="classMensagem.html#a83b337b85e8241f9ba20f4e2f2ee81bd">Mensagem::getConteudo</a></div><div class="ttdeci">std::string getConteudo() const</div><div class="ttdoc">Obtém o conteúdo da mensagem.</div><div class="ttdef"><b>Definition:</b> Mensagem.cpp:23</div></div>
-<div class="ttc" id="aclassMensagem_html_a97184a35f33bca1c7a1bf6832f1caaec"><div class="ttname"><a href="classMensagem.html#a97184a35f33bca1c7a1bf6832f1caaec">Mensagem::conteudo</a></div><div class="ttdeci">std::string conteudo</div><div class="ttdef"><b>Definition:</b> Mensagem.h:17</div></div>
+<div class="ttc" id="aclassMensagem_html_a97184a35f33bca1c7a1bf6832f1caaec"><div class="ttname"><a href="classMensagem.html#a97184a35f33bca1c7a1bf6832f1caaec">Mensagem::conteudo</a></div><div class="ttdeci">std::string conteudo</div><div class="ttdef"><b>Definition:</b> Mensagem.h:18</div></div>
 <div class="ttc" id="aclassMensagem_html_ae8d4413de4a085a5b93ee3bd1779abdf"><div class="ttname"><a href="classMensagem.html#ae8d4413de4a085a5b93ee3bd1779abdf">Mensagem::Mensagem</a></div><div class="ttdeci">Mensagem()</div><div class="ttdoc">Construtor padrão da classe Mensagem.</div><div class="ttdef"><b>Definition:</b> Mensagem.cpp:8</div></div>
-<div class="ttc" id="aclassMensagem_html_af08ba6dbf82218951c84da19b53895cc"><div class="ttname"><a href="classMensagem.html#af08ba6dbf82218951c84da19b53895cc">Mensagem::getDataHora</a></div><div class="ttdeci">std::string getDataHora() const</div><div class="ttdoc">Obtém a data e hora da mensagem.</div><div class="ttdef"><b>Definition:</b> Mensagem.cpp:15</div></div>
+<div class="ttc" id="aclassMensagem_html_aeb7d5ef75423b2094be7d2a621f0309a"><div class="ttname"><a href="classMensagem.html#aeb7d5ef75423b2094be7d2a621f0309a">Mensagem::dataHora</a></div><div class="ttdeci">time_t dataHora</div><div class="ttdef"><b>Definition:</b> Mensagem.h:16</div></div>
+<div class="ttc" id="aclassMensagem_html_af994f381ee14a86b3cf6bcc73297d287"><div class="ttname"><a href="classMensagem.html#af994f381ee14a86b3cf6bcc73297d287">Mensagem::getDataHora</a></div><div class="ttdeci">time_t getDataHora() const</div><div class="ttdoc">Obtém a data e hora da mensagem.</div><div class="ttdef"><b>Definition:</b> Mensagem.cpp:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -14,18 +14,24 @@ Classe que representa uma mensagem.
 \item 
 \mbox{\hyperlink{classMensagem_ae8d4413de4a085a5b93ee3bd1779abdf}{Mensagem}} ()
 \begin{DoxyCompactList}\small\item\em Construtor padrão da classe \mbox{\hyperlink{classMensagem}{Mensagem}}. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classMensagem_ae50c3b7950c65ffb6fa897f165cd9ab7}{Mensagem}} (const std\+::string \&\mbox{\hyperlink{classMensagem_a4528293f2e30645057002b8ad6c2c8cf}{data\+Hora}}, int \mbox{\hyperlink{classMensagem_a0a45f35c79602ab6d735da42fe2ca3d9}{enviada\+Por}}, const std\+::string \&\mbox{\hyperlink{classMensagem_a97184a35f33bca1c7a1bf6832f1caaec}{conteudo}})
+\mbox{\hyperlink{classMensagem_a16bb5a5372d933aab9cfbc5673f515af}{Mensagem}} (const time\+\_\+t \&\mbox{\hyperlink{classMensagem_aeb7d5ef75423b2094be7d2a621f0309a}{data\+Hora}}, int \mbox{\hyperlink{classMensagem_a0a45f35c79602ab6d735da42fe2ca3d9}{enviada\+Por}}, const std\+::string \&\mbox{\hyperlink{classMensagem_a97184a35f33bca1c7a1bf6832f1caaec}{conteudo}})
 \begin{DoxyCompactList}\small\item\em Construtor da classe \mbox{\hyperlink{classMensagem}{Mensagem}}. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{classMensagem_af08ba6dbf82218951c84da19b53895cc}{get\+Data\+Hora}} () const
+time\+\_\+t \mbox{\hyperlink{classMensagem_af994f381ee14a86b3cf6bcc73297d287}{get\+Data\+Hora}} () const
 \begin{DoxyCompactList}\small\item\em Obtém a data e hora da mensagem. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classMensagem_a3d47190b7aa46c645aded9c252388789}{get\+Enviada\+Por}} () const
 \begin{DoxyCompactList}\small\item\em Obtém o identificador de quem enviou a mensagem. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classMensagem_a83b337b85e8241f9ba20f4e2f2ee81bd}{get\+Conteudo}} () const
-\begin{DoxyCompactList}\small\item\em Obtém o conteúdo da mensagem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Obtém o conteúdo da mensagem. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMensagem_a03ceb5e25d937bc22982c5713864ed3c}{set\+Data\+Hora}} (time\+\_\+t nova\+Data\+Hora)
+\begin{DoxyCompactList}\small\item\em Define a data e hora da mensagem. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMensagem_a80394ac9c3829da8a91bcb04e0f352a1}{set\+Enviada\+Por}} (int novo\+Enviada\+Por)
+\begin{DoxyCompactList}\small\item\em Define o identificador de quem enviou a mensagem. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMensagem_a14bc0a418718b9f8db3a01a2aee04eb0}{set\+Conteudo}} (const std\+::string \&novo\+Conteudo)
+\begin{DoxyCompactList}\small\item\em Define o conteúdo da mensagem. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::string \mbox{\hyperlink{classMensagem_a4528293f2e30645057002b8ad6c2c8cf}{data\+Hora}}
+time\+\_\+t \mbox{\hyperlink{classMensagem_aeb7d5ef75423b2094be7d2a621f0309a}{data\+Hora}}
 \item 
 int \mbox{\hyperlink{classMensagem_a0a45f35c79602ab6d735da42fe2ca3d9}{enviada\+Por}}
 \item 
@@ -47,11 +53,11 @@ Classe que representa uma mensagem.
 
 Construtor padrão da classe \mbox{\hyperlink{classMensagem}{Mensagem}}. 
 
-\mbox{\Hypertarget{classMensagem_ae50c3b7950c65ffb6fa897f165cd9ab7}\label{classMensagem_ae50c3b7950c65ffb6fa897f165cd9ab7}} 
+\mbox{\Hypertarget{classMensagem_a16bb5a5372d933aab9cfbc5673f515af}\label{classMensagem_a16bb5a5372d933aab9cfbc5673f515af}} 
 \index{Mensagem@{Mensagem}!Mensagem@{Mensagem}}
 \index{Mensagem@{Mensagem}!Mensagem@{Mensagem}}
 \doxysubsubsection{\texorpdfstring{Mensagem()}{Mensagem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Mensagem\+::\+Mensagem (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{data\+Hora,  }\item[{int}]{enviada\+Por,  }\item[{const std\+::string \&}]{conteudo }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Mensagem\+::\+Mensagem (\begin{DoxyParamCaption}\item[{const time\+\_\+t \&}]{data\+Hora,  }\item[{int}]{enviada\+Por,  }\item[{const std\+::string \&}]{conteudo }\end{DoxyParamCaption})}
 
 
 
@@ -82,11 +88,11 @@ Obtém o conteúdo da mensagem.
 \begin{DoxyReturn}{Returns}
 O conteúdo da mensagem. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classMensagem_af08ba6dbf82218951c84da19b53895cc}\label{classMensagem_af08ba6dbf82218951c84da19b53895cc}} 
+\mbox{\Hypertarget{classMensagem_af994f381ee14a86b3cf6bcc73297d287}\label{classMensagem_af994f381ee14a86b3cf6bcc73297d287}} 
 \index{Mensagem@{Mensagem}!getDataHora@{getDataHora}}
 \index{getDataHora@{getDataHora}!Mensagem@{Mensagem}}
 \doxysubsubsection{\texorpdfstring{getDataHora()}{getDataHora()}}
-{\footnotesize\ttfamily std\+::string Mensagem\+::get\+Data\+Hora (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily time\+\_\+t Mensagem\+::get\+Data\+Hora (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -108,6 +114,57 @@ Obtém o identificador de quem enviou a mensagem.
 \begin{DoxyReturn}{Returns}
 O identificador de quem enviou a mensagem. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classMensagem_a14bc0a418718b9f8db3a01a2aee04eb0}\label{classMensagem_a14bc0a418718b9f8db3a01a2aee04eb0}} 
+\index{Mensagem@{Mensagem}!setConteudo@{setConteudo}}
+\index{setConteudo@{setConteudo}!Mensagem@{Mensagem}}
+\doxysubsubsection{\texorpdfstring{setConteudo()}{setConteudo()}}
+{\footnotesize\ttfamily void Mensagem\+::set\+Conteudo (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{novo\+Conteudo }\end{DoxyParamCaption})}
+
+
+
+Define o conteúdo da mensagem. 
+
+Esta função define o conteúdo da mensagem para o valor fornecido.
+
+
+\begin{DoxyParams}{Parameters}
+{\em novo\+Conteudo} & O novo conteúdo da mensagem. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMensagem_a03ceb5e25d937bc22982c5713864ed3c}\label{classMensagem_a03ceb5e25d937bc22982c5713864ed3c}} 
+\index{Mensagem@{Mensagem}!setDataHora@{setDataHora}}
+\index{setDataHora@{setDataHora}!Mensagem@{Mensagem}}
+\doxysubsubsection{\texorpdfstring{setDataHora()}{setDataHora()}}
+{\footnotesize\ttfamily void Mensagem\+::set\+Data\+Hora (\begin{DoxyParamCaption}\item[{time\+\_\+t}]{nova\+Data\+Hora }\end{DoxyParamCaption})}
+
+
+
+Define a data e hora da mensagem. 
+
+Esta função define a data e hora da mensagem para o valor fornecido.
+
+
+\begin{DoxyParams}{Parameters}
+{\em nova\+Data\+Hora} & A nova data e hora da mensagem. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMensagem_a80394ac9c3829da8a91bcb04e0f352a1}\label{classMensagem_a80394ac9c3829da8a91bcb04e0f352a1}} 
+\index{Mensagem@{Mensagem}!setEnviadaPor@{setEnviadaPor}}
+\index{setEnviadaPor@{setEnviadaPor}!Mensagem@{Mensagem}}
+\doxysubsubsection{\texorpdfstring{setEnviadaPor()}{setEnviadaPor()}}
+{\footnotesize\ttfamily void Mensagem\+::set\+Enviada\+Por (\begin{DoxyParamCaption}\item[{int}]{novo\+Enviada\+Por }\end{DoxyParamCaption})}
+
+
+
+Define o identificador de quem enviou a mensagem. 
+
+Esta função define o identificador de quem enviou a mensagem para o valor fornecido.
+
+
+\begin{DoxyParams}{Parameters}
+{\em novo\+Enviada\+Por} & O novo identificador de quem enviou a mensagem. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Data Documentation}
@@ -117,11 +174,11 @@ O identificador de quem enviou a mensagem.
 \doxysubsubsection{\texorpdfstring{conteudo}{conteudo}}
 {\footnotesize\ttfamily std\+::string Mensagem\+::conteudo\hspace{0.3cm}{\ttfamily [private]}}
 
-Conteúdo da mensagem. \mbox{\Hypertarget{classMensagem_a4528293f2e30645057002b8ad6c2c8cf}\label{classMensagem_a4528293f2e30645057002b8ad6c2c8cf}} 
+Conteúdo da mensagem. \mbox{\Hypertarget{classMensagem_aeb7d5ef75423b2094be7d2a621f0309a}\label{classMensagem_aeb7d5ef75423b2094be7d2a621f0309a}} 
 \index{Mensagem@{Mensagem}!dataHora@{dataHora}}
 \index{dataHora@{dataHora}!Mensagem@{Mensagem}}
 \doxysubsubsection{\texorpdfstring{dataHora}{dataHora}}
-{\footnotesize\ttfamily std\+::string Mensagem\+::data\+Hora\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily time\+\_\+t Mensagem\+::data\+Hora\hspace{0.3cm}{\ttfamily [private]}}
 
 Data e hora da mensagem. \mbox{\Hypertarget{classMensagem_a0a45f35c79602ab6d735da42fe2ca3d9}\label{classMensagem_a0a45f35c79602ab6d735da42fe2ca3d9}} 
 \index{Mensagem@{Mensagem}!enviadaPor@{enviadaPor}}
