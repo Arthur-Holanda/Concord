@@ -1,0 +1,69 @@
+create-user email1 password1 Murilo
+create-user email2 password2 Alan
+login email1 password1
+create-server server1
+enter-server server1
+create-channel fofoca texto
+enter-channel fofoca
+send-message consegui chamar ela pra sair
+send-message acho que vou pedir ela em namoro
+send-message to nervoso
+disconnect
+login email2 password2
+enter-server server1
+enter-channel fofoca
+send-message meu irmão, vai acabar do mesmo jeito
+send-message vc mergulha de cabeça e se decepciona depois
+disconnect
+login email1 password1
+enter-server server1
+enter-channel fofoca
+send-message você ta com inveja
+send-message porque a amiga dela n quis saber de você
+send-message agora você fica ai querendo estragar a alegria dos outros
+disconnect
+login email2 password2
+enter-server server1
+enter-channel fofoca
+send-message isso não tem nada haver com jessica
+send-message não coloca o nome dela nisso
+send-message eu to falando de vc e a paula
+send-message ela já Magoou vc uma vez
+disconnect
+login email1 password1
+enter-server server1
+enter-channel fofoca
+send-message dessa vez vai ser diferente
+send-message eu vou ser mais presente dessa vez
+disconnect
+login email2 password2
+enter-server server1
+enter-channel fofoca
+send-message irmão ela te traiu com o seu melhor amigo
+disconnect
+login email1 password1
+enter-server server1
+enter-channel fofoca
+send-message quem ama perdoa
+send-message eu vou ser uma pessoa melhor
+send-message eu vou ser melhor pra ela
+disconnect
+login email2 password2
+enter-server server1
+enter-channel fofoca
+send-message sim meu amg isso n quer dizer que vá dar certo
+send-message quer dizer que vc vai ser trouxa de novo
+disconnect
+login email1 password1
+enter-server server1
+enter-channel fofoca
+send-message mas eu tenho que tentar
+send-message eu a amo
+disconnect
+login email2 password2
+enter-server server1
+enter-channel fofoca
+send-message tabom, quebra a cara e depois a gente conversa mais
+list-messages
+disconnect
+quit
