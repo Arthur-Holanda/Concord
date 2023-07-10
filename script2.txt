@@ -6,4 +6,5 @@ disconnect
 login email2 password2
 enter-server server1
 list-participants
+list-participants
 quit
