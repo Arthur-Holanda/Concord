@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['readme_77',['README',['../md_README.html',1,'']]],
-  ['readme_2emd_78',['README.md',['../README_8md.html',1,'']]],
-  ['removerservidor_79',['removerServidor',['../classSistema.html#a527fdd658e704662c4ed5acae780437a',1,'Sistema']]]
+  ['participantesids_0',['participantesIDs',['../classServidor.html#ac26153c0e4ee691298741be313624ea9',1,'Servidor']]],
+  ['platform_5fid_1',['PLATFORM_ID',['../CMakeCCompilerId_8c.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCCompilerId.c'],['../CMakeCXXCompilerId_8cpp.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCXXCompilerId.cpp']]]
 ];

@@ -3,13 +3,13 @@
  * @brief Implementação da classe Sistema.
  */
 #include "../include/Sistema.h"
-#include <sstream>
 
     Sistema::Sistema() : usuarioLogado(nullptr), servidorAtual(nullptr), canalAtual(nullptr) {}
 
 
 
     void Sistema::iniciar() {
+        carregar();
         std::cout << "Concordo - Sistema de Mensagens" << std::endl;
         while (lerComando()) {}
     }
@@ -211,6 +211,7 @@
 
         std::cout << "Usuário criado com sucesso." << std::endl;
         //std::cout << novoUsuario.getId() << std::endl;
+        salvar();
     }
 
 
@@ -270,7 +271,8 @@
         Servidor novoServidor(usuarioLogado->getId(), nome, "", "");
         novoServidor.adicionarParticipante(usuarioLogado->getId());
         servidores.push_back(novoServidor);
-        std::cout << "Servidor criado" << std::endl;    
+        std::cout << "Servidor criado" << std::endl;
+        salvar();
     }
 
     void Sistema::mudarDescricaoServidor(const std::string& nome, const std::string& descricao)
@@ -288,6 +290,7 @@
                 } else {
                     std::cout << "Erro: Você não pode alterar a descrição de um servidor que não foi criado por você." << std::endl;
                 }
+                salvar();
                 return;
             }
         }
@@ -314,6 +317,7 @@
                 } else {
                     std::cout << "Erro: Você não pode alterar o código de convite de um servidor que não foi criado por você." << std::endl;
                 }
+                salvar();
                 return;
             }
         }
@@ -343,6 +347,7 @@
                 } else {
                     std::cout << "Erro: Você não pode remover um servidor que não foi criado por você." << std::endl;
                 }
+                salvar();
                 return;
             }
         }
@@ -472,6 +477,7 @@
         } else {
             std::cout << "Erro: Tipo de canal inválido. Os tipos válidos são 'texto' e 'voz'." << std::endl;
         }
+        salvar();
     }
 
     void Sistema::entrarCanal(const std::string& nome)
@@ -545,6 +551,7 @@
         novaMensagem.setEnviadaPor(usuarioLogado->getId());
 
         canalTexto->adicionarMensagem(novaMensagem);
+        salvar();
     }
 
     std::string Sistema::getNomeUsuario(int idUsuario) const {
@@ -598,5 +605,185 @@
         }
     }
 
+    void Sistema::salvarUsuarios() {
+        std::ofstream arquivo("usuarios.txt");
+        if (arquivo.is_open()) {
+            arquivo << usuarios.size() << "\n";
+            for (const Usuario& usuario : usuarios) {
+                arquivo << usuario.getId() << "\n";
+                arquivo << usuario.getNome() << "\n";
+                arquivo << usuario.getEmail() << "\n";
+                arquivo << usuario.getSenha() << "\n";
+            }
+            arquivo.close();
+        } else {
+            std::cerr << "Não foi possível abrir o arquivo para escrita.\n";
+        }
+    }
 
-/*(std::time(nullptr),usuarioLogado->getId(),mensagem)*/
+    void Sistema::salvarServidores() {
+        std::ofstream arquivo("servidores.txt");
+        if (arquivo.is_open()) {
+            arquivo << servidores.size() << "\n";
+            for (const Servidor& servidor : servidores) {
+                arquivo << servidor.getUsuarioDonoId() << "\n";
+                arquivo << servidor.getNome() << "\n";
+                arquivo << servidor.getDescricao() << "\n";
+                arquivo << servidor.getCodigoConvite() << "\n";
+                const std::vector<int>& participantes = servidor.getParticipantesIDs();
+                arquivo << participantes.size() << "\n";
+                for (int idParticipante : participantes) {
+                    arquivo << idParticipante << "\n";
+                }
+                const std::vector<Canal*>& canais = servidor.getCanais();
+                arquivo << canais.size() << "\n";
+                for (const Canal* canal : canais) {
+                    arquivo << canal->getNome() << "\n";
+                    if (canal->getTipo() == Canal::Tipo::TEXTO) {
+                        arquivo << "TEXTO\n";
+                        const std::vector<Mensagem>& mensagens = dynamic_cast<const CanalTexto*>(canal)->getMensagens();
+                        arquivo << mensagens.size() << "\n";
+                        for (const Mensagem& mensagem : mensagens) {
+                            arquivo << mensagem.getEnviadaPor() << "\n";
+
+                            // Converte o valor de tempo em uma estrutura tm
+                            std::time_t dataHora = mensagem.getDataHora();
+                            std::tm* dataHoraTm = std::localtime(&dataHora);
+
+                            // Formata a data/hora como uma string no formato "dia/mês/ano"
+                            char buffer[11];
+                            std::strftime(buffer, sizeof(buffer), "%d/%m/%Y", dataHoraTm);
+
+                            // Escreve a data/hora formatada no arquivo
+                            arquivo << buffer << "\n";
+
+                            arquivo << mensagem.getConteudo() << "\n";
+                        }
+                    } else if (canal->getTipo() == Canal::Tipo::VOZ) {
+                        arquivo << "VOZ\n";
+                        const Mensagem& ultimaMensagem = dynamic_cast<const CanalVoz*>(canal)->getUltimaMensagem();
+                        if (ultimaMensagem.getEnviadaPor() != -1) {
+                            arquivo << "1\n";
+                            arquivo << ultimaMensagem.getEnviadaPor() << "\n";
+
+                            // Converte o valor de tempo em uma estrutura tm
+                            std::time_t dataHora = ultimaMensagem.getDataHora();
+                            std::tm* dataHoraTm = std::localtime(&dataHora);
+
+                            // Formata a data/hora como uma string no formato "dia/mês/ano"
+                            char buffer[11];
+                            std::strftime(buffer, sizeof(buffer), "%d/%m/%Y", dataHoraTm);
+
+                            // Escreve a data/hora formatada no arquivo
+                            arquivo << buffer << "\n";
+
+                            arquivo << ultimaMensagem.getConteudo() << "\n";
+                        } else {
+                            arquivo << "0\n";
+                        }
+                    }
+                }
+            }
+            arquivo.close();
+        } else {
+            std::cerr << "Não foi possível abrir o arquivo para escrita.\n";
+        }
+    }
+
+    void Sistema::salvar() {
+        salvarUsuarios();
+        salvarServidores();
+    }
+
+    void Sistema::carregarUsuarios() {
+        std::ifstream arquivo("usuarios.txt");
+        if (arquivo.is_open()) {
+            int numUsuarios;
+            arquivo >> numUsuarios;
+            std::string lixo;
+            std::getline(arquivo, lixo);
+            for (int i = 0; i < numUsuarios; i++) {
+                int id;
+                std::string nome, email, senha;
+                arquivo >> id;
+                std::getline(arquivo, lixo);
+                std::getline(arquivo, nome);
+                std::getline(arquivo, email);
+                std::getline(arquivo, senha);
+                usuarios.push_back(Usuario(id, nome, email, senha));
+            }
+            arquivo.close();
+        } else {
+            std::cerr << "Não foi possível abrir o arquivo para leitura.\n";
+        }
+    }
+
+    void Sistema::carregarServidores() {
+        std::ifstream arquivo("servidores.txt");
+        if (arquivo.is_open()) {
+            int numServidores;
+            arquivo >> numServidores;
+            std::string lixo;
+            std::getline(arquivo, lixo);
+            for (int i = 0; i < numServidores; i++) {
+                int donoId, numParticipantes, numCanais;
+                std::string nome, descricao, codigoConvite;
+                arquivo >> donoId;
+                std::getline(arquivo, lixo);
+                std::getline(arquivo, nome);
+                std::getline(arquivo, descricao);
+                std::getline(arquivo, codigoConvite);
+                Servidor servidor(donoId, nome, descricao, codigoConvite);
+                arquivo >> numParticipantes;
+                for (int j = 0; j < numParticipantes; j++) {
+                    int idParticipante;
+                    arquivo >> idParticipante;
+                    servidor.adicionarParticipante(idParticipante);
+                }
+                arquivo >> numCanais;
+                for (int j = 0; j < numCanais; j++) {
+                    std::string nomeCanal, tipoCanal;
+                    int numMensagens;
+                    std::getline(arquivo, nomeCanal);
+                    std::getline(arquivo, tipoCanal);
+                    Canal* canal;
+                    if (tipoCanal == "TEXTO") {
+                        canal = new CanalTexto(nomeCanal);
+                        arquivo >> numMensagens;
+                        for (int k = 0; k < numMensagens; k++) {
+                            int enviadaPor;
+                            time_t dataHora;
+                            std::string conteudo;
+                            arquivo >> enviadaPor >> dataHora;
+                            std::getline(arquivo, conteudo);
+                            Mensagem mensagem(enviadaPor, dataHora, conteudo);
+                            dynamic_cast<CanalTexto*>(canal)->adicionarMensagem(mensagem);
+                        }
+                    } else if (tipoCanal == "VOZ") {
+                        canal = new CanalVoz(nomeCanal);
+                        arquivo >> numMensagens;
+                        if (numMensagens > 0) {
+                            int enviadaPor;
+                            time_t dataHora;
+                            std::string conteudo;
+                            arquivo >> enviadaPor >> dataHora;
+                            std::getline(arquivo, conteudo);
+                            Mensagem mensagem(enviadaPor, dataHora, conteudo);
+                            dynamic_cast<CanalVoz*>(canal)->setUltimaMensagem(mensagem);
+                        }
+                    }
+                    servidor.adicionarCanal(canal);
+                }
+                servidores.push_back(servidor);
+            }
+            arquivo.close();
+        } else {
+            std::cerr << "Não foi possível abrir o arquivo para leitura.\n";
+        }
+    }
+
+    void Sistema::carregar() {
+        carregarUsuarios();
+        carregarServidores();
+    }
+

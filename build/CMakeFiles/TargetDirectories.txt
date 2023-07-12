@@ -1,0 +1,3 @@
+/home/dutch/Documentos/UFRN/lp/Concord/build/CMakeFiles/Concord.dir
+/home/dutch/Documentos/UFRN/lp/Concord/build/CMakeFiles/edit_cache.dir
+/home/dutch/Documentos/UFRN/lp/Concord/build/CMakeFiles/rebuild_cache.dir

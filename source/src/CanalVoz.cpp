@@ -4,9 +4,7 @@
  */
 #include "../include/CanalVoz.h"
 
-// Construtor com parâmetros
 CanalVoz::CanalVoz(const std::string& nome) : Canal(nome) {}
-
 
 void CanalVoz::setUltimaMensagem(const Mensagem& mensagem) {
     ultimaMensagem = mensagem;
@@ -14,4 +12,8 @@ void CanalVoz::setUltimaMensagem(const Mensagem& mensagem) {
 
 Mensagem CanalVoz::getUltimaMensagem() const {
     return ultimaMensagem;
+}
+
+Canal::Tipo CanalVoz::getTipo() const {
+    return Tipo::VOZ;
 }

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['visualizarmensagens_113',['visualizarMensagens',['../classSistema.html#a3334bd94b4ac7ee04e49efef6f76e9dc',1,'Sistema']]]
+  ['texto_0',['TEXTO',['../classCanal.html#a0a373f3d6de3a1d857b74a56685a8a70a134e6ba128a08db127cf4b1e28d91a4a',1,'Canal']]],
+  ['tipo_1',['Tipo',['../classCanal.html#a0a373f3d6de3a1d857b74a56685a8a70',1,'Canal']]]
 ];

@@ -53,7 +53,22 @@ void \mbox{\hyperlink{classSistema_a5b8b3c7e551ccee8df9f7427d767bb3e}{enviar\+Me
 std\+::string \mbox{\hyperlink{classSistema_a34a5509ed7c36a9906bec776d1df8533}{get\+Nome\+Usuario}} (int id\+Usuario) const
 \begin{DoxyCompactList}\small\item\em Obtém o nome de um usuário pelo ID. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSistema_a3334bd94b4ac7ee04e49efef6f76e9dc}{visualizar\+Mensagens}} ()
-\begin{DoxyCompactList}\small\item\em Visualiza as mensagens do canal atual. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Visualiza as mensagens do canal atual. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_a118d16dc0bcefb5bbe29bdfd471def2c}{salvar}} ()
+\begin{DoxyCompactList}\small\item\em Salva os dados dos usuários e servidores no disco. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_a811a732f691bb1d231ce11458dd42539}{carregar}} ()
+\begin{DoxyCompactList}\small\item\em Carrega os dados dos usuários e servidores do disco. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classSistema_a817ea823866d39461d33070b767fc8e6}{salvar\+Usuarios}} ()
+\begin{DoxyCompactList}\small\item\em Salva os dados dos usuários no disco. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_a2c089769cc448b35ef28af4fc1edc8d6}{salvar\+Servidores}} ()
+\begin{DoxyCompactList}\small\item\em Salva os dados dos servidores no disco. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_aa3a447f5b25990c54a913124d3bb59dc}{carregar\+Usuarios}} ()
+\begin{DoxyCompactList}\small\item\em Carrega os dados dos usuários do disco. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSistema_aa74c5118001598df07380cf2a05f236e}{carregar\+Servidores}} ()
+\begin{DoxyCompactList}\small\item\em Carrega os dados dos servidores do disco. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -86,7 +101,37 @@ Construtor da classe \mbox{\hyperlink{classSistema}{Sistema}}.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classSistema_a9aacc539bbaae173964175f3968a2851}\label{classSistema_a9aacc539bbaae173964175f3968a2851}} 
+\mbox{\Hypertarget{classSistema_a811a732f691bb1d231ce11458dd42539}\label{classSistema_a811a732f691bb1d231ce11458dd42539}} 
+\index{Sistema@{Sistema}!carregar@{carregar}}
+\index{carregar@{carregar}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{carregar()}{carregar()}}
+{\footnotesize\ttfamily void Sistema\+::carregar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Carrega os dados dos usuários e servidores do disco. 
+
+Este método carrega os dados dos usuários e servidores do disco, usando os métodos \mbox{\hyperlink{classSistema_aa3a447f5b25990c54a913124d3bb59dc}{carregar\+Usuarios()}} e \mbox{\hyperlink{classSistema_aa74c5118001598df07380cf2a05f236e}{carregar\+Servidores()}}. Os dados são lidos dos arquivos \char`\"{}usuarios.\+txt\char`\"{} e \char`\"{}servidores.\+txt\char`\"{}, respectivamente. \mbox{\Hypertarget{classSistema_aa74c5118001598df07380cf2a05f236e}\label{classSistema_aa74c5118001598df07380cf2a05f236e}} 
+\index{Sistema@{Sistema}!carregarServidores@{carregarServidores}}
+\index{carregarServidores@{carregarServidores}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{carregarServidores()}{carregarServidores()}}
+{\footnotesize\ttfamily void Sistema\+::carregar\+Servidores (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Carrega os dados dos servidores do disco. 
+
+Este método lê os dados dos servidores, incluindo seus canais e mensagens, do arquivo \char`\"{}servidores.\+txt\char`\"{} no disco e adiciona os servidores lidos ao vetor de servidores do sistema. \mbox{\Hypertarget{classSistema_aa3a447f5b25990c54a913124d3bb59dc}\label{classSistema_aa3a447f5b25990c54a913124d3bb59dc}} 
+\index{Sistema@{Sistema}!carregarUsuarios@{carregarUsuarios}}
+\index{carregarUsuarios@{carregarUsuarios}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{carregarUsuarios()}{carregarUsuarios()}}
+{\footnotesize\ttfamily void Sistema\+::carregar\+Usuarios (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Carrega os dados dos usuários do disco. 
+
+Este método lê os dados dos usuários do arquivo \char`\"{}usuarios.\+txt\char`\"{} no disco e adiciona os usuários lidos ao vetor de usuários do sistema. \mbox{\Hypertarget{classSistema_a9aacc539bbaae173964175f3968a2851}\label{classSistema_a9aacc539bbaae173964175f3968a2851}} 
 \index{Sistema@{Sistema}!criarCanal@{criarCanal}}
 \index{criarCanal@{criarCanal}!Sistema@{Sistema}}
 \doxysubsubsection{\texorpdfstring{criarCanal()}{criarCanal()}}
@@ -351,7 +396,37 @@ Sai do canal atual.
 
 Sai do servidor atual. 
 
-\mbox{\Hypertarget{classSistema_a3334bd94b4ac7ee04e49efef6f76e9dc}\label{classSistema_a3334bd94b4ac7ee04e49efef6f76e9dc}} 
+\mbox{\Hypertarget{classSistema_a118d16dc0bcefb5bbe29bdfd471def2c}\label{classSistema_a118d16dc0bcefb5bbe29bdfd471def2c}} 
+\index{Sistema@{Sistema}!salvar@{salvar}}
+\index{salvar@{salvar}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{salvar()}{salvar()}}
+{\footnotesize\ttfamily void Sistema\+::salvar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Salva os dados dos usuários e servidores no disco. 
+
+Este método salva os dados dos usuários e servidores no disco, usando os métodos \mbox{\hyperlink{classSistema_a817ea823866d39461d33070b767fc8e6}{salvar\+Usuarios()}} e \mbox{\hyperlink{classSistema_a2c089769cc448b35ef28af4fc1edc8d6}{salvar\+Servidores()}}. Os dados são salvos nos arquivos \char`\"{}usuarios.\+txt\char`\"{} e \char`\"{}servidores.\+txt\char`\"{}, respectivamente. \mbox{\Hypertarget{classSistema_a2c089769cc448b35ef28af4fc1edc8d6}\label{classSistema_a2c089769cc448b35ef28af4fc1edc8d6}} 
+\index{Sistema@{Sistema}!salvarServidores@{salvarServidores}}
+\index{salvarServidores@{salvarServidores}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{salvarServidores()}{salvarServidores()}}
+{\footnotesize\ttfamily void Sistema\+::salvar\+Servidores (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Salva os dados dos servidores no disco. 
+
+Este método salva os dados dos servidores, incluindo seus canais e mensagens, no arquivo \char`\"{}servidores.\+txt\char`\"{} no disco. O arquivo é sobrescrito com os dados atualizados dos servidores. \mbox{\Hypertarget{classSistema_a817ea823866d39461d33070b767fc8e6}\label{classSistema_a817ea823866d39461d33070b767fc8e6}} 
+\index{Sistema@{Sistema}!salvarUsuarios@{salvarUsuarios}}
+\index{salvarUsuarios@{salvarUsuarios}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{salvarUsuarios()}{salvarUsuarios()}}
+{\footnotesize\ttfamily void Sistema\+::salvar\+Usuarios (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Salva os dados dos usuários no disco. 
+
+Este método salva os dados dos usuários no arquivo \char`\"{}usuarios.\+txt\char`\"{} no disco. O arquivo é sobrescrito com os dados atualizados dos usuários. \mbox{\Hypertarget{classSistema_a3334bd94b4ac7ee04e49efef6f76e9dc}\label{classSistema_a3334bd94b4ac7ee04e49efef6f76e9dc}} 
 \index{Sistema@{Sistema}!visualizarMensagens@{visualizarMensagens}}
 \index{visualizarMensagens@{visualizarMensagens}!Sistema@{Sistema}}
 \doxysubsubsection{\texorpdfstring{visualizarMensagens()}{visualizarMensagens()}}

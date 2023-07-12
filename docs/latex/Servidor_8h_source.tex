@@ -1,0 +1,61 @@
+\hypertarget{Servidor_8h_source}{}\doxysection{Servidor.\+h}
+\label{Servidor_8h_source}\index{source/include/Servidor.h@{source/include/Servidor.h}}
+\mbox{\hyperlink{Servidor_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#ifndef SERVIDOR\_H}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define SERVIDOR\_H}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Canal_8h}{Canal.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{CanalTexto_8h}{CanalTexto.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{CanalVoz_8h}{CanalVoz.h}}"{}}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{classServidor}{Servidor}} \{}
+\DoxyCodeLine{22 \textcolor{keyword}{private}:}
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} \mbox{\hyperlink{classServidor_a52c21983ad654fb7994dead4ae433e2c}{usuarioDonoId}}; }
+\DoxyCodeLine{24     std::string \mbox{\hyperlink{classServidor_a1141e0835dfba56f4d01f922d2a8b34f}{nome}}; }
+\DoxyCodeLine{25     std::string \mbox{\hyperlink{classServidor_a61fecd2b3435d7048d793741c5f3bfdf}{descricao}}; }
+\DoxyCodeLine{26     std::string \mbox{\hyperlink{classServidor_a7448f419ead42bf7f0bd42d5bdc53ec6}{codigoConvite}}; }
+\DoxyCodeLine{27     std::vector<Canal*> \mbox{\hyperlink{classServidor_a23c1466ad921977c3567263d27357c34}{canais}}; }
+\DoxyCodeLine{28     std::vector<int> \mbox{\hyperlink{classServidor_ac26153c0e4ee691298741be313624ea9}{participantesIDs}}; }
+\DoxyCodeLine{30 \textcolor{keyword}{public}:}
+\DoxyCodeLine{38     \mbox{\hyperlink{classServidor_a17735c4ea252ac1fde55304cdfdf8834}{Servidor}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{classServidor_a52c21983ad654fb7994dead4ae433e2c}{usuarioDonoId}}, \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{classServidor_a1141e0835dfba56f4d01f922d2a8b34f}{nome}}, \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{classServidor_a61fecd2b3435d7048d793741c5f3bfdf}{descricao}}, \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{classServidor_a7448f419ead42bf7f0bd42d5bdc53ec6}{codigoConvite}});}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{43     \mbox{\hyperlink{classServidor_a5ac1d9360e9c3010be4023f315cd64c1}{\string~Servidor}}();}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{49     \textcolor{keywordtype}{void} \mbox{\hyperlink{classServidor_a89fdefc3ac77648fe147f28ddddc624d}{adicionarParticipante}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{55     \textcolor{keywordtype}{void} \mbox{\hyperlink{classServidor_a879bce89d59d1e0b68c7ea3bb88060f7}{adicionarCanal}}(\mbox{\hyperlink{classCanal}{Canal}}* canal);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{61     \textcolor{keywordtype}{int} \mbox{\hyperlink{classServidor_ac49b4d6e9410b4c06b0011bc5022023b}{getUsuarioDonoId}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{67     std::string \mbox{\hyperlink{classServidor_a61eefce4a09284c307e599c100fde7c3}{getNome}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{73     std::string \mbox{\hyperlink{classServidor_a2350300aa3b09389e7139a4c26812d93}{getDescricao}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{79     std::string \mbox{\hyperlink{classServidor_a107f11f4ed92e584b04d470545ec584b}{getCodigoConvite}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{85     std::vector<Canal*> \mbox{\hyperlink{classServidor_a07cb0f400ba8708691fd426e54335536}{getCanais}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{91     std::vector<int> \mbox{\hyperlink{classServidor_a1c641c12b54295b5cd627aad3aaaad2c}{getParticipantesIDs}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{97     \textcolor{keywordtype}{void} \mbox{\hyperlink{classServidor_a57fc2536114ebb5edae50a72f8f62d1f}{setUsuarioDonoId}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{103     \textcolor{keywordtype}{void} \mbox{\hyperlink{classServidor_a9b18664b35ad917a9d78aad809a679f1}{setNome}}(\textcolor{keyword}{const} std::string\& novoNome);}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{109     \textcolor{keywordtype}{void} \mbox{\hyperlink{classServidor_a164be6968f0b1436cb621809ce6d5722}{setDescricao}}(\textcolor{keyword}{const} std::string\& novaDescricao);}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{115     \textcolor{keywordtype}{void} \mbox{\hyperlink{classServidor_a5885c0950fba3e785f1d771acb575b75}{setCodigoConvite}}(\textcolor{keyword}{const} std::string\& novoCodigoConvite);}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{121     \textcolor{keywordtype}{void} \mbox{\hyperlink{classServidor_a91ae6c5ce334ff3a80521ee04ebc116e}{setCanais}}(\textcolor{keyword}{const} std::vector<Canal*>\& novosCanais);}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{127     \textcolor{keywordtype}{void} \mbox{\hyperlink{classServidor_ac993fef283ec1e918cd20c55c0fb132e}{setParticipantesIDs}}(\textcolor{keyword}{const} std::vector<int>\& novosParticipantesIDs);}
+\DoxyCodeLine{128 \};}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// SERVIDOR\_H}}
+
+\end{DoxyCode}

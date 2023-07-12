@@ -1,28 +1,6 @@
 var searchData=
 [
-  ['saircanal_80',['sairCanal',['../classSistema.html#a8d3548d307127df93271c7f496190849',1,'Sistema']]],
-  ['sairservidor_81',['sairServidor',['../classSistema.html#a7d28ff1a20471e76729dd1e12e6fc2f5',1,'Sistema']]],
-  ['senha_82',['senha',['../classUsuario.html#a5f324af32e988e55160d5f3651b5d2b1',1,'Usuario']]],
-  ['servidor_83',['Servidor',['../classServidor.html',1,'Servidor'],['../classServidor.html#a17735c4ea252ac1fde55304cdfdf8834',1,'Servidor::Servidor()']]],
-  ['servidor_2ecpp_84',['Servidor.cpp',['../Servidor_8cpp.html',1,'']]],
-  ['servidor_2ecpp_2eo_2ed_85',['Servidor.cpp.o.d',['../Servidor_8cpp_8o_8d.html',1,'']]],
-  ['servidor_2eh_86',['Servidor.h',['../Servidor_8h.html',1,'']]],
-  ['servidoratual_87',['servidorAtual',['../classSistema.html#a3c1f5712be557d41ef56e9b931fbe866',1,'Sistema']]],
-  ['servidores_88',['servidores',['../classSistema.html#ac043095da6d7366d07d53fd44e23ef7d',1,'Sistema']]],
-  ['setcanais_89',['setCanais',['../classServidor.html#a91ae6c5ce334ff3a80521ee04ebc116e',1,'Servidor']]],
-  ['setcodigoconvite_90',['setCodigoConvite',['../classServidor.html#a5885c0950fba3e785f1d771acb575b75',1,'Servidor']]],
-  ['setconteudo_91',['setConteudo',['../classMensagem.html#a14bc0a418718b9f8db3a01a2aee04eb0',1,'Mensagem']]],
-  ['setdatahora_92',['setDataHora',['../classMensagem.html#a03ceb5e25d937bc22982c5713864ed3c',1,'Mensagem']]],
-  ['setdescricao_93',['setDescricao',['../classServidor.html#a164be6968f0b1436cb621809ce6d5722',1,'Servidor']]],
-  ['setenviadapor_94',['setEnviadaPor',['../classMensagem.html#a80394ac9c3829da8a91bcb04e0f352a1',1,'Mensagem']]],
-  ['setnome_95',['setNome',['../classServidor.html#a9b18664b35ad917a9d78aad809a679f1',1,'Servidor']]],
-  ['setparticipantesids_96',['setParticipantesIDs',['../classServidor.html#ac993fef283ec1e918cd20c55c0fb132e',1,'Servidor']]],
-  ['setultimamensagem_97',['setUltimaMensagem',['../classCanalVoz.html#a1166fd25b43900e95d4ae0b7d5e8c463',1,'CanalVoz']]],
-  ['setusuariodonoid_98',['setUsuarioDonoId',['../classServidor.html#a57fc2536114ebb5edae50a72f8f62d1f',1,'Servidor']]],
-  ['sistema_99',['Sistema',['../classSistema.html#a815b07845ef6b03247b239333fe75e28',1,'Sistema::Sistema()'],['../classSistema.html',1,'Sistema']]],
-  ['sistema_2ecpp_100',['Sistema.cpp',['../Sistema_8cpp.html',1,'']]],
-  ['sistema_2ecpp_2eo_2ed_101',['Sistema.cpp.o.d',['../Sistema_8cpp_8o_8d.html',1,'']]],
-  ['sistema_2eh_102',['Sistema.h',['../Sistema_8h.html',1,'']]],
-  ['stringify_103',['STRINGIFY',['../CMakeCCompilerId_8c.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY():&#160;CMakeCCompilerId.c'],['../CMakeCXXCompilerId_8cpp.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY():&#160;CMakeCXXCompilerId.cpp']]],
-  ['stringify_5fhelper_104',['STRINGIFY_HELPER',['../CMakeCCompilerId_8c.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'STRINGIFY_HELPER():&#160;CMakeCCompilerId.c'],['../CMakeCXXCompilerId_8cpp.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'STRINGIFY_HELPER():&#160;CMakeCXXCompilerId.cpp']]]
+  ['readme_0',['README',['../md_README.html',1,'']]],
+  ['readme_2emd_1',['README.md',['../README_8md.html',1,'']]],
+  ['removerservidor_2',['removerServidor',['../classSistema.html#a527fdd658e704662c4ed5acae780437a',1,'Sistema']]]
 ];

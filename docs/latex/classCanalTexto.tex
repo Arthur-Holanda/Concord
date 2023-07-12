@@ -23,18 +23,21 @@ Inheritance diagram for Canal\+Texto\+:\begin{figure}[H]
 void \mbox{\hyperlink{classCanalTexto_a496a4b95887930ba88b099c7cd6cbb66}{adicionar\+Mensagem}} (const \mbox{\hyperlink{classMensagem}{Mensagem}} \&mensagem)
 \begin{DoxyCompactList}\small\item\em Adiciona uma mensagem ao canal de texto. \end{DoxyCompactList}\item 
 const std\+::vector$<$ \mbox{\hyperlink{classMensagem}{Mensagem}} $>$ \& \mbox{\hyperlink{classCanalTexto_a28f9c984f7bc58308e999c9bea3ec49f}{get\+Mensagens}} () const
-\begin{DoxyCompactList}\small\item\em Obtém todas as mensagens do canal de texto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Obtém as mensagens do canal de texto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCanal_a0a373f3d6de3a1d857b74a56685a8a70}{Tipo}} \mbox{\hyperlink{classCanalTexto_a2031c37cfbeea100d6280873d132ad79}{get\+Tipo}} () const override
+\begin{DoxyCompactList}\small\item\em Obtém o tipo do canal de texto. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 std\+::vector$<$ \mbox{\hyperlink{classMensagem}{Mensagem}} $>$ \mbox{\hyperlink{classCanalTexto_affb8d63a2557ecdb20f8bde47a0f26b9}{mensagens}}
 \end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
 Classe que representa um canal de texto. 
 
-\mbox{\hyperlink{classCanalTexto}{Canal\+Texto}} herda da classe \mbox{\hyperlink{classCanal}{Canal}}. 
+A classe \mbox{\hyperlink{classCanalTexto}{Canal\+Texto}} herda da classe \mbox{\hyperlink{classCanal}{Canal}} e representa um canal de texto em um servidor. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classCanalTexto_acec0b5d85324e26724c73dbdb19046e2}\label{classCanalTexto_acec0b5d85324e26724c73dbdb19046e2}} 
@@ -46,6 +49,8 @@ Classe que representa um canal de texto.
 
 
 Construtor da classe \mbox{\hyperlink{classCanalTexto}{Canal\+Texto}}. 
+
+Este construtor cria um novo objeto da classe \mbox{\hyperlink{classCanalTexto}{Canal\+Texto}} com o nome especificado.
 
 
 \begin{DoxyParams}{Parameters}
@@ -65,11 +70,11 @@ Construtor da classe \mbox{\hyperlink{classCanalTexto}{Canal\+Texto}}.
 
 Adiciona uma mensagem ao canal de texto. 
 
-Esta função adiciona uma nova mensagem ao canal de texto.
+Este método adiciona uma nova mensagem ao vetor de mensagens do canal de texto.
 
 
 \begin{DoxyParams}{Parameters}
-{\em mensagem} & A mensagem a ser adicionada. \\
+{\em mensagem} & A mensagem a ser adicionada ao canal de texto. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classCanalTexto_a28f9c984f7bc58308e999c9bea3ec49f}\label{classCanalTexto_a28f9c984f7bc58308e999c9bea3ec49f}} 
@@ -80,13 +85,32 @@ Esta função adiciona uma nova mensagem ao canal de texto.
 
 
 
-Obtém todas as mensagens do canal de texto. 
+Obtém as mensagens do canal de texto. 
 
-Esta função retorna um vetor contendo todas as mensagens presentes no canal de texto.
+Este método retorna um vetor contendo todas as mensagens presentes no canal de texto.
 
 \begin{DoxyReturn}{Returns}
 Um vetor com as mensagens do canal de texto. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classCanalTexto_a2031c37cfbeea100d6280873d132ad79}\label{classCanalTexto_a2031c37cfbeea100d6280873d132ad79}} 
+\index{CanalTexto@{CanalTexto}!getTipo@{getTipo}}
+\index{getTipo@{getTipo}!CanalTexto@{CanalTexto}}
+\doxysubsubsection{\texorpdfstring{getTipo()}{getTipo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCanal_a0a373f3d6de3a1d857b74a56685a8a70}{Canal\+::\+Tipo}} Canal\+Texto\+::get\+Tipo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obtém o tipo do canal de texto. 
+
+Este método sobrescreve o método \mbox{\hyperlink{classCanalTexto_a2031c37cfbeea100d6280873d132ad79}{get\+Tipo()}} da classe base \mbox{\hyperlink{classCanal}{Canal}} e retorna o tipo do canal de texto (TEXTO).
+
+\begin{DoxyReturn}{Returns}
+O tipo do canal de texto (TEXTO). 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCanal_ab4cf9a37cc2df940e133f09df7eb7048}{Canal}}.
+
 
 
 \doxysubsection{Member Data Documentation}

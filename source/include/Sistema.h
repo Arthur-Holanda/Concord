@@ -8,6 +8,8 @@
 
 #include <vector>
 #include <string>
+#include <sstream>
+#include <fstream>
 #include "Servidor.h"
 #include "Usuario.h"
 #include "Mensagem.h"
@@ -151,6 +153,59 @@ public:
      */
     void visualizarMensagens();
     
+    /**
+     * @brief Salva os dados dos usuários e servidores no disco.
+     *
+     * Este método salva os dados dos usuários e servidores no disco, usando os métodos
+     * salvarUsuarios() e salvarServidores(). Os dados são salvos nos arquivos "usuarios.txt"
+     * e "servidores.txt", respectivamente.
+     */
+    void salvar();
+
+    /**
+     * @brief Carrega os dados dos usuários e servidores do disco.
+     *
+     * Este método carrega os dados dos usuários e servidores do disco, usando os métodos
+     * carregarUsuarios() e carregarServidores(). Os dados são lidos dos arquivos "usuarios.txt"
+     * e "servidores.txt", respectivamente.
+     */
+    void carregar();
+
+    private:
+
+    /**
+     * @brief Salva os dados dos usuários no disco.
+     *
+     * Este método salva os dados dos usuários no arquivo "usuarios.txt" no disco. O arquivo é
+     * sobrescrito com os dados atualizados dos usuários.
+     */
+    void salvarUsuarios();
+
+    /**
+     * @brief Salva os dados dos servidores no disco.
+     *
+     * Este método salva os dados dos servidores, incluindo seus canais e mensagens, no arquivo
+     * "servidores.txt" no disco. O arquivo é sobrescrito com os dados atualizados dos servidores.
+     */
+    void salvarServidores();
+
+    /**
+     * @brief Carrega os dados dos usuários do disco.
+     *
+     * Este método lê os dados dos usuários do arquivo "usuarios.txt" no disco e adiciona os
+     * usuários lidos ao vetor de usuários do sistema.
+     */
+    void carregarUsuarios();
+
+    /**
+     * @brief Carrega os dados dos servidores do disco.
+     *
+     * Este método lê os dados dos servidores, incluindo seus canais e mensagens, do arquivo
+     * "servidores.txt" no disco e adiciona os servidores lidos ao vetor de servidores do sistema.
+     */
+    void carregarServidores();
+
+
 };
 
 #endif // SISTEMA_H

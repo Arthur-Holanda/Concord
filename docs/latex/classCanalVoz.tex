@@ -23,18 +23,21 @@ Inheritance diagram for Canal\+Voz\+:\begin{figure}[H]
 void \mbox{\hyperlink{classCanalVoz_a1166fd25b43900e95d4ae0b7d5e8c463}{set\+Ultima\+Mensagem}} (const \mbox{\hyperlink{classMensagem}{Mensagem}} \&mensagem)
 \begin{DoxyCompactList}\small\item\em Define a última mensagem enviada no canal de voz. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classMensagem}{Mensagem}} \mbox{\hyperlink{classCanalVoz_acefbf65b8586f22ed967447122c34bbc}{get\+Ultima\+Mensagem}} () const
-\begin{DoxyCompactList}\small\item\em Obtém a última mensagem enviada no canal de voz. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Obtém a última mensagem enviada no canal de voz. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCanal_a0a373f3d6de3a1d857b74a56685a8a70}{Tipo}} \mbox{\hyperlink{classCanalVoz_ad343f1085a201f67b5337ded9f6a516b}{get\+Tipo}} () const override
+\begin{DoxyCompactList}\small\item\em Obtém o tipo do canal de voz. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classMensagem}{Mensagem}} \mbox{\hyperlink{classCanalVoz_a5980806ae2e2360d98c2ef9539a0a8f1}{ultima\+Mensagem}}
 \end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
 Classe que representa um canal de voz. 
 
-\mbox{\hyperlink{classCanalVoz}{Canal\+Voz}} herda da classe \mbox{\hyperlink{classCanal}{Canal}}. 
+A classe \mbox{\hyperlink{classCanalVoz}{Canal\+Voz}} herda da classe \mbox{\hyperlink{classCanal}{Canal}} e representa um canal de voz em um servidor. Um canal de voz armazena apenas a última mensagem enviada no canal. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classCanalVoz_a0dd014d6a87a2afe17917deff0ba20d0}\label{classCanalVoz_a0dd014d6a87a2afe17917deff0ba20d0}} 
@@ -47,6 +50,8 @@ Classe que representa um canal de voz.
 
 Construtor da classe \mbox{\hyperlink{classCanalVoz}{Canal\+Voz}}. 
 
+Este construtor cria um novo objeto da classe \mbox{\hyperlink{classCanalVoz}{Canal\+Voz}} com o nome especificado.
+
 
 \begin{DoxyParams}{Parameters}
 {\em nome} & O nome do canal de voz. \\
@@ -55,6 +60,25 @@ Construtor da classe \mbox{\hyperlink{classCanalVoz}{Canal\+Voz}}.
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCanalVoz_ad343f1085a201f67b5337ded9f6a516b}\label{classCanalVoz_ad343f1085a201f67b5337ded9f6a516b}} 
+\index{CanalVoz@{CanalVoz}!getTipo@{getTipo}}
+\index{getTipo@{getTipo}!CanalVoz@{CanalVoz}}
+\doxysubsubsection{\texorpdfstring{getTipo()}{getTipo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCanal_a0a373f3d6de3a1d857b74a56685a8a70}{Canal\+::\+Tipo}} Canal\+Voz\+::get\+Tipo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obtém o tipo do canal de voz. 
+
+Este método sobrescreve o método \mbox{\hyperlink{classCanalVoz_ad343f1085a201f67b5337ded9f6a516b}{get\+Tipo()}} da classe base \mbox{\hyperlink{classCanal}{Canal}} e retorna o tipo do canal de voz (VOZ).
+
+\begin{DoxyReturn}{Returns}
+O tipo do canal de voz (VOZ). 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCanal_ab4cf9a37cc2df940e133f09df7eb7048}{Canal}}.
+
 \mbox{\Hypertarget{classCanalVoz_acefbf65b8586f22ed967447122c34bbc}\label{classCanalVoz_acefbf65b8586f22ed967447122c34bbc}} 
 \index{CanalVoz@{CanalVoz}!getUltimaMensagem@{getUltimaMensagem}}
 \index{getUltimaMensagem@{getUltimaMensagem}!CanalVoz@{CanalVoz}}
@@ -65,8 +89,10 @@ Construtor da classe \mbox{\hyperlink{classCanalVoz}{Canal\+Voz}}.
 
 Obtém a última mensagem enviada no canal de voz. 
 
+Este método retorna a última mensagem enviada no canal de voz.
+
 \begin{DoxyReturn}{Returns}
-A última mensagem enviada. 
+A última mensagem enviada no canal de voz. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classCanalVoz_a1166fd25b43900e95d4ae0b7d5e8c463}\label{classCanalVoz_a1166fd25b43900e95d4ae0b7d5e8c463}} 
 \index{CanalVoz@{CanalVoz}!setUltimaMensagem@{setUltimaMensagem}}
@@ -78,9 +104,11 @@ A última mensagem enviada.
 
 Define a última mensagem enviada no canal de voz. 
 
+Este método define a última mensagem enviada no canal de voz. Como um canal de voz armazena apenas a última mensagem enviada, este método sobrescreve qualquer mensagem anteriormente armazenada no canal de voz.
+
 
 \begin{DoxyParams}{Parameters}
-{\em mensagem} & A mensagem a ser definida como a última. \\
+{\em mensagem} & A última mensagem enviada no canal de voz. \\
 \hline
 \end{DoxyParams}
 

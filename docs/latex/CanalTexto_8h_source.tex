@@ -1,0 +1,29 @@
+\hypertarget{CanalTexto_8h_source}{}\doxysection{Canal\+Texto.\+h}
+\label{CanalTexto_8h_source}\index{source/include/CanalTexto.h@{source/include/CanalTexto.h}}
+\mbox{\hyperlink{CanalTexto_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#ifndef CANALTEXTO\_H}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define CANALTEXTO\_H}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Canal_8h}{Canal.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Mensagem_8h}{Mensagem.h}}"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{classCanalTexto}{CanalTexto}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCanal}{Canal}} \{}
+\DoxyCodeLine{20 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28     \mbox{\hyperlink{classCanalTexto_acec0b5d85324e26724c73dbdb19046e2}{CanalTexto}}(\textcolor{keyword}{const} std::string\& \mbox{\hyperlink{classCanal_ac5e6d80712597bacacd46c0d153c2644}{nome}});}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCanalTexto_a496a4b95887930ba88b099c7cd6cbb66}{adicionarMensagem}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMensagem}{Mensagem}}\& mensagem);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{46     \textcolor{keyword}{const} std::vector<Mensagem>\& \mbox{\hyperlink{classCanalTexto_a28f9c984f7bc58308e999c9bea3ec49f}{getMensagens}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{55     \mbox{\hyperlink{classCanal_a0a373f3d6de3a1d857b74a56685a8a70}{Tipo}} \mbox{\hyperlink{classCanalTexto_a2031c37cfbeea100d6280873d132ad79}{getTipo}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{keyword}{private}:}
+\DoxyCodeLine{58     std::vector<Mensagem> \mbox{\hyperlink{classCanalTexto_affb8d63a2557ecdb20f8bde47a0f26b9}{mensagens}}; }
+\DoxyCodeLine{59 \};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// CANALTEXTO\_H}}
+
+\end{DoxyCode}

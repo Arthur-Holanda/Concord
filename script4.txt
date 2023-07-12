@@ -1,0 +1,9 @@
+create-user email1 password1 a
+create-user email2 password2 b
+create-user email3 password1 c
+create-user email4 password2 d
+create-user email5 password1 e
+create-user email6 password2 f
+create-user email7 password1 g
+create-user email8 password2 h
+quit

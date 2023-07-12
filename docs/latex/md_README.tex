@@ -31,32 +31,32 @@ Para executar os testes, você tem duas opções\+:
 \item Execute os testes diretamente com o comando {\ttfamily ./build/\+Concord} a partir da pasta raiz do projeto.
 \end{DoxyEnumerate}
 
-O diretorio contem um script de teste, caso queira o testar, use {\ttfamily ./build/\+Concord $<$ script.\+txt} na pasta raiz do projeto. \hypertarget{md_README_autotoc_md3}{}\doxysubsection{Comandos}\label{md_README_autotoc_md3}
+O diretorio contem um script de teste, caso queira o testar, use {\ttfamily ./build/\+Concord \texorpdfstring{$<$}{<} script.\+txt} na pasta raiz do projeto. \hypertarget{md_README_autotoc_md3}{}\doxysubsection{Comandos}\label{md_README_autotoc_md3}
 Caso precise de ajuda quando executando, você pode usar o comando {\ttfamily help} que fornece a lista de comandos inteira.\hypertarget{md_README_autotoc_md4}{}\doxysubsubsection{Deslogados}\label{md_README_autotoc_md4}
 Esses comandos podem ser executados caso o usuário não esteja logado.
 
 
 \begin{DoxyItemize}
 \item {\ttfamily quit} sai do sistema.
-\item {\ttfamily create-\/user $<$email$>$ $<$senha$>$ $<$nome$>$} cria um usuário. Apenas o nome pode ter espaços. Dois usuários não podem ter o mesmo email.
-\item {\ttfamily login $<$email$>$ $<$senha$>$} faz login em um usuário já criado.
+\item {\ttfamily create-\/user \texorpdfstring{$<$}{<}email\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}senha\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}nome\texorpdfstring{$>$}{>}} cria um usuário. Apenas o nome pode ter espaços. Dois usuários não podem ter o mesmo email.
+\item {\ttfamily login \texorpdfstring{$<$}{<}email\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}senha\texorpdfstring{$>$}{>}} faz login em um usuário já criado.
 \end{DoxyItemize}\hypertarget{md_README_autotoc_md5}{}\doxysubsubsection{Logados}\label{md_README_autotoc_md5}
 Esses comandos só podem ser executados caso o usuário esteja logado.
 
 
 \begin{DoxyItemize}
 \item {\ttfamily disconnect} desconecta o usuário logado.
-\item {\ttfamily create-\/server $<$nome$>$} cria um servidor.
+\item {\ttfamily create-\/server \texorpdfstring{$<$}{<}nome\texorpdfstring{$>$}{>}} cria um servidor.
 \item {\ttfamily list-\/servers} lista todos os servidores criados.
-\item {\ttfamily enter-\/server $<$nome$>$ \mbox{[}codigo\mbox{]}} entra no servidor especificado. O código só é necessário caso o servidor tenha um. O dono do servidor pode entrar sem utilizar o código.
+\item {\ttfamily enter-\/server \texorpdfstring{$<$}{<}nome\texorpdfstring{$>$}{>} \mbox{[}codigo\mbox{]}} entra no servidor especificado. O código só é necessário caso o servidor tenha um. O dono do servidor pode entrar sem utilizar o código.
 \end{DoxyItemize}\hypertarget{md_README_autotoc_md6}{}\doxysubsubsection{Dono do servidor}\label{md_README_autotoc_md6}
 Esses comandos só podem ser executados caso você seja o dono do servidor.
 
 
 \begin{DoxyItemize}
-\item {\ttfamily set-\/server-\/desc $<$nome$>$ \char`\"{}$<$descrição$>$\char`\"{}} altera a descrição do servidor.
-\item {\ttfamily set-\/server-\/invite-\/code $<$nome$>$ \mbox{[}codigo\mbox{]}} altera o código de convite do servidor.
-\item {\ttfamily remove-\/server $<$nome$>$} remove o servidor.
+\item {\ttfamily set-\/server-\/desc \texorpdfstring{$<$}{<}nome\texorpdfstring{$>$}{>} \char`\"{}$<$descrição$>$\char`\"{}} altera a descrição do servidor.
+\item {\ttfamily set-\/server-\/invite-\/code \texorpdfstring{$<$}{<}nome\texorpdfstring{$>$}{>} \mbox{[}codigo\mbox{]}} altera o código de convite do servidor.
+\item {\ttfamily remove-\/server \texorpdfstring{$<$}{<}nome\texorpdfstring{$>$}{>}} remove o servidor.
 \end{DoxyItemize}\hypertarget{md_README_autotoc_md7}{}\doxysubsubsection{Dentro de um servidor}\label{md_README_autotoc_md7}
 Esses comandos só podem ser executados dentro de um servidor.
 
@@ -65,9 +65,9 @@ Esses comandos só podem ser executados dentro de um servidor.
 \item {\ttfamily leave-\/server} sai do servidor.
 \item {\ttfamily list-\/participants} lista os participantes do servidor.
 \item {\ttfamily list-\/channels} Lista todos os canais do servidor atual.
-\item {\ttfamily create-\/channel $<$nome$>$ \mbox{[}tipo\mbox{]}} Cria um canal de tipo Voz ou Texto no servidor atual.
-\item {\ttfamily enter-\/channel $<$nome$>$} Entra em um canal do servidor atual.
+\item {\ttfamily create-\/channel \texorpdfstring{$<$}{<}nome\texorpdfstring{$>$}{>} \mbox{[}tipo\mbox{]}} Cria um canal de tipo Voz ou Texto no servidor atual.
+\item {\ttfamily enter-\/channel \texorpdfstring{$<$}{<}nome\texorpdfstring{$>$}{>}} Entra em um canal do servidor atual.
 \item {\ttfamily leave-\/channel} Sai do canal atual.
-\item {\ttfamily send-\/message $<$mensagem$>$} Envia uma mensagem para o canal de Texto.
+\item {\ttfamily send-\/message \texorpdfstring{$<$}{<}mensagem\texorpdfstring{$>$}{>}} Envia uma mensagem para o canal de Texto.
 \item {\ttfamily list-\/messages} Lista todas as mensagens do canal. 
 \end{DoxyItemize}

@@ -10,13 +10,16 @@
 
 /**
  * @class Canal
- * @brief Classe que representa um canal.
+ * @brief Classe abstrata que representa um canal.
  */
 class Canal {
-private:
-    std::string nome; /**< Nome do canal. */
-
 public:
+    /**
+     * @enum Tipo
+     * @brief Enumeração dos tipos de canais.
+     */
+    enum class Tipo { TEXTO, VOZ };
+
     /**
      * @brief Construtor da classe Canal.
      * @param nome O nome do canal.
@@ -24,7 +27,7 @@ public:
     Canal(const std::string& nome);
 
     /**
-     * @brief Destrutor da classe Canal.
+     * @brief Destrutor virtual da classe Canal.
      */
     virtual ~Canal();
 
@@ -33,6 +36,18 @@ public:
      * @return O nome do canal.
      */
     std::string getNome() const;
+
+    /**
+     * @brief Obtém o tipo do canal.
+     * 
+     * Este método é puramente virtual e deve ser implementado pelas classes derivadas.
+     * 
+     * @return O tipo do canal (TEXTO ou VOZ).
+     */
+    virtual Tipo getTipo() const = 0;
+
+protected:
+    std::string nome; /**< Nome do canal. */
 };
 
 #endif // CANAL_H

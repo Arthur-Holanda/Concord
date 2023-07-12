@@ -1,7 +1,9 @@
-\hypertarget{CMakeCXXCompilerId_8cpp}{}\doxysection{build/\+CMake\+Files/3.20.0/\+Compiler\+Id\+CXX/\+CMake\+CXXCompiler\+Id.cpp File Reference}
-\label{CMakeCXXCompilerId_8cpp}\index{build/CMakeFiles/3.20.0/CompilerIdCXX/CMakeCXXCompilerId.cpp@{build/CMakeFiles/3.20.0/CompilerIdCXX/CMakeCXXCompilerId.cpp}}
+\hypertarget{CMakeCXXCompilerId_8cpp}{}\doxysection{build/\+CMake\+Files/3.25.1/\+Compiler\+Id\+CXX/\+CMake\+CXXCompiler\+Id.cpp File Reference}
+\label{CMakeCXXCompilerId_8cpp}\index{build/CMakeFiles/3.25.1/CompilerIdCXX/CMakeCXXCompilerId.cpp@{build/CMakeFiles/3.25.1/CompilerIdCXX/CMakeCXXCompilerId.cpp}}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{CMakeCXXCompilerId_8cpp_ae5510d82e4946f1656f4969911c54736}{\+\_\+\+\_\+has\+\_\+include}}(x)~0
 \item 
 \#define \mbox{\hyperlink{CMakeCXXCompilerId_8cpp_a81dee0709ded976b2e0319239f72d174}{COMPILER\+\_\+\+ID}}~\char`\"{}\char`\"{}
 \item 
@@ -33,11 +35,19 @@ char const  $\ast$ \mbox{\hyperlink{CMakeCXXCompilerId_8cpp_a2321403dee54ee23f0c
 \item 
 char const  $\ast$ \mbox{\hyperlink{CMakeCXXCompilerId_8cpp_a59647e99d304ed33b15cb284c27ed391}{info\+\_\+arch}} = \char`\"{}INFO\char`\"{} \char`\"{}\+:\char`\"{} \char`\"{}arch\mbox{[}\char`\"{} ARCHITECTURE\+\_\+\+ID \char`\"{}\mbox{]}\char`\"{}
 \item 
-const char $\ast$ \mbox{\hyperlink{CMakeCXXCompilerId_8cpp_a1ce162bad2fe6966ac8b33cc19e120b8}{info\+\_\+language\+\_\+dialect\+\_\+default}}
+const char $\ast$ \mbox{\hyperlink{CMakeCXXCompilerId_8cpp_a4607cccf070750927b458473ca82c090}{info\+\_\+language\+\_\+standard\+\_\+default}}
+\item 
+const char $\ast$ \mbox{\hyperlink{CMakeCXXCompilerId_8cpp_a0f46a8a39e09d9b803c4766904fd7e99}{info\+\_\+language\+\_\+extensions\+\_\+default}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{CMakeCXXCompilerId_8cpp_ae5510d82e4946f1656f4969911c54736}\label{CMakeCXXCompilerId_8cpp_ae5510d82e4946f1656f4969911c54736}} 
+\index{CMakeCXXCompilerId.cpp@{CMakeCXXCompilerId.cpp}!\_\_has\_include@{\_\_has\_include}}
+\index{\_\_has\_include@{\_\_has\_include}!CMakeCXXCompilerId.cpp@{CMakeCXXCompilerId.cpp}}
+\doxysubsubsection{\texorpdfstring{\_\_has\_include}{\_\_has\_include}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+has\+\_\+include(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~0}
+
 \mbox{\Hypertarget{CMakeCXXCompilerId_8cpp_aba35d0d200deaeb06aee95ca297acb28}\label{CMakeCXXCompilerId_8cpp_aba35d0d200deaeb06aee95ca297acb28}} 
 \index{CMakeCXXCompilerId.cpp@{CMakeCXXCompilerId.cpp}!ARCHITECTURE\_ID@{ARCHITECTURE\_ID}}
 \index{ARCHITECTURE\_ID@{ARCHITECTURE\_ID}!CMakeCXXCompilerId.cpp@{CMakeCXXCompilerId.cpp}}
@@ -134,15 +144,34 @@ const char $\ast$ \mbox{\hyperlink{CMakeCXXCompilerId_8cpp_a1ce162bad2fe6966ac8b
 \doxysubsubsection{\texorpdfstring{info\_compiler}{info\_compiler}}
 {\footnotesize\ttfamily char const$\ast$ info\+\_\+compiler = \char`\"{}INFO\char`\"{} \char`\"{}\+:\char`\"{} \char`\"{}compiler\mbox{[}\char`\"{} COMPILER\+\_\+\+ID \char`\"{}\mbox{]}\char`\"{}}
 
-\mbox{\Hypertarget{CMakeCXXCompilerId_8cpp_a1ce162bad2fe6966ac8b33cc19e120b8}\label{CMakeCXXCompilerId_8cpp_a1ce162bad2fe6966ac8b33cc19e120b8}} 
-\index{CMakeCXXCompilerId.cpp@{CMakeCXXCompilerId.cpp}!info\_language\_dialect\_default@{info\_language\_dialect\_default}}
-\index{info\_language\_dialect\_default@{info\_language\_dialect\_default}!CMakeCXXCompilerId.cpp@{CMakeCXXCompilerId.cpp}}
-\doxysubsubsection{\texorpdfstring{info\_language\_dialect\_default}{info\_language\_dialect\_default}}
-{\footnotesize\ttfamily const char$\ast$ info\+\_\+language\+\_\+dialect\+\_\+default}
+\mbox{\Hypertarget{CMakeCXXCompilerId_8cpp_a0f46a8a39e09d9b803c4766904fd7e99}\label{CMakeCXXCompilerId_8cpp_a0f46a8a39e09d9b803c4766904fd7e99}} 
+\index{CMakeCXXCompilerId.cpp@{CMakeCXXCompilerId.cpp}!info\_language\_extensions\_default@{info\_language\_extensions\_default}}
+\index{info\_language\_extensions\_default@{info\_language\_extensions\_default}!CMakeCXXCompilerId.cpp@{CMakeCXXCompilerId.cpp}}
+\doxysubsubsection{\texorpdfstring{info\_language\_extensions\_default}{info\_language\_extensions\_default}}
+{\footnotesize\ttfamily const char$\ast$ info\+\_\+language\+\_\+extensions\+\_\+default}
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{= \textcolor{stringliteral}{"{}INFO"{}} \textcolor{stringliteral}{"{}:"{}} \textcolor{stringliteral}{"{}dialect\_default["{}}}
+\DoxyCodeLine{= \textcolor{stringliteral}{"{}INFO"{}} \textcolor{stringliteral}{"{}:"{}} \textcolor{stringliteral}{"{}extensions\_default["{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \textcolor{stringliteral}{"{}OFF"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{stringliteral}{"{}]"{}}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{CMakeCXXCompilerId_8cpp_a4607cccf070750927b458473ca82c090}\label{CMakeCXXCompilerId_8cpp_a4607cccf070750927b458473ca82c090}} 
+\index{CMakeCXXCompilerId.cpp@{CMakeCXXCompilerId.cpp}!info\_language\_standard\_default@{info\_language\_standard\_default}}
+\index{info\_language\_standard\_default@{info\_language\_standard\_default}!CMakeCXXCompilerId.cpp@{CMakeCXXCompilerId.cpp}}
+\doxysubsubsection{\texorpdfstring{info\_language\_standard\_default}{info\_language\_standard\_default}}
+{\footnotesize\ttfamily const char$\ast$ info\+\_\+language\+\_\+standard\+\_\+default}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \textcolor{stringliteral}{"{}INFO"{}} \textcolor{stringliteral}{"{}:"{}} \textcolor{stringliteral}{"{}standard\_default["{}}}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
