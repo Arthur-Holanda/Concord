@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<h4>⭐ Esté projeto é uma simulaçao do aplicativo Discord em C++ para o trabalho da disciplina de Linguagem de Programação. ⭐️</h4>
+<h4> Esté projeto é uma simulaçao do aplicativo Discord em C++ para o trabalho da disciplina de Linguagem de Programação. </h4>
   <img height="65" src="./assets/cpp.png">&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://img.icons8.com/cute-clipart/64/null/services.png"/><a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height= "50" src= "https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png">
 </a>
 </div>
@@ -77,3 +77,8 @@ Esses comandos só podem ser executados dentro de um servidor.
 - `leave-channel`  Sai do canal atual.
 - `send-message <mensagem>`   Envia uma mensagem para o canal de Texto.
 - `list-messages`  Lista todas as mensagens do canal.
+
+
+## Dificuldades:
+
+O programa, como solicitado na parte 3 do trabalho, conta com persistência dos dados em disco, gerando os arquivos "usuarios.txt" e "servidores.txt", o primeiro registro em ambos acontece perfeitamente, porem a partir da segunda execução do codigo para carregar o servidores.txt ao tentar criar e acessar um canal de texto ou voz em um servidor que foi criado na execução anterios.

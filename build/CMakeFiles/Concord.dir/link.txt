@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/Concord.dir/src/Canal.cpp.o CMakeFiles/Concord.dir/src/CanalTexto.cpp.o CMakeFiles/Concord.dir/src/CanalVoz.cpp.o CMakeFiles/Concord.dir/src/Mensagem.cpp.o CMakeFiles/Concord.dir/src/Servidor.cpp.o CMakeFiles/Concord.dir/src/Sistema.cpp.o CMakeFiles/Concord.dir/src/Usuario.cpp.o CMakeFiles/Concord.dir/src/main.cpp.o -o Concord 
